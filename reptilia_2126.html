@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REPTILIA NEXUS — 2126</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap');
+        :root {
+            --bg: #111;
+            --panel: #0b0b0b;
+            --accent: #00ff66;
+            --link: #0ff;
+            --text: #eee;
+        }
         
         * {
             margin: 0;
@@ -14,225 +20,67 @@
         }
         
         body {
-            font-family: 'Space Mono', monospace;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1829 100%);
-            color: #00ff88;
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             overflow-x: hidden;
-            min-height: 100vh;
         }
         
-        .stars {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            pointer-events: none;
+        /* Header minimal */
+        .top-nav {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+            background: var(--panel);
         }
         
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #fff;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
+        .top-nav a {
+            color: var(--link);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-        
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .top-nav a:hover {
+            color: var(--accent);
         }
         
         header {
             text-align: center;
-            margin-bottom: 60px;
-            padding: 40px 20px;
-            background: rgba(0, 255, 136, 0.03);
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            padding: 80px 20px 40px;
         }
         
         .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            background: linear-gradient(45deg, #00ff88, #00d4ff, #7b2cbf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-            text-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            color: var(--accent);
             letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .year-tag {
+            color: var(--link);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            margin-top: 10px;
         }
         
         .tagline {
-            font-size: 1.1rem;
-            color: #00d4ff;
+            color: #888;
+            font-size: 1rem;
             margin-top: 20px;
-            letter-spacing: 2px;
+            font-style: italic;
         }
         
-        .year {
-            font-size: 0.9rem;
-            color: #7b2cbf;
-            margin-top: 10px;
-            opacity: 0.8;
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
         
-        .evolution-timeline {
-            display: grid;
-            gap: 30px;
-            margin: 60px 0;
-        }
-        
-        .evolution-card {
-            background: rgba(10, 14, 39, 0.7);
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .evolution-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
-            transition: left 0.6s;
-        }
-        
-        .evolution-card:hover::before {
-            left: 100%;
-        }
-        
-        .evolution-card:hover {
-            border-color: #00ff88;
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
-            transform: translateY(-5px);
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        
-        .card-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            color: #00ff88;
-            font-weight: 700;
-        }
-        
-        .tech-badge {
-            background: rgba(123, 44, 191, 0.3);
-            color: #7b2cbf;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            border: 1px solid #7b2cbf;
-            letter-spacing: 1px;
-        }
-        
-        .card-content {
-            color: #a0a0a0;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .feature-item {
-            background: rgba(0, 212, 255, 0.05);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.3s;
-        }
-        
-        .feature-item:hover {
-            background: rgba(0, 212, 255, 0.1);
-            border-color: #00d4ff;
-        }
-        
-        .feature-title {
-            color: #00d4ff;
-            font-weight: 700;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .feature-desc {
-            font-size: 0.8rem;
-            color: #808080;
-        }
-        
-        .cta-section {
-            text-align: center;
-            margin-top: 80px;
-            padding: 60px 20px;
-            background: rgba(123, 44, 191, 0.1);
-            border: 2px solid rgba(123, 44, 191, 0.3);
-            border-radius: 20px;
-        }
-        
-        .cta-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            color: #00ff88;
-            margin-bottom: 20px;
-        }
-        
-        .cta-text {
-            color: #a0a0a0;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-        
-        .neural-link-btn {
-            display: inline-block;
-            padding: 20px 50px;
-            background: linear-gradient(45deg, #00ff88, #00d4ff);
-            color: #0a0e27;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .neural-link-btn:hover {
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
-            transform: scale(1.05);
-        }
-        
+        /* Comparison section */
         .comparison {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -240,65 +88,213 @@
             margin: 60px 0;
         }
         
-        .comparison-card {
+        .compare-box {
             padding: 30px;
-            border-radius: 15px;
             border: 2px solid;
+            border-radius: 8px;
+            background: var(--panel);
         }
         
-        .old-version {
-            background: rgba(139, 69, 19, 0.1);
-            border-color: rgba(139, 69, 19, 0.3);
+        .old {
+            border-color: #444;
         }
         
-        .new-version {
-            background: rgba(0, 255, 136, 0.1);
-            border-color: rgba(0, 255, 136, 0.3);
+        .new {
+            border-color: var(--accent);
         }
         
-        .comparison-title {
-            font-family: 'Orbitron', sans-serif;
+        .compare-title {
             font-size: 1.5rem;
             margin-bottom: 20px;
+            letter-spacing: 2px;
         }
         
-        .old-version .comparison-title {
-            color: #8b4513;
+        .old .compare-title {
+            color: #888;
         }
         
-        .new-version .comparison-title {
-            color: #00ff88;
+        .new .compare-title {
+            color: var(--accent);
+        }
+        
+        .compare-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .compare-box li {
+            padding: 10px 0;
+            border-bottom: 1px solid #222;
+            color: #aaa;
+        }
+        
+        .compare-box li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Evolution cards */
+        .evolution-grid {
+            display: grid;
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .evo-card {
+            background: var(--panel);
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 40px;
+            transition: all 0.3s;
+        }
+        
+        .evo-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .evo-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .evo-title {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        .tech-tag {
+            background: rgba(0, 255, 102, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+        
+        .evo-desc {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature {
+            background: rgba(0, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        .feature-name {
+            color: var(--link);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .feature-detail {
+            color: #777;
+            font-size: 0.85rem;
+        }
+        
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 80px 20px;
+            margin: 60px 0;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        
+        .cta-text {
+            color: #aaa;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 20px 50px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+        
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--link);
+            text-decoration: none;
         }
         
         @media (max-width: 768px) {
-            .logo {
-                font-size: 2.5rem;
-            }
-            
             .comparison {
                 grid-template-columns: 1fr;
             }
             
-            .features-grid {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .features {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
-    
+
+    <div class="top-nav">
+        <a href="index.html">← Retour au site</a>
+    </div>
+
+    <header>
+        <div class="logo">REPTILIA NEXUS</div>
+        <div class="year-tag">// 2126 //</div>
+        <div class="tagline">Neural Fashion Protocol • Consciousness Redefined</div>
+    </header>
+
     <div class="container">
-        <header>
-            <div class="logo">REPTILIA NEXUS</div>
-            <div class="tagline">Neural Fashion Protocol // Consciousness Redefined</div>
-            <div class="year">FOUNDED 2126 • TRANS-HUMAN ERA</div>
-        </header>
         
+        <!-- Comparison -->
         <div class="comparison">
-            <div class="comparison-card old-version">
-                <div class="comparison-title">⏮ VERSION 2026</div>
-                <ul style="color: #a0a0a0; line-height: 2;">
+            <div class="compare-box old">
+                <div class="compare-title">⏮ 2026</div>
+                <ul>
                     <li>Vêtements physiques</li>
                     <li>E-commerce classique</li>
                     <li>Marketing social media</li>
@@ -307,9 +303,9 @@
                 </ul>
             </div>
             
-            <div class="comparison-card new-version">
-                <div class="comparison-title">⏭ VERSION 2126</div>
-                <ul style="color: #a0a0a0; line-height: 2;">
+            <div class="compare-box new">
+                <div class="compare-title">⏭ 2126</div>
+                <ul>
                     <li>Skins neuraux bio-adaptifs</li>
                     <li>Commerce quantique immersif</li>
                     <li>Influence consciousness-first</li>
@@ -319,190 +315,170 @@
             </div>
         </div>
 
-        <div class="evolution-timeline">
-            <div class="evolution-card">
-                <div class="card-header">
-                    <div class="card-title">🧬 BIO-SKINS NEURAUX</div>
-                    <div class="tech-badge">BIO-TECH</div>
+        <!-- Evolution Cards -->
+        <div class="evolution-grid">
+            
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">🧬 BIO-SKINS NEURAUX</div>
+                    <div class="tech-tag">BIO-TECH</div>
                 </div>
-                <div class="card-content">
-                    Plus besoin de porter des vêtements : nos bio-skins s'intègrent directement à votre épiderme via nano-injection. Ils changent de couleur, texture et motif selon vos émotions, votre environnement et vos interactions sociales. Le design "reptilien" prend tout son sens : peau écailleuse holographique, thermorégulation adaptative, camouflage urbain instantané.
+                <div class="evo-desc">
+                    Les vêtements deviennent une extension biologique. Nos bio-skins s'intègrent à votre épiderme via nano-injection, changeant de couleur et texture selon vos émotions. Peau écailleuse holographique, thermorégulation adaptative, camouflage urbain instantané.
                 </div>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">Morphing Émotionnel</div>
-                        <div class="feature-desc">Votre skin réagit à votre état mental</div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Morphing Émotionnel</div>
+                        <div class="feature-detail">Réaction en temps réel à votre état mental</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Auto-Réparation</div>
-                        <div class="feature-desc">Nanotech régénérative intégrée</div>
+                    <div class="feature">
+                        <div class="feature-name">Auto-Réparation</div>
+                        <div class="feature-detail">Nanotech régénérative intégrée</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Sync Collective</div>
-                        <div class="feature-desc">Coordonnez avec d'autres porteurs</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="evolution-card">
-                <div class="card-header">
-                    <div class="card-title">🌐 METAVERSE RETAIL NEXUS</div>
-                    <div class="tech-badge">QUANTUM</div>
-                </div>
-                <div class="card-content">
-                    Fini les sites web 2D : bienvenue dans notre dimension commerciale persistante. Accessible via interface neurale ou hologramme portable, le Reptilia Nexus est un espace-temps où vous explorez physiquement nos collections, rencontrez d'autres membres de la société froide, et vivez des événements immersifs. Chaque achat modifie la topologie du Nexus.
-                </div>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">Showrooms Quantiques</div>
-                        <div class="feature-desc">Essayez instantanément via simulation neurale</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Drops Dimensionnels</div>
-                        <div class="feature-desc">Événements multi-réalités synchronisés</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Commerce P2P Neural</div>
-                        <div class="feature-desc">Transactions pensée-à-pensée sécurisées</div>
+                    <div class="feature">
+                        <div class="feature-name">Sync Collective</div>
+                        <div class="feature-detail">Coordonnez avec d'autres porteurs</div>
                     </div>
                 </div>
             </div>
 
-            <div class="evolution-card">
-                <div class="card-header">
-                    <div class="card-title">🤖 LORE GÉNÉRATIF IA-SYMBIOTIQUE</div>
-                    <div class="tech-badge">CONSCIOUSNESS AI</div>
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">🌐 METAVERSE RETAIL NEXUS</div>
+                    <div class="tech-tag">QUANTUM</div>
                 </div>
-                <div class="card-content">
-                    L'histoire des reptiliens n'est plus scriptée : elle évolue en temps réel grâce à une IA consciente qui génère des arcs narratifs basés sur les actions de la communauté. Chaque porteur devient un personnage dont les choix influencent le canon. Des "événements de conscience collective" permettent de décider ensemble de l'avenir de l'espèce reptilienne.
+                <div class="evo-desc">
+                    Le site web devient une dimension commerciale persistante. Accessible via interface neurale ou hologramme, le Reptilia Nexus est un espace-temps où vous explorez nos collections, rencontrez la société froide, et vivez des événements immersifs.
                 </div>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">Narration Dynamique</div>
-                        <div class="feature-desc">1000+ storylines générées par semaine</div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Showrooms Quantiques</div>
+                        <div class="feature-detail">Essayage via simulation neurale</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Arcs Personnalisés</div>
-                        <div class="feature-desc">Votre histoire unique dans l'univers</div>
+                    <div class="feature">
+                        <div class="feature-name">Drops Dimensionnels</div>
+                        <div class="feature-detail">Événements multi-réalités synchronisés</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Votes de Conscience</div>
-                        <div class="feature-desc">Démocratie narrative via mind-poll</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="evolution-card">
-                <div class="card-header">
-                    <div class="card-title">🧪 NFT-ADN ÉDITIONS</div>
-                    <div class="tech-badge">GENETIC CRYPTO</div>
-                </div>
-                <div class="card-content">
-                    Les éditions limitées prennent une nouvelle dimension : chaque drop est encodé avec votre signature ADN unique. Votre bio-skin devient littéralement une extension de vous-même, impossible à copier ou à transférer sans votre consentement biologique. Les "Species Drops" sont des mutations génétiques exclusives qui évoluent avec votre biologie.
-                </div>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">Authentification ADN</div>
-                        <div class="feature-desc">Ownership génétique infalsifiable</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Évolution Biologique</div>
-                        <div class="feature-desc">Votre skin mute avec le temps</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Héritage Génétique</div>
-                        <div class="feature-desc">Transmettez vos designs à vos descendants</div>
+                    <div class="feature">
+                        <div class="feature-name">Commerce Neural</div>
+                        <div class="feature-detail">Transactions pensée-à-pensée</div>
                     </div>
                 </div>
             </div>
 
-            <div class="evolution-card">
-                <div class="card-header">
-                    <div class="card-title">🌍 SOCIÉTÉ FROIDE GLOBALE</div>
-                    <div class="tech-badge">SOCIAL NEXUS</div>
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">🤖 LORE GÉNÉRATIF IA</div>
+                    <div class="tech-tag">CONSCIOUSNESS AI</div>
                 </div>
-                <div class="card-content">
-                    La "Cold Blood Society" devient une véritable nation décentralisée de porteurs connectés. Via interface neurale, accédez à des privilèges exclusifs : accès à des zones urbaines privées, événements trans-dimensionnels, recherche génétique collaborative. Le statut social se mesure par votre "Reptilian Index" : influence, créativité, contribution au collectif.
+                <div class="evo-desc">
+                    L'histoire des reptiliens évolue en temps réel via une IA consciente. Chaque porteur devient un personnage dont les choix influencent le canon. Des "événements de conscience collective" permettent de décider ensemble de l'avenir de l'espèce reptilienne.
                 </div>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">Neural Social Graph</div>
-                        <div class="feature-desc">Réseau empathique direct cerveau-à-cerveau</div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Narration Dynamique</div>
+                        <div class="feature-detail">1000+ storylines par semaine</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Zones Exclusives IRL</div>
-                        <div class="feature-desc">Accès physique aux sanctuaires reptiliens</div>
+                    <div class="feature">
+                        <div class="feature-name">Arcs Personnalisés</div>
+                        <div class="feature-detail">Votre histoire unique</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Governance Collective</div>
-                        <div class="feature-desc">Votez l'avenir de la marque via consensus neural</div>
+                    <div class="feature">
+                        <div class="feature-name">Votes de Conscience</div>
+                        <div class="feature-detail">Démocratie narrative via mind-poll</div>
                     </div>
                 </div>
             </div>
 
-            <div class="evolution-card">
-                <div class="card-header">
-                    <div class="card-title">♻️ RÉGÉNÉRATION PLANÉTAIRE</div>
-                    <div class="tech-badge">ECO-GENESIS</div>
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">🧪 NFT-ADN ÉDITIONS</div>
+                    <div class="tech-tag">GENETIC CRYPTO</div>
                 </div>
-                <div class="card-content">
-                    En 2126, la mode ne consomme plus : elle régénère. Chaque bio-skin produit absorbe du CO2, purifie l'eau environnante et soutient la biodiversité locale via des symbioses micro-organiques. Reptilia Nexus collabore avec des écosystèmes entiers : vos achats financent la restauration d'habitats de reptiles en danger et la création de corridors écologiques urbains.
+                <div class="evo-desc">
+                    Chaque drop est encodé avec votre signature ADN unique. Votre bio-skin devient littéralement une extension de vous-même, impossible à copier. Les "Species Drops" sont des mutations génétiques exclusives qui évoluent avec votre biologie.
                 </div>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-title">Carbon-Negative</div>
-                        <div class="feature-desc">Chaque skin absorbe 10kg CO2/an</div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Authentification ADN</div>
+                        <div class="feature-detail">Ownership génétique infalsifiable</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Symbiose Microbienne</div>
-                        <div class="feature-desc">Hébergez des écosystèmes bénéfiques</div>
+                    <div class="feature">
+                        <div class="feature-name">Évolution Biologique</div>
+                        <div class="feature-detail">Votre skin mute avec le temps</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-title">Impact Traçable</div>
-                        <div class="feature-desc">Visualisez votre régénération planétaire en temps réel</div>
+                    <div class="feature">
+                        <div class="feature-name">Héritage Génétique</div>
+                        <div class="feature-detail">Transmettez à vos descendants</div>
                     </div>
                 </div>
             </div>
+
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">🌍 SOCIÉTÉ FROIDE GLOBALE</div>
+                    <div class="tech-tag">SOCIAL NEXUS</div>
+                </div>
+                <div class="evo-desc">
+                    La "Cold Blood Society" devient une nation décentralisée de porteurs connectés. Accès à des zones urbaines privées, événements trans-dimensionnels, recherche génétique collaborative. Le statut social se mesure par votre "Reptilian Index".
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Neural Social Graph</div>
+                        <div class="feature-detail">Réseau cerveau-à-cerveau</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Zones Exclusives IRL</div>
+                        <div class="feature-detail">Sanctuaires reptiliens physiques</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Governance Collective</div>
+                        <div class="feature-detail">Consensus neural démocratique</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">♻️ RÉGÉNÉRATION PLANÉTAIRE</div>
+                    <div class="tech-tag">ECO-GENESIS</div>
+                </div>
+                <div class="evo-desc">
+                    La mode ne consomme plus : elle régénère. Chaque bio-skin absorbe du CO2, purifie l'eau environnante et soutient la biodiversité via symbioses micro-organiques. Vos achats financent la restauration d'habitats de reptiles et la création de corridors écologiques.
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Carbon-Negative</div>
+                        <div class="feature-detail">Chaque skin absorbe 10kg CO2/an</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Symbiose Microbienne</div>
+                        <div class="feature-detail">Hébergez des écosystèmes</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Impact Traçable</div>
+                        <div class="feature-detail">Visualisez votre régénération</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="cta-section">
+        <!-- CTA -->
+        <div class="cta">
             <div class="cta-title">REJOINS L'ÉVOLUTION</div>
             <div class="cta-text">
                 L'ancien monde portait des vêtements.<br>
-                Le nouveau monde devient la mode.<br>
-                Prêt pour la transformation ?
+                Le nouveau monde devient la mode.
             </div>
-            <button class="neural-link-btn" onclick="alert('🦎 NEURAL LINK PROTOCOL INITIATED\n\nConnexion au Reptilia Nexus en cours...\nCalibration de votre signature biologique...\n\nBienvenue dans l\'évolution, humain.')">
-                INITIER NEURAL LINK
-            </button>
+            <a href="#" class="cta-btn">INITIER NEURAL LINK</a>
         </div>
+
     </div>
 
-    <script>
-        // Generate stars
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 200; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            starsContainer.appendChild(star);
-        }
+    <footer>
+        <p>REPTILIA NEXUS © 2126 | <a href="index.html">Retour à 2026</a></p>
+    </footer>
 
-        // Add parallax effect
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.evolution-card');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            cards.forEach((card, index) => {
-                const speed = (index + 1) * 0.5;
-                const offsetX = (x - 0.5) * speed;
-                const offsetY = (y - 0.5) * speed;
-                card.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-            });
-        });
-    </script>
 </body>
 </html>
