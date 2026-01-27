@@ -2,63 +2,83 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>REPTILIA AWAKENING</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font-family: Arial, sans-serif; background-color: #111; color: #eee; margin: 0; }
-    header { text-align: center; padding: 40px; }
-    h1 { font-size: 3em; margin-bottom: 10px; }
-    .slogan { font-size: 1.5em; color: #0f0; }
-    .story { padding: 40px; text-align: center; font-size: 1.2em; }
+    :root {
+      --bg:#111;
+      --panel:#0b0b0b;
+      --accent:#00ff66;
+      --link:#0ff;
+      --text:#eee;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; }
+    header { text-align: center; padding: 40px 20px; }
+    h1 { font-size: 3em; margin: 0 0 10px; }
+    .slogan { font-size: 1.5em; color: var(--accent); }
+    .story { padding: 40px 20px; text-align: center; font-size: 1.2em; }
     .newsletter { text-align: center; padding: 20px; }
-    .countdown { text-align: center; font-size: 2em; color: #0f0; margin-top: 20px; }
+    .countdown { text-align: center; font-size: 2em; color: var(--accent); margin-top: 20px; }
     footer { text-align: center; padding: 20px; }
-    a { color: #0ff; text-decoration: none; margin: 0 10px; }
+    a { color: var(--link); text-decoration: none; margin: 0 10px; }
 
-    /* ===== Ajouts utiles pour la section collection ===== */
-    .collection { padding: 40px 20px; text-align: center; }
-    .collection h2 { color: #00ff66; letter-spacing: 2px; margin-bottom: 30px; }
+    /* NAV */
+    nav {
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      padding:20px;
+      border-bottom:1px solid #222;
+      background:var(--panel);
+    }
+
+    /* SECTION COLLECTION / FIGURES */
+    .collection { padding: 40px 20px; }
+    .collection h2 {
+      text-align:center;
+      color: var(--accent);
+      letter-spacing: 1px;
+      margin: 0 0 24px;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      align-items: start;
+    }
     figure.drop {
-      background: #0b0b0b;
+      background: var(--panel);
       padding: 16px;
       border-radius: 8px;
-      max-width: 520px;
-      margin: 0 auto;
+      margin: 0;
     }
     figure.drop img {
-      display: block;
-      width: 100%;
-      height: auto;
-      background: #0b0b0b; /* utile si PNG transparent */
+      display:block;
+      width:100%;
+      height:auto;
+      /* Fond sous l'image pour éviter l'invisibilité des PNG */
+      background: var(--panel);
     }
     figure.drop figcaption {
       margin-top: 12px;
-      color: #00ff66;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-align: center;
+      color: var(--accent);
+      text-align:center;
+      font-weight:600;
+      letter-spacing: .5px;
     }
+
+    /* Section “test image” */
+    .test { padding: 40px 20px; text-align: center; }
+    .test h2 { color: var(--accent); margin: 0 0 16px; }
+    .test img { max-width: 300px; width: 100%; height: auto; background: var(--panel); display: block; margin: 20px auto; border-radius: 6px; }
   </style>
 </head>
 
 <body>
 
-  <!-- Section Drop propre -->
-  <section class="collection">
-    <h2>REPTILIA — DROP I</h2>
-    <figure class="drop">
-      <img src="./assets/img/reptilia/the-awakening.png" alt="The Awakening">
-      <figcaption>The Awakening</figcaption>
-    </figure>
-  </section>
-
-  <nav style="
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    padding:20px;
-    border-bottom:1px solid #222;
-    background:#0b0b0b;">
+  <nav>
     <a href="./pages/reptilia_timeline_v3_animated.html">Chronologie / Timeline</a>
     <a href="./pages/reptilia_map.html">Carte narrative / Narrative Map</a>
   </nav>
@@ -78,51 +98,41 @@
     <button style="padding:10px;">S'inscrire</button>
   </section>
 
-  <div class="countdown">
-    Lancement dans 6 jours
-  </div>
+  <div class="countdown">Lancement dans 6 jours</div>
+
+  <section class="test">
+    <h2>TEST IMAGE</h2>
+    <!-- le ?v=1 force le navigateur à recharger l’asset -->
+    <img src="./assets/img/reptilia/reptilia-species-4.jpg?v=1" alt="Species 4">
+  </section>
+
+  <section class="collection">
+    <h2>REPTILIA — DROP I</h2>
+
+    <div class="grid">
+      <figure class="drop">
+        <img src="./assets/img/reptilia/the-awakening.png?v=1" alt="The Awakening">
+        <figcaption>The Awakening</figcaption>
+      </figure>
+
+      <figure class="drop">
+        <img src="./assets/img/reptilia/reptilia-species-4.jpg?v=1" alt="Species 4">
+        <figcaption>Species 4</figcaption>
+      </figure>
+
+      <figure class="drop">
+        <img src="./assets/img/reptilia/cold-blood-society.png?v=1" alt="Cold Blood Society">
+        <figcaption>Cold Blood Society</figcaption>
+      </figure>
+    </div>
+  </section>
 
   <footer>
     <p>Suis-nous :</p>
-    <a href="#">Instagram</a>
-    <a href="#">TikTok</a>
-    <a href="#">Twitter</a>
+    <a href="#" rel="noopener">Instagram</a>
+    <a href="#" rel="noopener">TikTok</a>
+    <a href="#" rel="noopener">Twitter</a>
   </footer>
-
-  <!-- TEST IMAGE (corrigé vers -4.jpg) -->
-  <section style="padding:40px;text-align:center;">
-    <h2 style="color:#00ff66;">TEST IMAGE</h2>
-    <img
-      src="./assets/img/reptilia/reptilia-species-4.jpg"
-      alt="Species 4"
-      style="max-width:300px;display:block;margin:20px auto;">
-  </section>
-
-  <!-- Grille d'images (chemins et extensions corrects) -->
-  <section style="padding:0 20px 40px;">
-    <div style="
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:30px;
-      margin-top:40px;">
-      
-      <figure>
-        <img src="./assets/img/reptilia/the-awakening.png" alt="The Awakening" style="width:100%;height:auto;background:#0b0b0b;">
-        <figcaption style="text-align:center;color:#00ff66;">The Awakening</figcaption>
-      </figure>
-
-      <figure>
-        <img src="./assets/img/reptilia/reptilia-species-4.jpg" alt="Species 4" style="width:100%;height:auto;">
-        <figcaption style="text-align:center;color:#00ff66;">Species 4</figcaption>
-      </figure>
-
-      <figure>
-        <img src="./assets/img/reptilia/cold-blood-society.png" alt="Cold Blood Society" style="width:100%;height:auto;">
-        <figcaption style="text-align:center;color:#00ff66;">Cold Blood Society</figcaption>
-      </figure>
-
-    </div>
-  </section>
 
 </body>
 </html>
