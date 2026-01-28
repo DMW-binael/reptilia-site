@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLD BLOOD SOCIETY • REPTILIA</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --accent: #00ff66;
+            --link: #0ff;
+            --text: #eee;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 20px;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-decoration: none;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 102, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--accent);
+            letter-spacing: 8px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(0, 255, 102, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        /* Benefits */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .benefit-card {
+            background: rgba(0, 255, 102, 0.03);
+            border: 1px solid rgba(0, 255, 102, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        
+        .benefit-card:hover {
+            border-color: var(--accent);
+            background: rgba(0, 255, 102, 0.08);
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-title {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .benefit-desc {
+            color: #888;
+            line-height: 1.6;
+        }
+        
+        /* Form Section */
+        .form-section {
+            background: rgba(0, 255, 102, 0.03);
+            border: 2px solid var(--accent);
+            border-radius: 15px;
+            padding: 60px;
+            margin-bottom: 80px;
+        }
+        
+        .form-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        
+        .form-section .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--text);
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 5px;
+        }
+        
+        .checkbox-group label {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+        
+        .submit-btn:hover {
+            background: var(--link);
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.5);
+            transform: scale(1.02);
+        }
+        
+        /* Success Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--bg);
+            border: 2px solid var(--accent);
+            border-radius: 15px;
+            padding: 60px;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        .modal-content h2 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        
+        .modal-content .member-id {
+            font-size: 3rem;
+            color: var(--link);
+            font-weight: 900;
+            margin: 30px 0;
+            letter-spacing: 5px;
+        }
+        
+        .modal-content p {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .close-modal {
+            padding: 15px 40px;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .stat-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            color: var(--accent);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        footer {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+            margin-top: 100px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .form-section {
+                padding: 30px 20px;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">REPTILIA</a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="shop.html">Shop</a>
+            <a href="cold-blood-society.html">Society</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>COLD BLOOD<br>SOCIETY</h1>
+            <p>
+                Une société secrète pour ceux qui voient au-delà des apparences. 
+                Rejoins les rangs. Accède aux privilèges. Éveille ta conscience reptilienne.
+            </p>
+        </div>
+    </section>
+
+    <!-- Container -->
+    <div class="container">
+        
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="memberCount">1,247</div>
+                <div class="stat-label">Membres Actifs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">67</div>
+                <div class="stat-label">Pays Représentés</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Conscience Collective</div>
+            </div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="benefits">
+            <div class="benefit-card">
+                <div class="benefit-icon">🎯</div>
+                <div class="benefit-title">Early Access</div>
+                <div class="benefit-desc">
+                    Accède aux drops 48h avant tout le monde. Les éditions limitées sont pour toi.
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">📚</div>
+                <div class="benefit-title">Lore Exclusif</div>
+                <div class="benefit-desc">
+                    Reçois des chapitres secrets de l'histoire reptilienne que personne d'autre ne verra.
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">💰</div>
+                <div class="benefit-title">Réductions</div>
+                <div class="benefit-desc">
+                    -15% permanent sur toute la collection. Plus tu évolues, plus tu économises.
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🎁</div>
+                <div class="benefit-title">Drops Secrets</div>
+                <div class="benefit-desc">
+                    Des designs créés uniquement pour les membres. Jamais disponibles au public.
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🌐</div>
+                <div class="benefit-title">Réseau Global</div>
+                <div class="benefit-desc">
+                    Connecte-toi avec d'autres éveillés partout dans le monde. Discord privé.
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🏆</div>
+                <div class="benefit-title">Statut Évolutif</div>
+                <div class="benefit-desc">
+                    Gagne des badges, monte en niveau, débloque des privilèges croissants.
+                </div>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="form-section">
+            <h2>REJOINS-NOUS</h2>
+            <p class="subtitle">Inscription gratuite • Conscience illimitée</p>
+            
+            <form id="membershipForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label for="name">Nom complet *</label>
+                    <input type="text" id="name" name="name" required 
+                           placeholder="Ton identité humaine">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="ton@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="country">Pays *</label>
+                    <select id="country" name="country" required>
+                        <option value="">Sélectionne ton pays</option>
+                        <option value="FR">France</option>
+                        <option value="BE">Belgique</option>
+                        <option value="CH">Suisse</option>
+                        <option value="CA">Canada</option>
+                        <option value="US">États-Unis</option>
+                        <option value="UK">Royaume-Uni</option>
+                        <option value="OTHER">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="discovery">Comment as-tu découvert Reptilia ? *</label>
+                    <select id="discovery" name="discovery" required>
+                        <option value="">Choisis une option</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="friend">Recommandation d'un ami</option>
+                        <option value="search">Recherche Google</option>
+                        <option value="conspiracy">Sites complotistes</option>
+                        <option value="vision">J'ai eu une vision</option>
+                    </select>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="newsletter" name="newsletter" checked>
+                    <label for="newsletter">
+                        Je souhaite recevoir les révélations exclusives, les drops secrets et les codes de réduction de la Cold Blood Society.
+                    </label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">
+                        J'accepte d'ouvrir ma conscience et de voir la vérité. Je comprends qu'il n'y a pas de retour en arrière une fois éveillé. *
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    Rejoindre la société
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2>BIENVENUE PARMI NOUS</h2>
+            <p>🦎</p>
+            <p>Ton numéro de membre :</p>
+            <div class="member-id" id="memberId">CBS-0000</div>
+            <p>
+                Un email de confirmation vient d'être envoyé à ton adresse. 
+                Tu recevras bientôt tes premiers accès exclusifs à la Cold Blood Society.
+                <br><br>
+                <strong style="color: var(--accent);">L'éveil commence maintenant.</strong>
+            </p>
+            <button class="close-modal" onclick="closeModal()">CONTINUER</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>COLD BLOOD SOCIETY © 2026 | Une initiative REPTILIA</p>
+        <p style="margin-top: 10px; color: #555;">Ils sont parmi nous. Et maintenant, tu en fais partie.</p>
+    </footer>
+
+    <script>
+        // Member count animation
+        let count = 1000;
+        const memberCountEl = document.getElementById('memberCount');
+        
+        function animateCount() {
+            count += Math.floor(Math.random() * 3);
+            memberCountEl.textContent = count.toLocaleString();
+        }
+        
+        setInterval(animateCount, 5000);
+
+        // Form submission
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Generate member ID
+            const memberId = 'CBS-' + Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+            document.getElementById('memberId').textContent = memberId;
+            
+            // Store in localStorage (en production: envoyer à un serveur)
+            const member = {
+                ...data,
+                id: memberId,
+                joinDate: new Date().toISOString(),
+                level: 1,
+                points: 0
+            };
+            
+            localStorage.setItem('reptiliaMember', JSON.stringify(member));
+            
+            // Show success modal
+            document.getElementById('successModal').classList.add('active');
+            
+            // En production: envoyer à Mailchimp/Sendinblue
+            console.log('Nouveau membre:', member);
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('active');
+            // Redirect to shop with discount code
+            setTimeout(() => {
+                window.location.href = 'shop.html?welcome=true';
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
