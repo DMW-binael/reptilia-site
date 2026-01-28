@@ -1,0 +1,248 @@
+<!-- 
+    DISCLAIMER POP-UP - VERSION JURIDIQUEMENT RENFORCÉE
+    À copier dans TOUTES les pages principales (index, shop, quiz, simulation, etc.)
+    Placer juste avant </body>
+-->
+
+<style>
+.legal-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.98);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.legal-popup-box {
+    background: #0a0a0a;
+    border: 3px solid #ff3366;
+    border-radius: 15px;
+    max-width: 650px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 40px;
+    box-shadow: 0 0 60px rgba(255, 51, 102, 0.4);
+}
+
+.legal-popup-box h2 {
+    color: #ff3366;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.legal-popup-box p, .legal-popup-box li {
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.legal-popup-box ul {
+    margin: 15px 0 15px 25px;
+}
+
+.legal-popup-box strong {
+    color: #fff;
+}
+
+.legal-warning-red {
+    background: rgba(255, 51, 102, 0.1);
+    border-left: 4px solid #ff3366;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.legal-checkboxes {
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(0, 255, 102, 0.05);
+    border: 1px solid rgba(0, 255, 102, 0.2);
+    border-radius: 8px;
+}
+
+.legal-checkbox-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.legal-checkbox-row input {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+}
+
+.legal-checkbox-row label {
+    color: #aaa;
+    cursor: pointer;
+}
+
+.legal-checkbox-row a {
+    color: #00ff66;
+    text-decoration: underline;
+}
+
+.legal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.legal-btn {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-refuse {
+    background: transparent;
+    color: #ff3366;
+    border: 2px solid #ff3366;
+}
+
+.btn-accept {
+    background: #00ff66;
+    color: #000;
+}
+
+.btn-accept:disabled {
+    background: #333;
+    color: #666;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .legal-popup-box {
+        padding: 25px;
+    }
+    .legal-buttons {
+        flex-direction: column;
+    }
+}
+</style>
+
+<div class="legal-popup-overlay" id="legalPopup">
+    <div class="legal-popup-box">
+        
+        <h2>⚠️ IMPORTANT</h2>
+        
+        <p>
+            Bienvenue sur <strong>REPTILIA</strong>. Avant de continuer, veuillez lire attentivement :
+        </p>
+
+        <div class="legal-warning-red">
+            <p style="margin: 0;"><strong>Ce site est une ŒUVRE DE FICTION ARTISTIQUE.</strong></p>
+        </div>
+
+        <p>
+            Tous les contenus (reptiliens, simulation, Cold Blood Society, etc.) sont des 
+            <strong>créations fictionnelles</strong> à but de divertissement.
+        </p>
+
+        <p><strong>Nous NE prétendons PAS que :</strong></p>
+        <ul>
+            <li>Les reptiliens existent réellement</li>
+            <li>La simulation est réelle</li>
+            <li>Nos produits ont des pouvoirs spéciaux</li>
+        </ul>
+
+        <p><strong>Nous vendons</strong> des vêtements en coton avec des designs créatifs. C'est tout.</p>
+
+        <div class="legal-warning-red">
+            <p style="margin: 0;">
+                <strong>Si vous avez du mal à distinguer fiction et réalité, quittez ce site et consultez un professionnel.</strong>
+            </p>
+        </div>
+
+        <div class="legal-checkboxes">
+            <p style="color: #fff; margin-bottom: 15px; font-weight: 700;">
+                Pour continuer, acceptez les conditions :
+            </p>
+            
+            <div class="legal-checkbox-row">
+                <input type="checkbox" id="legal1" onchange="checkLegalReady()">
+                <label for="legal1">
+                    Je comprends que c'est de la <strong>fiction</strong>.
+                </label>
+            </div>
+            
+            <div class="legal-checkbox-row">
+                <input type="checkbox" id="legal2" onchange="checkLegalReady()">
+                <label for="legal2">
+                    Je peux <strong>distinguer fiction et réalité</strong>.
+                </label>
+            </div>
+            
+            <div class="legal-checkbox-row">
+                <input type="checkbox" id="legal3" onchange="checkLegalReady()">
+                <label for="legal3">
+                    J'accepte les <a href="legal.html" target="_blank">mentions légales</a>.
+                </label>
+            </div>
+            
+            <div class="legal-checkbox-row">
+                <input type="checkbox" id="legal4" onchange="checkLegalReady()">
+                <label for="legal4">
+                    J'ai <strong>16 ans ou plus</strong>.
+                </label>
+            </div>
+        </div>
+
+        <div class="legal-buttons">
+            <button class="legal-btn btn-refuse" onclick="refuseLegal()">REFUSER</button>
+            <button class="legal-btn btn-accept" id="legalAcceptBtn" disabled onclick="acceptLegal()">J'ACCEPTE</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function initLegal() {
+    const accepted = localStorage.getItem('reptilia_legal_ok');
+    if (accepted !== 'yes') {
+        document.getElementById('legalPopup').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function checkLegalReady() {
+    const all = ['legal1', 'legal2', 'legal3', 'legal4'].every(
+        id => document.getElementById(id).checked
+    );
+    document.getElementById('legalAcceptBtn').disabled = !all;
+}
+
+function acceptLegal() {
+    localStorage.setItem('reptilia_legal_ok', 'yes');
+    localStorage.setItem('reptilia_legal_date', new Date().toISOString());
+    document.getElementById('legalPopup').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function refuseLegal() {
+    if (confirm('Vous devez accepter pour accéder au site. Quitter ?')) {
+        window.location.href = 'https://www.google.com';
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLegal);
+} else {
+    initLegal();
+}
+</script>
