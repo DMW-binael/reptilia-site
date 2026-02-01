@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - REPTILIA</title>
+    <link rel="icon" type="image/png" href="assets/icons/favicon-32x32.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a0a;
+            color: #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .logo {
+            color: #00ff66;
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            margin-bottom: 60px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            color: #00ff66;
+            font-weight: 900;
+            letter-spacing: 10px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(0, 255, 102, 0.5);
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #00ff66;
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            letter-spacing: 2px;
+        }
+        
+        .btn:hover {
+            background: #00cc44;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.3);
+        }
+        
+        .icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo">REPTILIA</div>
+    
+    <div class="icon">👁️</div>
+    
+    <div class="error-code">404</div>
+    
+    <h1>Cette page n'existe pas... ou bien si ? 🦎</h1>
+    
+    <p>
+        Peut-être que les reptiliens l'ont cachée.<br>
+        Ou peut-être qu'elle n'a jamais existé.<br>
+        La réalité est ce que tu choisis de voir.
+    </p>
+    
+    <a href="/" class="btn">RETOUR À LA RÉALITÉ</a>
+
+</body>
+</html>

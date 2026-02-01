@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop • REPTILIA</title>
-    <meta name="description" content="Collection complète REPTILIA - Streetwear qui éveille les consciences">
+    <title>Shop - REPTILIA | Alternative Streetwear</title>
+    <meta name="description" content="Découvrez la collection complète REPTILIA. 9 designs exclusifs explorant les mythologies reptiliennes. Qualité premium, production responsable.">
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    
     <style>
-        :root {
-            --bg: #0a0a0a;
-            --panel: #111;
-            --accent: #00ff66;
-            --link: #0ff;
-            --text: #eee;
-        }
-        
         * {
             margin: 0;
             padding: 0;
@@ -22,190 +20,138 @@
         
         body {
             font-family: Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            background: #0a0a0a;
+            color: #eee;
+            line-height: 1.6;
         }
         
-        header {
-            background: rgba(17, 17, 17, 0.95);
-            padding: 20px;
+        /* Navigation */
+        nav {
             position: sticky;
             top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
             z-index: 1000;
             border-bottom: 1px solid #222;
-            backdrop-filter: blur(10px);
         }
         
-        nav {
-            max-width: 1400px;
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
         
         .logo {
+            color: #00ff66;
             font-size: 1.8rem;
             font-weight: 900;
-            color: var(--accent);
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             text-decoration: none;
         }
         
         .nav-links {
             display: flex;
-            gap: 30px;
-            align-items: center;
+            gap: 35px;
+            list-style: none;
         }
         
         .nav-links a {
-            color: #888;
+            color: #eee;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
         }
         
-        .nav-links a:hover {
-            color: var(--accent);
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #00ff66;
         }
         
+        /* Hero */
         .hero {
-            padding: 80px 20px;
             text-align: center;
-            background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+            padding: 80px 20px 60px;
         }
         
         .hero h1 {
-            font-size: 4rem;
-            color: var(--accent);
-            letter-spacing: 10px;
+            font-size: 3.5rem;
+            color: #00ff66;
+            letter-spacing: 8px;
             margin-bottom: 20px;
         }
         
         .hero p {
-            color: #888;
+            color: #aaa;
             font-size: 1.2rem;
         }
         
-        .filters {
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            padding: 12px 25px;
-            background: transparent;
-            border: 2px solid #333;
-            color: #888;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        
+        /* Products */
         .products-grid {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 60px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 40px;
         }
         
         .product-card {
-            background: var(--panel);
+            background: #111;
             border: 1px solid #222;
             border-radius: 15px;
             overflow: hidden;
-            transition: all 0.4s;
+            transition: all 0.3s;
             cursor: pointer;
         }
         
         .product-card:hover {
             transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0, 255, 102, 0.2);
+            border-color: #00ff66;
+            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
         }
         
-        .product-img {
-            width: 100%;
-            height: 450px;
-            background: #000;
-            overflow: hidden;
-            position: relative;
+        .product-image {
+            height: 380px;
+            background: #0a0a0a;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        .product-img img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            transition: transform 0.4s;
-        }
-        
-        .product-card:hover .product-img img {
-            transform: scale(1.05);
+            font-size: 4rem;
+            position: relative;
         }
         
         .product-badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: var(--accent);
+            background: #00ff66;
             color: #000;
-            padding: 5px 15px;
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-        }
-        
-        .product-badge.limited {
-            background: #ff3366;
-            color: #fff;
-        }
-        
-        .product-badge.premium {
-            background: gold;
-            color: #000;
         }
         
         .product-info {
             padding: 25px;
         }
         
-        .product-category {
-            color: #888;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-        
         .product-name {
-            font-size: 1.4rem;
-            color: var(--accent);
+            font-size: 1.3rem;
+            color: #00ff66;
             margin-bottom: 10px;
             font-weight: 700;
+            letter-spacing: 2px;
         }
         
-        .product-desc {
+        .product-description {
             color: #aaa;
+            font-size: 0.9rem;
             margin-bottom: 20px;
-            line-height: 1.6;
-            font-size: 0.95rem;
         }
         
         .product-footer {
@@ -215,95 +161,102 @@
         }
         
         .product-price {
-            font-size: 1.8rem;
-            color: var(--text);
+            font-size: 1.5rem;
             font-weight: 700;
         }
         
-        .size-selector {
-            display: flex;
-            gap: 5px;
-        }
-        
-        .size-btn {
-            width: 35px;
-            height: 35px;
-            border: 1px solid #333;
-            background: transparent;
-            color: #888;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.85rem;
-        }
-        
-        .size-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        
-        .add-to-cart {
-            width: 100%;
-            padding: 15px;
-            background: var(--accent);
+        .product-btn {
+            padding: 12px 25px;
+            background: #00ff66;
             color: #000;
             border: none;
-            border-radius: 8px;
+            border-radius: 25px;
             font-weight: 700;
-            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s;
-            letter-spacing: 1px;
-            margin-top: 15px;
         }
         
-        .add-to-cart:hover {
-            background: #00cc52;
-            transform: scale(1.02);
+        .product-btn:hover {
+            background: #00cc44;
+            transform: scale(1.05);
         }
         
-        footer {
-            background: var(--panel);
-            padding: 60px 20px 20px;
-            border-top: 1px solid #222;
-            margin-top: 100px;
+        /* Trust Badges */
+        .trust-badges {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
         }
         
-        .footer-disclaimer {
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            padding: 20px;
-            background: rgba(255, 51, 102, 0.05);
-            border: 1px solid rgba(255, 51, 102, 0.3);
-            border-radius: 8px;
+        .trust-badge {
             text-align: center;
+            flex: 1;
+            min-width: 200px;
         }
         
-        .footer-disclaimer h4 {
-            color: #ff3366;
+        .trust-icon {
+            font-size: 2.5rem;
             margin-bottom: 10px;
         }
         
-        .footer-disclaimer p {
-            color: #888;
+        .trust-text {
+            color: #aaa;
             font-size: 0.9rem;
         }
         
-        .footer-disclaimer a {
-            color: var(--accent);
-            text-decoration: underline;
+        /* Footer */
+        footer {
+            background: #111;
+            padding: 60px 20px 30px;
+            margin-top: 100px;
+            border-top: 1px solid #222;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            color: #00ff66;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a:hover {
+            color: #00ff66;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
         }
         
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
-                letter-spacing: 5px;
             }
-            
             .nav-links {
-                display: none;
+                gap: 20px;
+                font-size: 0.85rem;
             }
-            
             .products-grid {
                 grid-template-columns: 1fr;
             }
@@ -312,293 +265,230 @@
 </head>
 <body>
 
-    <header>
-        <nav>
+    <nav>
+        <div class="nav-container">
             <a href="index.html" class="logo">REPTILIA</a>
-            <div class="nav-links">
-                <a href="index.html">Accueil</a>
-                <a href="shop.html">Shop</a>
-                <a href="clans-symbols.html">Clans & Symbols</a>
-                <a href="reptilia_evolution_final.html">Évolution</a>
-                <a href="quiz.html">Quiz</a>
-            </div>
-        </nav>
-    </header>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="shop.html" class="active">SHOP</a></li>
+                <li><a href="story.html">STORY</a></li>
+                <li><a href="qualite-entretien.html">QUALITÉ</a></li>
+                <li><a href="legal.html">LEGAL</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <section class="hero">
         <h1>COLLECTION</h1>
-        <p>Designs exclusifs • Éditions limitées • Fiction artistique</p>
+        <p>9 designs exclusifs | Mythologies anciennes | Fiction artistique</p>
     </section>
-
-    <div class="filters">
-        <button class="filter-btn active" onclick="filterProducts('all')">Tous</button>
-        <button class="filter-btn" onclick="filterProducts('awakening')">Awakening</button>
-        <button class="filter-btn" onclick="filterProducts('society')">Society</button>
-        <button class="filter-btn" onclick="filterProducts('symbols')">Sacred Symbols</button>
-        <button class="filter-btn" onclick="filterProducts('clans')">Clans</button>
-    </div>
 
     <div class="products-grid">
         
-        <!-- THEY ARE AMONG US -->
-        <div class="product-card" data-category="awakening">
-            <div class="product-img">
-                <img src="assets/img/reptilia/They_are_among_us.jpg" alt="They Are Among Us">
-                <span class="product-badge">NEW</span>
+        <div class="product-card">
+            <div class="product-image">
+                <span class="product-badge">ENTRÉE</span>
+                👁️
             </div>
             <div class="product-info">
-                <div class="product-category">Awakening Collection</div>
-                <div class="product-name">THEY ARE AMONG US</div>
-                <div class="product-desc">Le reptilien urbain. Pour ceux qui voient ce que les autres ignorent.</div>
-                <div class="product-footer">
-                    <div class="product-price">35€</div>
-                    <div class="size-selector">
-                        <button class="size-btn">S</button>
-                        <button class="size-btn">M</button>
-                        <button class="size-btn">L</button>
-                        <button class="size-btn">XL</button>
-                    </div>
+                <div class="product-name">STAY AWAKE</div>
+                <div class="product-description">
+                    Le premier appel. L'éveil commence. Triangle et œil omniscient.
                 </div>
-                <button class="add-to-cart">AJOUTER AU PANIER</button>
+                <div class="product-footer">
+                    <div class="product-price">32€</div>
+                    <button class="product-btn">BIENTÔT</button>
+                </div>
             </div>
         </div>
 
-        <!-- COLD BLOOD SOCIETY -->
-        <div class="product-card" data-category="society">
-            <div class="product-img">
-                <img src="assets/img/reptilia/Cold_blood_society.png" alt="Cold Blood Society">
-                <span class="product-badge premium">PREMIUM</span>
+        <div class="product-card">
+            <div class="product-image">
+                <span class="product-badge">BEST-SELLER</span>
+                🦎
             </div>
             <div class="product-info">
-                <div class="product-category">Society Collection</div>
+                <div class="product-name">THEY ARE AMONG US</div>
+                <div class="product-description">
+                    Le reptilien urbain. En costume. Infiltré dans la société.
+                </div>
+                <div class="product-footer">
+                    <div class="product-price">35€</div>
+                    <button class="product-btn">BIENTÔT</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                ⚖️
+            </div>
+            <div class="product-info">
+                <div class="product-name">DECODE THE SCALE</div>
+                <div class="product-description">
+                    Déchiffre les écailles. Comprends les symboles cachés.
+                </div>
+                <div class="product-footer">
+                    <div class="product-price">32€</div>
+                    <button class="product-btn">BIENTÔT</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                △
+            </div>
+            <div class="product-info">
+                <div class="product-name">THE OBSERVER</div>
+                <div class="product-description">
+                    L'œil qui voit tout. Le triangle du pouvoir. La surveillance.
+                </div>
+                <div class="product-footer">
+                    <div class="product-price">35€</div>
+                    <button class="product-btn">BIENTÔT</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                ⭕
+            </div>
+            <div class="product-info">
+                <div class="product-name">SACRED CIRCLE</div>
+                <div class="product-description">
+                    L'Ouroboros. Le serpent qui mange sa queue. Le cycle éternel.
+                </div>
+                <div class="product-footer">
+                    <div class="product-price">37€</div>
+                    <button class="product-btn">BIENTÔT</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <span class="product-badge">PREMIUM</span>
+                ❄️
+            </div>
+            <div class="product-info">
                 <div class="product-name">COLD BLOOD SOCIETY</div>
-                <div class="product-desc">L'aristocrate reptilien sur son trône. Le pouvoir en silence.</div>
+                <div class="product-description">
+                    L'aristocratie reptilienne. Ceux qui règnent dans le silence.
+                </div>
                 <div class="product-footer">
                     <div class="product-price">39€</div>
-                    <div class="size-selector">
-                        <button class="size-btn">S</button>
-                        <button class="size-btn">M</button>
-                        <button class="size-btn">L</button>
-                        <button class="size-btn">XL</button>
-                    </div>
+                    <button class="product-btn">BIENTÔT</button>
                 </div>
-                <button class="add-to-cart">AJOUTER AU PANIER</button>
             </div>
         </div>
 
-        <!-- THE OBSERVER (Triangle) -->
-        <div class="product-card" data-category="symbols">
-            <div class="product-img">
-                <img src="assets/img/reptilia/Triangle.png" alt="The Observer">
-                <span class="product-badge">NEW</span>
+        <div class="product-card">
+            <div class="product-image">
+                🐍
             </div>
             <div class="product-info">
-                <div class="product-category">Sacred Symbols</div>
-                <div class="product-name">THE OBSERVER</div>
-                <div class="product-desc">L'œil qui voit tout. Triangle sacré et serpent ancien.</div>
-                <div class="product-footer">
-                    <div class="product-price">35€</div>
-                    <div class="size-selector">
-                        <button class="size-btn">S</button>
-                        <button class="size-btn">M</button>
-                        <button class="size-btn">L</button>
-                        <button class="size-btn">XL</button>
-                    </div>
-                </div>
-                <button class="add-to-cart">AJOUTER AU PANIER</button>
-            </div>
-        </div>
-
-        <!-- SACRED CIRCLE (Cercle) -->
-        <div class="product-card" data-category="symbols">
-            <div class="product-img">
-                <img src="assets/img/reptilia/Cercle.png" alt="Sacred Circle">
-                <span class="product-badge limited">LIMITED</span>
-            </div>
-            <div class="product-info">
-                <div class="product-category">Sacred Symbols</div>
-                <div class="product-name">SACRED CIRCLE</div>
-                <div class="product-desc">Ouroboros doré. Le cycle éternel. L'œil qui ne dort jamais.</div>
-                <div class="product-footer">
-                    <div class="product-price">37€</div>
-                    <div class="size-selector">
-                        <button class="size-btn">S</button>
-                        <button class="size-btn">M</button>
-                        <button class="size-btn">L</button>
-                        <button class="size-btn">XL</button>
-                    </div>
-                </div>
-                <button class="add-to-cart">AJOUTER AU PANIER</button>
-            </div>
-        </div>
-
-        <!-- THE HOODED ONE -->
-        <div class="product-card" data-category="awakening">
-            <div class="product-img">
-                <img src="assets/img/reptilia/Lizard_body_hood.png" alt="The Hooded One">
-                <span class="product-badge">NEW</span>
-            </div>
-            <div class="product-info">
-                <div class="product-category">Awakening Collection</div>
                 <div class="product-name">THE HOODED ONE</div>
-                <div class="product-desc">Le reptilien qui marche parmi nous. Caché mais présent.</div>
+                <div class="product-description">
+                    Le mystique encapuchonné. Gardien des secrets anciens.
+                </div>
                 <div class="product-footer">
                     <div class="product-price">35€</div>
-                    <div class="size-selector">
-                        <button class="size-btn">S</button>
-                        <button class="size-btn">M</button>
-                        <button class="size-btn">L</button>
-                        <button class="size-btn">XL</button>
-                    </div>
+                    <button class="product-btn">BIENTÔT</button>
                 </div>
-                <button class="add-to-cart">AJOUTER AU PANIER</button>
             </div>
         </div>
 
-        <!-- THE ANCIENT -->
-        <div class="product-card" data-category="awakening">
-            <div class="product-img">
-                <img src="assets/img/reptilia/Lizard_body.png" alt="The Ancient">
-                <span class="product-badge premium">PREMIUM</span>
+        <div class="product-card">
+            <div class="product-image">
+                📜
             </div>
             <div class="product-info">
-                <div class="product-category">Awakening Collection</div>
                 <div class="product-name">THE ANCIENT</div>
-                <div class="product-desc">Le reptilien ancestral. Gardien des secrets oubliés.</div>
+                <div class="product-description">
+                    Les textes oubliés. Les tablettes sumériennes. La vérité gravée.
+                </div>
                 <div class="product-footer">
                     <div class="product-price">37€</div>
-                    <div class="size-selector">
-                        <button class="size-btn">S</button>
-                        <button class="size-btn">M</button>
-                        <button class="size-btn">L</button>
-                        <button class="size-btn">XL</button>
-                    </div>
+                    <button class="product-btn">BIENTÔT</button>
                 </div>
-                <button class="add-to-cart">AJOUTER AU PANIER</button>
             </div>
         </div>
 
-        <!-- SPECIES 4 -->
-        <div class="product-card" data-category="awakening">
-            <div class="product-img">
-                <img src="assets/img/reptilia/species_4.jpg" alt="Species 4">
-                <span class="product-badge limited">LIMITED</span>
+        <div class="product-card">
+            <div class="product-image">
+                🌌
             </div>
             <div class="product-info">
-                <div class="product-category">Awakening Collection</div>
                 <div class="product-name">SPECIES 4</div>
-                <div class="product-desc">La quatrième espèce révélée. Contact imminent.</div>
+                <div class="product-description">
+                    La quatrième espèce. Ni humain, ni reptilien. Quelque chose d'autre.
+                </div>
                 <div class="product-footer">
                     <div class="product-price">35€</div>
-                    <div class="size-selector">
-                        <button class="size-btn">S</button>
-                        <button class="size-btn">M</button>
-                        <button class="size-btn">L</button>
-                        <button class="size-btn">XL</button>
-                    </div>
+                    <button class="product-btn">BIENTÔT</button>
                 </div>
-                <button class="add-to-cart">AJOUTER AU PANIER</button>
-            </div>
-        </div>
-
-        <!-- THE AWAKENING -->
-        <div class="product-card" data-category="awakening">
-            <div class="product-img">
-                <img src="assets/img/reptilia/the_awakening.jpg" alt="The Awakening">
-                <span class="product-badge">NEW</span>
-            </div>
-            <div class="product-info">
-                <div class="product-category">Awakening Collection</div>
-                <div class="product-name">THE AWAKENING</div>
-                <div class="product-desc">L'éveil de conscience. La vérité révélée.</div>
-                <div class="product-footer">
-                    <div class="product-price">35€</div>
-                    <div class="size-selector">
-                        <button class="size-btn">S</button>
-                        <button class="size-btn">M</button>
-                        <button class="size-btn">L</button>
-                        <button class="size-btn">XL</button>
-                    </div>
-                </div>
-                <button class="add-to-cart">AJOUTER AU PANIER</button>
-            </div>
-        </div>
-
-        <!-- STAY AWAKE -->
-        <div class="product-card" data-category="awakening">
-            <div class="product-img">
-                <img src="assets/img/reptilia/Stay_Awake.png" alt="Stay Awake">
-                <span class="product-badge">NEW</span>
-            </div>
-            <div class="product-info">
-                <div class="product-category">Awakening Collection</div>
-                <div class="product-name">STAY AWAKE</div>
-                <div class="product-desc">Reste éveillé. Ne retombe pas dans le sommeil.</div>
-                <div class="product-footer">
-                    <div class="product-price">32€</div>
-                    <div class="size-selector">
-                        <button class="size-btn">S</button>
-                        <button class="size-btn">M</button>
-                        <button class="size-btn">L</button>
-                        <button class="size-btn">XL</button>
-                    </div>
-                </div>
-                <button class="add-to-cart">AJOUTER AU PANIER</button>
-            </div>
-        </div>
-
-        <!-- DECODE THE SCALE -->
-        <div class="product-card" data-category="awakening">
-            <div class="product-img">
-                <img src="assets/img/reptilia/Decode-the-scale.png" alt="Decode The Scale">
-                <span class="product-badge">NEW</span>
-            </div>
-            <div class="product-info">
-                <div class="product-category">Awakening Collection</div>
-                <div class="product-name">DECODE THE SCALE</div>
-                <div class="product-desc">Décode les écailles. Comprends les signes.</div>
-                <div class="product-footer">
-                    <div class="product-price">32€</div>
-                    <div class="size-selector">
-                        <button class="size-btn">S</button>
-                        <button class="size-btn">M</button>
-                        <button class="size-btn">L</button>
-                        <button class="size-btn">XL</button>
-                    </div>
-                </div>
-                <button class="add-to-cart">AJOUTER AU PANIER</button>
             </div>
         </div>
 
     </div>
 
+    <section class="trust-badges">
+        <div class="trust-badge">
+            <div class="trust-icon">✅</div>
+            <div class="trust-text">
+                <strong>Garantie Satisfaction</strong><br>30 jours retour
+            </div>
+        </div>
+        <div class="trust-badge">
+            <div class="trust-icon">🌍</div>
+            <div class="trust-text">
+                <strong>Production Responsable</strong><br>Zéro gaspillage
+            </div>
+        </div>
+        <div class="trust-badge">
+            <div class="trust-icon">🔒</div>
+            <div class="trust-text">
+                <strong>Paiement Sécurisé</strong><br>SSL + Shopify
+            </div>
+        </div>
+        <div class="trust-badge">
+            <div class="trust-icon">🚚</div>
+            <div class="trust-text">
+                <strong>Livraison Rapide</strong><br>5-7 jours Europe
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <div class="footer-disclaimer">
-            <h4>⚠️ FICTION ARTISTIQUE</h4>
-            <p>
-                <strong>REPTILIA est un univers de FICTION.</strong>
-                <a href="legal.html">Lire les mentions légales →</a>
-            </p>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>REPTILIA</h3>
+                <p style="color: #aaa;">Fiction artistique explorant les mythologies reptiliennes à travers le streetwear.</p>
+            </div>
+            <div class="footer-column">
+                <h3>NAVIGATION</h3>
+                <a href="index.html">Accueil</a>
+                <a href="shop.html">Shop</a>
+                <a href="story.html">Story</a>
+                <a href="qualite-entretien.html">Qualité</a>
+            </div>
+            <div class="footer-column">
+                <h3>LÉGAL</h3>
+                <a href="legal.html">Mentions Légales</a>
+                <a href="legal.html#cgv">CGV</a>
+                <a href="legal.html#retours">Retours</a>
+            </div>
+            <div class="footer-column">
+                <h3>CONTACT</h3>
+                <p style="color: #aaa;">📧 contact@reptilien.fr<br>📍 France</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 REPTILIA. Fiction artistique.
         </div>
     </footer>
-
-    <script>
-        function filterProducts(category) {
-            const cards = document.querySelectorAll('.product-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
 
 </body>
 </html>
