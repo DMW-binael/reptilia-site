@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualité & Entretien - REPTILIA</title>
+    <meta name="description" content="Qualité premium, production responsable. Tout ce que vous devez savoir sur nos produits REPTILIA.">
+    
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #111;
+            --accent: #00ff66;
+            --text: #eee;
+            --green: #00cc44;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        
+        header {
+            background: var(--panel);
+            padding: 20px;
+            border-bottom: 1px solid #222;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 900;
+            letter-spacing: 8px;
+            text-decoration: none;
+        }
+        
+        .hero {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #aaa;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .icon {
+            font-size: 2.5rem;
+        }
+        
+        .card {
+            background: var(--panel);
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature {
+            background: rgba(0, 255, 102, 0.05);
+            border: 1px solid rgba(0, 255, 102, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .feature p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        .specs-table th,
+        .specs-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #222;
+        }
+        
+        .specs-table th {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        .specs-table td {
+            color: #aaa;
+        }
+        
+        .care-instructions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .care-item {
+            background: var(--panel);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .care-symbol {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .care-item h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .care-item p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .eco-badge {
+            display: inline-block;
+            background: rgba(0, 204, 68, 0.2);
+            color: var(--green);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .guarantee-box {
+            background: linear-gradient(135deg, rgba(0, 255, 102, 0.1) 0%, rgba(0, 255, 102, 0.05) 100%);
+            border: 2px solid var(--accent);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .guarantee-box h2 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .guarantee-box p {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: var(--green);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 102, 0.4);
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 60px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .feature-grid,
+            .care-instructions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">REPTILIA</a>
+    </header>
+
+    <div class="hero">
+        <h1>QUALITÉ & ENTRETIEN</h1>
+        <p class="hero-subtitle">
+            Premium quality. Responsible production. Built to last.
+        </p>
+    </div>
+
+    <!-- SECTION QUALITÉ PREMIUM -->
+    <section class="section">
+        <h2 class="section-title">
+            <span class="icon">🏆</span>
+            QUALITÉ PREMIUM
+        </h2>
+        
+        <div class="card">
+            <p style="font-size: 1.2rem; color: #aaa; margin-bottom: 30px;">
+                Chez REPTILIA, chaque tee-shirt est une pièce de qualité conçue pour durer. 
+                Nous ne faisons aucun compromis sur les matériaux et la fabrication.
+            </p>
+            
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">👕</div>
+                    <h3>Coton Premium</h3>
+                    <p>100% coton peigné ring-spun. Fibres longues sélectionnées pour une douceur et résistance maximales.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>185g/m²</h3>
+                    <p>Grammage épais et confortable. Pas de transparence, tient sa forme, sensation premium.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Impression DTG</h3>
+                    <p>Direct-to-Garment haute résolution. Détails précis, couleurs vives, durabilité 30+ lavages.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">✂️</div>
+                    <h3>Coupe Unisexe</h3>
+                    <p>Regular fit confortable. Convient à toutes les morphologies. Tailles S à XXL disponibles.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--accent); font-size: 1.5rem; margin: 50px 0 20px;">Spécifications Techniques</h3>
+        
+        <table class="specs-table">
+            <tr>
+                <th>Composition</th>
+                <td>100% Coton peigné ring-spun</td>
+            </tr>
+            <tr>
+                <th>Grammage</th>
+                <td>185 g/m² (tissu épais premium)</td>
+            </tr>
+            <tr>
+                <th>Coupe</th>
+                <td>Regular fit unisexe</td>
+            </tr>
+            <tr>
+                <th>Col</th>
+                <td>Col rond avec bande de propreté intérieure</td>
+            </tr>
+            <tr>
+                <th>Impression</th>
+                <td>DTG (Direct-to-Garment) encres à base d'eau</td>
+            </tr>
+            <tr>
+                <th>Durabilité</th>
+                <td>30+ lavages sans altération visible</td>
+            </tr>
+            <tr>
+                <th>Rétrécissement</th>
+                <td>3-5% après premier lavage (normal pour coton naturel)</td>
+            </tr>
+        </table>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SECTION ÉCOLOGIE -->
+    <section class="section">
+        <h2 class="section-title">
+            <span class="icon">🌍</span>
+            PRODUCTION RESPONSABLE
+        </h2>
+        
+        <div class="card">
+            <p style="font-size: 1.2rem; color: #aaa; margin-bottom: 30px;">
+                La qualité ne doit pas se faire au détriment de la planète. 
+                REPTILIA s'engage pour une production plus responsable.
+            </p>
+            
+            <h3 style="color: var(--accent); margin: 30px 0 20px;">🌱 Nos Engagements</h3>
+            
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">📦</div>
+                    <h3>Print-on-Demand</h3>
+                    <p><strong>Zéro surproduction.</strong> Chaque pièce est imprimée à la commande. Pas de stock invendu jeté.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Production Locale</h3>
+                    <p><strong>Impression en Europe.</strong> Pour la France, production depuis nos centres européens. Empreinte carbone réduite.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">💧</div>
+                    <h3>Encres Écologiques</h3>
+                    <p><strong>Encres à base d'eau.</strong> Sans plastisols nocifs. Conformes standards OEKO-TEX.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">♻️</div>
+                    <h3>Emballages Recyclés</h3>
+                    <p><strong>Packaging recyclable.</strong> Cartons et sachets en matériaux recyclés et recyclables.</p>
+                </div>
+            </div>
+            
+            <h3 style="color: var(--accent); margin: 40px 0 20px;">Certifications & Standards</h3>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <span class="eco-badge">✓ OEKO-TEX Standard 100</span>
+                <span class="eco-badge">✓ WRAP Certified</span>
+                <span class="eco-badge">✓ Production Europe</span>
+                <span class="eco-badge">✓ Encres Aquatiques</span>
+                <span class="eco-badge">✓ Zero Waste</span>
+            </div>
+            
+            <p style="color: #888; margin-top: 30px; font-size: 0.95rem; line-height: 1.8;">
+                <strong>OEKO-TEX Standard 100 :</strong> Garantit l'absence de substances nocives dans nos textiles.<br>
+                <strong>WRAP Certified :</strong> Standards éthiques de production (conditions de travail équitables).<br>
+                <strong>Production locale Europe :</strong> Réduit l'empreinte carbone du transport vs production Asie.<br>
+                <strong>Print-on-Demand :</strong> Modèle économique qui élimine le gaspillage de la fast fashion.
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SECTION ENTRETIEN -->
+    <section class="section">
+        <h2 class="section-title">
+            <span class="icon">🧺</span>
+            GUIDE D'ENTRETIEN
+        </h2>
+        
+        <div class="card">
+            <p style="font-size: 1.2rem; color: #aaa; margin-bottom: 30px;">
+                Pour préserver la qualité et la longévité de votre tee-shirt REPTILIA, 
+                suivez ces instructions simples :
+            </p>
+            
+            <div class="care-instructions">
+                <div class="care-item">
+                    <div class="care-symbol">🌡️</div>
+                    <h4>LAVAGE</h4>
+                    <p>30°C maximum<br>Retourner avant lavage<br>Lessive douce</p>
+                </div>
+                
+                <div class="care-item">
+                    <div class="care-symbol">❌</div>
+                    <h4>INTERDICTIONS</h4>
+                    <p>Pas de javel<br>Pas d'assouplissant<br>Pas de nettoyage à sec</p>
+                </div>
+                
+                <div class="care-item">
+                    <div class="care-symbol">🌀</div>
+                    <h4>SÉCHAGE</h4>
+                    <p>Sèche-linge basse température<br>Ou séchage à l'air libre<br>Éviter plein soleil</p>
+                </div>
+                
+                <div class="care-item">
+                    <div class="care-symbol">🔥</div>
+                    <h4>REPASSAGE</h4>
+                    <p>110°C maximum<br>Uniquement à l'envers<br>Jamais sur le design</p>
+                </div>
+            </div>
+            
+            <div style="background: rgba(0, 255, 102, 0.05); border-left: 4px solid var(--accent); padding: 20px; margin: 30px 0;">
+                <h3 style="color: var(--accent); margin-bottom: 15px;">💡 Conseil Pro</h3>
+                <p style="color: #aaa;">
+                    <strong>Pourquoi laver à l'envers ?</strong><br>
+                    Cela protège l'impression des frottements en machine et préserve l'éclat des couleurs.
+                </p>
+                <p style="color: #aaa; margin-top: 15px;">
+                    <strong>Pourquoi éviter l'assouplissant ?</strong><br>
+                    L'assouplissant crée un film qui peut réduire l'adhérence de l'impression sur le tissu.
+                </p>
+            </div>
+            
+            <h3 style="color: var(--accent); margin: 40px 0 20px;">Durée de Vie Attendue</h3>
+            
+            <p style="color: #aaa; line-height: 1.8;">
+                Avec un entretien approprié :<br>
+                • <strong>30+ lavages</strong> : Impression toujours impeccable<br>
+                • <strong>50+ lavages</strong> : Léger estompement possible (normal)<br>
+                • <strong>100+ lavages</strong> : Tee-shirt toujours portable, vintage look naturel<br><br>
+                
+                <strong>Note :</strong> Un léger rétrécissement de 3-5% est normal après le premier lavage 
+                (propriété naturelle du coton). Nous recommandons de prendre une taille au-dessus si vous êtes 
+                entre deux tailles.
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- GARANTIE SATISFACTION -->
+    <section class="section">
+        <div class="guarantee-box">
+            <h2>✅ GARANTIE SATISFACTION</h2>
+            <p>
+                <strong>Nous sommes si confiants dans notre qualité que nous offrons :</strong>
+            </p>
+            <p style="font-size: 1.4rem; color: var(--accent); margin: 20px 0;">
+                30 JOURS DE GARANTIE
+            </p>
+            <p>
+                Si la qualité de votre tee-shirt REPTILIA ne correspond pas à vos attentes,<br>
+                retour gratuit et remboursement intégral sous 30 jours.
+            </p>
+            <p style="font-size: 0.9rem; color: #888; margin-top: 20px;">
+                (Produit non porté, avec étiquettes, dans emballage d'origine)
+            </p>
+            <a href="legal.html" class="btn">EN SAVOIR PLUS</a>
+        </div>
+    </section>
+
+    <!-- FAQ QUALITÉ -->
+    <section class="section">
+        <h2 class="section-title">
+            <span class="icon">❓</span>
+            QUESTIONS FRÉQUENTES
+        </h2>
+        
+        <div class="card">
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: var(--accent); margin-bottom: 10px;">
+                    Le design va-t-il se décoller ou craqueler ?
+                </h3>
+                <p style="color: #aaa;">
+                    Non. Nous utilisons l'impression DTG (Direct-to-Garment) avec encres à base d'eau 
+                    qui pénètrent les fibres du tissu. Le design fait partie intégrante du tee-shirt. 
+                    Il peut légèrement s'estomper après 30+ lavages (normal), mais ne se décolle jamais.
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: var(--accent); margin-bottom: 10px;">
+                    Le tee-shirt est-il vraiment épais ?
+                </h3>
+                <p style="color: #aaa;">
+                    Oui. Avec 185g/m², c'est un grammage supérieur à la moyenne du marché (généralement 140-160g). 
+                    Le tissu est opaque, structuré et tient bien sa forme même après de nombreux lavages.
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: var(--accent); margin-bottom: 10px;">
+                    Quelle taille choisir ?
+                </h3>
+                <p style="color: #aaa;">
+                    Nos tee-shirts sont en coupe regular fit unisexe. Si vous êtes entre deux tailles, 
+                    nous recommandons de prendre la taille supérieure (rétrécissement naturel de 3-5% au premier lavage). 
+                    Guide des tailles détaillé disponible sur chaque page produit.
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: var(--accent); margin-bottom: 10px;">
+                    D'où viennent les tee-shirts ?
+                </h3>
+                <p style="color: #aaa;">
+                    Nos tee-shirts sont produits par nos partenaires certifiés en Europe et aux États-Unis. 
+                    Pour les commandes France, nous privilégions la production depuis nos centres européens 
+                    (Espagne, Lettonie) pour réduire l'empreinte carbone du transport.
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: var(--accent); margin-bottom: 10px;">
+                    Pourquoi le prix est-il plus élevé que la fast fashion ?
+                </h3>
+                <p style="color: #aaa;">
+                    REPTILIA n'est pas de la fast fashion. Nous utilisons du coton premium (185g/m² peigné ring-spun), 
+                    une impression haute qualité durable, et un modèle de production responsable sans surproduction. 
+                    Chaque pièce est faite à la commande. Vous payez pour de la qualité qui dure, 
+                    pas pour du jetable.
+                </p>
+            </div>
+            
+            <div>
+                <h3 style="color: var(--accent); margin-bottom: 10px;">
+                    Puis-je retourner si la taille ne convient pas ?
+                </h3>
+                <p style="color: #aaa;">
+                    Oui. Retours acceptés sous 30 jours. Produit non porté, avec étiquettes. 
+                    Frais de retour à votre charge (ou gratuit si défaut de notre part). 
+                    Voir nos <a href="legal.html" style="color: var(--accent); text-decoration: underline;">conditions complètes</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section" style="text-align: center; margin: 80px auto;">
+        <h2 style="color: var(--accent); font-size: 2rem; margin-bottom: 20px;">
+            Prêt à rejoindre l'éveil ?
+        </h2>
+        <p style="color: #aaa; font-size: 1.2rem; margin-bottom: 40px;">
+            Découvrez notre collection de designs exclusifs.
+        </p>
+        <a href="shop.html" class="btn" style="font-size: 1.1rem; padding: 18px 50px;">
+            DÉCOUVRIR LA COLLECTION
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background: var(--panel); padding: 40px 20px; border-top: 1px solid #222; margin-top: 100px; text-align: center;">
+        <p style="color: #666; margin-bottom: 10px;">
+            <strong style="color: var(--accent);">REPTILIA</strong> © 2026
+        </p>
+        <p style="color: #666; font-size: 0.9rem;">
+            Fiction artistique • Qualité premium • Production responsable
+        </p>
+        <p style="margin-top: 20px;">
+            <a href="index.html" style="color: #888; text-decoration: none; margin: 0 15px;">Accueil</a>
+            <a href="shop.html" style="color: #888; text-decoration: none; margin: 0 15px;">Shop</a>
+            <a href="legal.html" style="color: #888; text-decoration: none; margin: 0 15px;">Mentions Légales</a>
+        </p>
+    </footer>
+
+</body>
+</html>
