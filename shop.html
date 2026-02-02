@@ -120,8 +120,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
         }
         
         .product-badge {
@@ -134,6 +145,7 @@
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 700;
+            z-index: 10;
         }
         
         .product-info {
@@ -285,10 +297,11 @@
 
     <div class="products-grid">
         
+        <!-- Product 1 : Stay Awake -->
         <div class="product-card">
             <div class="product-image">
                 <span class="product-badge">ENTRÉE</span>
-                👁️
+                <img src="Stay_Awake.png" alt="REPTILIA - Stay Awake">
             </div>
             <div class="product-info">
                 <div class="product-name">STAY AWAKE</div>
@@ -302,10 +315,11 @@
             </div>
         </div>
 
+        <!-- Product 2 : They Are Among Us -->
         <div class="product-card">
             <div class="product-image">
                 <span class="product-badge">BEST-SELLER</span>
-                🦎
+                <img src="They_are_among_us.png" alt="REPTILIA - They Are Among Us">
             </div>
             <div class="product-info">
                 <div class="product-name">THEY ARE AMONG US</div>
@@ -319,9 +333,10 @@
             </div>
         </div>
 
+        <!-- Product 3 : Decode the Scale -->
         <div class="product-card">
             <div class="product-image">
-                ⚖️
+                <img src="Decode_the_scale.png" alt="REPTILIA - Decode the Scale">
             </div>
             <div class="product-info">
                 <div class="product-name">DECODE THE SCALE</div>
@@ -335,9 +350,10 @@
             </div>
         </div>
 
+        <!-- Product 4 : The Observer -->
         <div class="product-card">
             <div class="product-image">
-                △
+                <img src="The_observer_or_triangle.png" alt="REPTILIA - The Observer">
             </div>
             <div class="product-info">
                 <div class="product-name">THE OBSERVER</div>
@@ -351,9 +367,10 @@
             </div>
         </div>
 
+        <!-- Product 5 : Sacred Circle -->
         <div class="product-card">
             <div class="product-image">
-                ⭕
+                <img src="Sacred_Circle.png" alt="REPTILIA - Sacred Circle">
             </div>
             <div class="product-info">
                 <div class="product-name">SACRED CIRCLE</div>
@@ -367,10 +384,11 @@
             </div>
         </div>
 
+        <!-- Product 6 : Cold Blood Society -->
         <div class="product-card">
             <div class="product-image">
                 <span class="product-badge">PREMIUM</span>
-                ❄️
+                <img src="Cold_blood_society.png" alt="REPTILIA - Cold Blood Society">
             </div>
             <div class="product-info">
                 <div class="product-name">COLD BLOOD SOCIETY</div>
@@ -384,9 +402,10 @@
             </div>
         </div>
 
+        <!-- Product 7 : The Hooded One -->
         <div class="product-card">
             <div class="product-image">
-                🐍
+                <img src="The_Hooded_one.png" alt="REPTILIA - The Hooded One">
             </div>
             <div class="product-info">
                 <div class="product-name">THE HOODED ONE</div>
@@ -400,9 +419,10 @@
             </div>
         </div>
 
+        <!-- Product 8 : The Ancient -->
         <div class="product-card">
             <div class="product-image">
-                📜
+                <img src="The_ancient.png" alt="REPTILIA - The Ancient">
             </div>
             <div class="product-info">
                 <div class="product-name">THE ANCIENT</div>
@@ -416,9 +436,10 @@
             </div>
         </div>
 
+        <!-- Product 9 : Species 4 -->
         <div class="product-card">
             <div class="product-image">
-                🌌
+                <img src="Species_4.png" alt="REPTILIA - Species 4">
             </div>
             <div class="product-info">
                 <div class="product-name">SPECIES 4</div>
