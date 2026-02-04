@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPTILIA - Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #00ff66;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #00ff66;
+        }
+        
+        /* Shop Header */
+        .shop-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        
+        .shop-header h1 {
+            font-size: 3rem;
+            color: #00ff66;
+            margin-bottom: 20px;
+        }
+        
+        .shop-header p {
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+        
+        /* Products Grid */
+        .products-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .product-card {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: #00ff66;
+            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.3);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            background: #000;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.5rem;
+            color: #00ff66;
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            color: #aaa;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .product-badge {
+            display: inline-block;
+            background: #00ff66;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        /* Trust Badges */
+        .trust-section {
+            background: #1a1a1a;
+            padding: 60px 20px;
+            margin-top: 80px;
+        }
+        
+        .trust-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .trust-item {
+            text-align: center;
+        }
+        
+        .trust-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .trust-title {
+            color: #00ff66;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .trust-text {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 2px solid #00ff66;
+            margin-top: 80px;
+        }
+        
+        footer p {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #00ff66;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="shop.html">SHOP</a></li>
+            <li><a href="story.html">STORY</a></li>
+            <li><a href="qualite-entretien.html">QUALITÉ</a></li>
+            <li><a href="legal.html">LEGAL</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Shop Header -->
+    <div class="shop-header">
+        <h1>SHOP</h1>
+        <p>Collection Awakening • 100 pièces par design</p>
+    </div>
+    
+    <!-- Products Grid -->
+    <div class="products-container">
+        <div class="products-grid">
+            
+            <!-- Product 1: The Awakening -->
+            <div class="product-card">
+                <img src="the_awakening.png" alt="REPTILIA - The Awakening" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">The Awakening</h3>
+                    <p class="product-description">Reptilien en costume, ville moderne, éveil de conscience</p>
+                    <p class="product-price">35€</p>
+                    <span class="product-badge">BEST-SELLER</span>
+                </div>
+            </div>
+            
+            <!-- Product 2: They Are Among Us -->
+            <div class="product-card">
+                <img src="they_are_among_us.png" alt="REPTILIA - They Are Among Us" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">They Are Among Us</h3>
+                    <p class="product-description">Infiltration silencieuse, présence cachée</p>
+                    <p class="product-price">35€</p>
+                    <span class="product-badge">ICONIQUE</span>
+                </div>
+            </div>
+            
+            <!-- Product 3: Cold Blood Society -->
+            <div class="product-card">
+                <img src="cold_blood_society.png" alt="REPTILIA - Cold Blood Society" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Cold Blood Society</h3>
+                    <p class="product-description">L'aristocratie reptilienne, le pouvoir absolu</p>
+                    <p class="product-price">39€</p>
+                    <span class="product-badge">PREMIUM</span>
+                </div>
+            </div>
+            
+            <!-- Product 4: Stay Awake -->
+            <div class="product-card">
+                <img src="stay_awake.png" alt="REPTILIA - Stay Awake" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Stay Awake</h3>
+                    <p class="product-description">Vigilance constante, conscience éveillée</p>
+                    <p class="product-price">32€</p>
+                </div>
+            </div>
+            
+            <!-- Product 5: Lizard Eye -->
+            <div class="product-card">
+                <img src="lizard_eye.png" alt="REPTILIA - Lizard Eye" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Lizard Eye</h3>
+                    <p class="product-description">L'œil qui voit tout, symbole de surveillance</p>
+                    <p class="product-price">35€</p>
+                    <span class="product-badge">CULT</span>
+                </div>
+            </div>
+            
+            <!-- Product 6: Decode the Scale -->
+            <div class="product-card">
+                <img src="decode_the_scale.png" alt="REPTILIA - Decode the Scale" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Decode the Scale</h3>
+                    <p class="product-description">Déchiffre les codes, comprends les symboles</p>
+                    <p class="product-price">32€</p>
+                </div>
+            </div>
+            
+            <!-- Product 7: Triangle -->
+            <div class="product-card">
+                <img src="triangle.png" alt="REPTILIA - Triangle" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">The Observer</h3>
+                    <p class="product-description">Triangle, œil, serpent - symboles anciens</p>
+                    <p class="product-price">35€</p>
+                </div>
+            </div>
+            
+            <!-- Product 8: Sacred Circle -->
+            <div class="product-card">
+                <img src="cercle.png" alt="REPTILIA - Sacred Circle" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Sacred Circle</h3>
+                    <p class="product-description">Cercle sacré, ouroboros, cycle éternel</p>
+                    <p class="product-price">35€</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- Trust Section -->
+    <div class="trust-section">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="trust-icon">🛡️</div>
+                <h4 class="trust-title">30 jours satisfait ou remboursé</h4>
+                <p class="trust-text">Retours gratuits sous conditions</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🌱</div>
+                <h4 class="trust-title">Production responsable</h4>
+                <p class="trust-text">Print-on-demand, zéro gaspillage</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🔒</div>
+                <h4 class="trust-title">Paiement sécurisé</h4>
+                <p class="trust-text">Stripe & PayPal</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🚚</div>
+                <h4 class="trust-title">Livraison rapide</h4>
+                <p class="trust-text">France 5-7 jours, Europe 7-10 jours</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 REPTILIA • Fiction artistique</p>
+        <p>
+            <a href="legal.html">Mentions légales</a> • 
+            <a href="qualite-entretien.html">Qualité & Entretien</a> • 
+            <a href="mailto:contact@reptilien.fr">Contact</a>
+        </p>
+        <p style="margin-top: 20px; font-size: 0.8rem;">
+            ⚠️ REPTILIA est une marque de fiction artistique explorant les mythologies reptiliennes à travers le design. 
+            Tous les contenus sont des œuvres de fiction à but artistique et culturel.
+        </p>
+    </footer>
+</body>
+</html>
