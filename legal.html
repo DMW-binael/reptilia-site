@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="REPTILIA - Mentions légales, CGV, politique de retours, protection des données.">
+    <title>Mentions Légales - REPTILIA</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            background: rgba(10, 10, 10, 0.98);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #00ff66;
+            box-shadow: 0 4px 20px rgba(0, 255, 102, 0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+        
+        nav a:hover {
+            color: #00ff66;
+            background: rgba(0, 255, 102, 0.1);
+        }
+        
+        nav a.active {
+            color: #00ff66;
+            background: rgba(0, 255, 102, 0.15);
+            border-bottom: 2px solid #00ff66;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #00ff66;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .nav-overlay {
+            display: none;
+        }
+        
+        /* HEADER */
+        .page-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            color: #00ff66;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+        
+        /* CONTENT */
+        .legal-content {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+        
+        .legal-content h2 {
+            font-size: 2rem;
+            color: #00ff66;
+            margin: 50px 0 20px 0;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .legal-content h2:first-child {
+            margin-top: 0;
+            border-top: none;
+            padding-top: 0;
+        }
+        
+        .legal-content h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 30px 0 15px 0;
+        }
+        
+        .legal-content p {
+            color: #ccc;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .legal-content ul, .legal-content ol {
+            color: #ccc;
+            margin: 15px 0 15px 30px;
+            line-height: 1.8;
+        }
+        
+        .legal-content li {
+            margin-bottom: 10px;
+        }
+        
+        .legal-content a {
+            color: #00ff66;
+            text-decoration: none;
+        }
+        
+        .legal-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .highlight-box {
+            background: rgba(0, 255, 102, 0.1);
+            border: 2px solid rgba(0, 255, 102, 0.3);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .warning-box {
+            background: rgba(255, 193, 7, 0.1);
+            border: 2px solid rgba(255, 193, 7, 0.3);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .warning-box p {
+            color: #ffb700;
+            margin: 0;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #0a0a0a;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 2px solid #00ff66;
+            margin-top: 80px;
+        }
+        
+        footer p {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #00ff66;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* RESPONSIVE MOBILE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-toggle {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                gap: 0;
+                padding: 80px 0 20px 0;
+                transition: left 0.3s ease;
+                border-right: 2px solid #00ff66;
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+                justify-content: flex-start;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a {
+                display: block;
+                width: 100%;
+                padding: 20px 30px;
+                font-size: 1.1rem;
+                border-radius: 0;
+            }
+            
+            nav a:hover {
+                background: rgba(0, 255, 102, 0.2);
+                padding-left: 40px;
+            }
+            
+            nav a.active {
+                background: rgba(0, 255, 102, 0.25);
+                border-left: 4px solid #00ff66;
+                border-bottom: none;
+            }
+            
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 999;
+            }
+            
+            .nav-overlay.active {
+                display: block;
+            }
+            
+            .page-header {
+                padding: 40px 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .legal-content {
+                padding: 0 20px;
+                margin: 40px auto;
+            }
+            
+            .legal-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .legal-content h3 {
+                font-size: 1.25rem;
+            }
+            
+            .legal-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span>☰</span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html" class="nav-link">HOME</a></li>
+            <li><a href="shop.html" class="nav-link">SHOP</a></li>
+            <li><a href="qualite-entretien.html" class="nav-link">QUALITÉ</a></li>
+            <li><a href="story.html" class="nav-link">STORY</a></li>
+            <li><a href="legal.html" class="nav-link active">LEGAL</a></li>
+        </ul>
+    </nav>
+    
+    <div class="nav-overlay" id="nav-overlay"></div>
+    
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>Mentions Légales</h1>
+        <p>Informations légales • CGV • Politique de retours • Protection des données</p>
+    </div>
+    
+    <!-- LEGAL CONTENT -->
+    <div class="legal-content">
+        
+        <!-- SECTION 1 : ÉDITEUR -->
+        <h2 id="editeur">Éditeur du site</h2>
+        <p>
+            <strong>REPTILIA</strong><br>
+            Marque en cours de création<br>
+            [Votre nom complet]<br>
+            SIRET : [À compléter une fois obtenu]<br>
+            Adresse : [Votre adresse complète]<br>
+            Code postal : [Code postal]<br>
+            Ville : [Ville]<br>
+            France<br>
+            <br>
+            📧 Email : <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a><br>
+            ☎️ Téléphone : 06 65 82 49 74
+        </p>
+        
+        <div class="warning-box">
+            <p>
+                ⚠️ <strong>Important :</strong> Pour vendre en ligne en France, vous devez créer un statut 
+                auto-entrepreneur sur <a href="https://www.autoentrepreneur.urssaf.fr" target="_blank" style="color: #ffb700; text-decoration: underline;">autoentrepreneur.urssaf.fr</a>. 
+                C'est gratuit et nécessaire avant votre première vente.
+            </p>
+        </div>
+        
+        <h3>Directeur de publication</h3>
+        <p>
+            [Votre prénom] [Votre nom]<br>
+            Email : <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a>
+        </p>
+        
+        <!-- SECTION 2 : HÉBERGEUR -->
+        <h2 id="hebergement">Hébergement</h2>
+        <p>
+            Ce site est hébergé par :<br>
+            <strong>GitHub, Inc.</strong><br>
+            88 Colin P Kelly Jr St<br>
+            San Francisco, CA 94107<br>
+            États-Unis<br>
+            Site web : <a href="https://github.com" target="_blank">github.com</a>
+        </p>
+        
+        <!-- SECTION 3 : CGV -->
+        <h2 id="cgv">Conditions Générales de Vente</h2>
+        
+        <h3>Article 1 - Objet</h3>
+        <p>
+            Les présentes Conditions Générales de Vente (CGV) régissent la vente de produits 
+            REPTILIA (tee-shirts, accessoires) via le site internet <a href="https://reptilien.fr">reptilien.fr</a>.
+        </p>
+        <p>
+            Toute commande implique l'acceptation sans réserve des présentes CGV.
+        </p>
+        
+        <h3>Article 2 - Produits et Prix</h3>
+        <p>
+            Les produits sont décrits et présentés avec la plus grande exactitude possible. 
+            Les prix sont indiqués en euros TTC (Toutes Taxes Comprises).
+        </p>
+        <p>
+            Les frais de livraison sont en sus et calculés avant la validation de la commande.
+        </p>
+        
+        <h3>Article 3 - Commande</h3>
+        <p>
+            La validation de votre commande vaut acceptation des présentes CGV et engagement de paiement.
+        </p>
+        <p>
+            Vous recevrez un email de confirmation de commande à l'adresse email fournie.
+        </p>
+        
+        <h3>Article 4 - Paiement</h3>
+        <p>
+            Le paiement s'effectue de manière sécurisée via Stripe ou PayPal.
+        </p>
+        <p>
+            La commande est traitée et expédiée après confirmation du paiement.
+        </p>
+        
+        <h3>Article 5 - Livraison</h3>
+        <p>
+            <strong>Délais indicatifs :</strong>
+        </p>
+        <ul>
+            <li>France : 5-7 jours ouvrés</li>
+            <li>Europe : 7-10 jours ouvrés</li>
+        </ul>
+        <p>
+            REPTILIA utilise la production à la demande (POD). Un délai de fabrication de 2-3 jours 
+            peut s'ajouter avant l'expédition.
+        </p>
+        <p>
+            Les délais sont donnés à titre indicatif. Un retard de livraison ne peut donner lieu 
+            à l'annulation de la commande ou au versement de dommages et intérêts, sauf en cas 
+            de retard excessif (>30 jours).
+        </p>
+        
+        <h3>Article 6 - Responsabilité</h3>
+        <p>
+            REPTILIA ne peut être tenu responsable de l'inexécution du contrat en cas de force majeure.
+        </p>
+        
+        <!-- SECTION 4 : RETOURS -->
+        <h2 id="retours">Politique de Retours et Remboursements</h2>
+        
+        <h3>Droit de rétractation (14 jours)</h3>
+        <p>
+            Conformément aux articles L221-18 et suivants du Code de la consommation, 
+            vous disposez d'un délai de <strong>14 jours</strong> à compter de la réception 
+            de votre commande pour exercer votre droit de rétractation, sans avoir à justifier 
+            de motifs ni à payer de pénalité.
+        </p>
+        
+        <h3>Conditions de retour</h3>
+        <p>
+            Pour être accepté, le produit retourné doit être :
+        </p>
+        <ul>
+            <li>Dans son emballage d'origine</li>
+            <li>Non porté et non lavé</li>
+            <li>Avec toutes les étiquettes attachées</li>
+            <li>En parfait état de revente</li>
+        </ul>
+        
+        <h3>Procédure de retour</h3>
+        <ol>
+            <li>Contactez-nous à <strong><a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a></strong> 
+                en indiquant votre numéro de commande</li>
+            <li>Nous vous enverrons l'adresse de retour (notre partenaire Printful)</li>
+            <li>Renvoyez le produit à vos frais à l'adresse indiquée</li>
+            <li>Conservez le numéro de suivi de votre envoi</li>
+            <li>Envoyez-nous le numéro de suivi par email</li>
+        </ol>
+        
+        <h3>Remboursement</h3>
+        <p>
+            Une fois le retour reçu et vérifié par notre partenaire (sous 3-5 jours ouvrés), 
+            nous procéderons au remboursement intégral du montant de votre commande 
+            (hors frais de retour) sous <strong>14 jours maximum</strong>.
+        </p>
+        <p>
+            Le remboursement sera effectué via le même moyen de paiement que celui utilisé lors de l'achat.
+        </p>
+        
+        <h3>Frais de retour</h3>
+        <p>
+            Les frais de retour sont à la charge du client, sauf en cas de produit défectueux 
+            ou d'erreur de notre part.
+        </p>
+        
+        <h3>Produits défectueux</h3>
+        <p>
+            Si vous recevez un produit défectueux ou endommagé :
+        </p>
+        <ol>
+            <li>Contactez-nous immédiatement à <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a></li>
+            <li>Joignez des photos du défaut constaté</li>
+            <li>Nous organiserons le retour gratuit et le remplacement ou remboursement</li>
+        </ol>
+        
+        <h3>Exclusions du droit de rétractation</h3>
+        <p>
+            Le droit de rétractation ne peut être exercé pour les produits :
+        </p>
+        <ul>
+            <li>Portés ou lavés</li>
+            <li>Dont les étiquettes ont été retirées</li>
+            <li>Endommagés par le client</li>
+            <li>Retournés au-delà du délai de 14 jours</li>
+        </ul>
+        
+        <div class="warning-box">
+            <p>
+                ⚠️ <strong>Important :</strong> Conservez toujours votre numéro de suivi lors d'un retour. 
+                Sans preuve d'envoi, nous ne pourrons traiter votre demande de remboursement.
+            </p>
+        </div>
+        
+        <!-- SECTION 5 : PROTECTION DES DONNÉES -->
+        <h2 id="donnees">Protection des Données Personnelles</h2>
+        
+        <h3>Responsable du traitement</h3>
+        <p>
+            Le responsable du traitement des données est REPTILIA, 
+            joignable à <a href="mailto:privacy@reptilien.fr">privacy@reptilien.fr</a>.
+        </p>
+        
+        <h3>Données collectées</h3>
+        <p>
+            Nous collectons uniquement les données nécessaires au traitement de votre commande :
+        </p>
+        <ul>
+            <li>Nom et prénom</li>
+            <li>Adresse email</li>
+            <li>Adresse de livraison</li>
+            <li>Numéro de téléphone (optionnel)</li>
+        </ul>
+        
+        <h3>Finalité du traitement</h3>
+        <p>
+            Vos données sont utilisées pour :
+        </p>
+        <ul>
+            <li>Traiter et expédier votre commande</li>
+            <li>Vous contacter concernant votre commande</li>
+            <li>Gérer les retours et remboursements</li>
+            <li>Vous envoyer des informations sur nos produits (avec votre consentement)</li>
+        </ul>
+        
+        <h3>Durée de conservation</h3>
+        <p>
+            Vos données sont conservées pendant la durée nécessaire au traitement de votre commande, 
+            puis archivées conformément aux obligations légales (maximum 10 ans pour les données comptables).
+        </p>
+        
+        <h3>Vos droits (RGPD)</h3>
+        <p>
+            Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi 
+            "Informatique et Libertés", vous disposez des droits suivants :
+        </p>
+        <ul>
+            <li><strong>Droit d'accès :</strong> Connaître les données que nous détenons sur vous</li>
+            <li><strong>Droit de rectification :</strong> Corriger vos données inexactes</li>
+            <li><strong>Droit à l'effacement :</strong> Demander la suppression de vos données</li>
+            <li><strong>Droit d'opposition :</strong> Vous opposer au traitement de vos données</li>
+            <li><strong>Droit à la portabilité :</strong> Récupérer vos données dans un format structuré</li>
+        </ul>
+        <p>
+            Pour exercer ces droits, contactez-nous à : 
+            <a href="mailto:privacy@reptilien.fr">privacy@reptilien.fr</a>
+        </p>
+        
+        <h3>Sécurité</h3>
+        <p>
+            Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées 
+            pour protéger vos données contre tout accès non autorisé, modification, divulgation ou destruction.
+        </p>
+        
+        <!-- SECTION 6 : PROPRIÉTÉ INTELLECTUELLE -->
+        <h2 id="propriete">Propriété Intellectuelle</h2>
+        <p>
+            L'ensemble des contenus présents sur ce site (textes, images, logos, designs, vidéos) 
+            sont la propriété exclusive de REPTILIA et sont protégés par le droit d'auteur et le droit des marques.
+        </p>
+        <p>
+            Toute reproduction, distribution, modification, adaptation, retransmission ou publication 
+            de ces différents éléments est strictement interdite sans l'accord écrit préalable de REPTILIA.
+        </p>
+        
+        <!-- SECTION 7 : DISCLAIMER FICTION -->
+        <h2 id="fiction">Fiction Artistique</h2>
+        
+        <div class="warning-box">
+            <p>
+                ⚠️ <strong>Disclaimer Important :</strong>
+            </p>
+            <p style="margin-top: 15px;">
+                REPTILIA est une marque de <strong>fiction artistique</strong>. 
+                Tous nos contenus (textes, designs, storytelling, mythologies) sont des 
+                <strong>œuvres de fiction</strong> à but artistique, culturel et de divertissement.
+            </p>
+            <p style="margin-top: 15px;">
+                Ils n'ont pas vocation à être pris au premier degré et ne représentent en aucun cas 
+                une position sur l'existence réelle de reptiliens ou de quelconque théorie du complot.
+            </p>
+            <p style="margin-top: 15px;">
+                Nous encourageons l'esprit critique, le questionnement et l'exploration culturelle, 
+                pas la croyance aveugle ou le conspirationnisme.
+            </p>
+        </div>
+        
+        <!-- SECTION 8 : CONTACT -->
+        <h2 id="contact">Contact</h2>
+        <p>
+            Pour toute question concernant les mentions légales, les CGV, les retours ou vos données personnelles :
+        </p>
+        <ul>
+            <li>📧 Email général : <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a></li>
+            <li>📧 Questions juridiques : <a href="mailto:legal@reptilien.fr">legal@reptilien.fr</a></li>
+            <li>📧 Protection des données : <a href="mailto:privacy@reptilien.fr">privacy@reptilien.fr</a></li>
+            <li>☎️ Téléphone : 06 65 82 49 74</li>
+        </ul>
+        <p>
+            Nous nous engageons à répondre sous <strong>24-48 heures</strong>.
+        </p>
+        
+        <p style="margin-top: 40px; text-align: center; color: #666; font-size: 0.9rem;">
+            Dernière mise à jour : 5 février 2026
+        </p>
+        
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 REPTILIA • Fiction artistique</p>
+        <p>
+            <a href="legal.html">Mentions légales</a> • 
+            <a href="qualite-entretien.html">Qualité & Entretien</a> • 
+            <a href="mailto:contact@reptilien.fr">Contact</a>
+        </p>
+    </footer>
+    
+    <!-- JAVASCRIPT -->
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navOverlay = document.getElementById('nav-overlay');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            const icon = navToggle.querySelector('span');
+            icon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        navOverlay.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            navToggle.querySelector('span').textContent = '☰';
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navOverlay.classList.remove('active');
+                navToggle.querySelector('span').textContent = '☰';
+            });
+        });
+    </script>
+</body>
+</html>
