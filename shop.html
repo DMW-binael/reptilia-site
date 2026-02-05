@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REPTILIA - Shop</title>
+    <meta name="description" content="REPTILIA Shop - Collection Awakening. Tee-shirts streetwear premium, designs uniques, qualité Bella+Canvas.">
+    <title>Shop - REPTILIA</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
     <style>
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           BASE STYLES
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
         * {
             margin: 0;
             padding: 0;
@@ -15,16 +23,21 @@
             font-family: 'Arial', sans-serif;
             background: #0a0a0a;
             color: #fff;
+            line-height: 1.6;
         }
         
-        /* Navigation */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           NAVIGATION
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
         nav {
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(10, 10, 10, 0.98);
             padding: 20px 40px;
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 2px solid #00ff66;
+            box-shadow: 0 4px 20px rgba(0, 255, 102, 0.1);
         }
         
         nav ul {
@@ -32,20 +45,55 @@
             display: flex;
             gap: 40px;
             justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin: 0;
         }
         
         nav a {
             color: #fff;
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 5px;
         }
         
         nav a:hover {
             color: #00ff66;
+            background: rgba(0, 255, 102, 0.1);
         }
         
-        /* Shop Header */
+        nav a.active {
+            color: #00ff66;
+            background: rgba(0, 255, 102, 0.15);
+            border-bottom: 2px solid #00ff66;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #00ff66;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .nav-overlay {
+            display: none;
+        }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           SHOP HEADER
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
         .shop-header {
             text-align: center;
             padding: 60px 20px;
@@ -56,6 +104,8 @@
             font-size: 3rem;
             color: #00ff66;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .shop-header p {
@@ -63,16 +113,19 @@
             color: #aaa;
         }
         
-        /* Products Grid */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           PRODUCTS GRID
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
         .products-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 60px auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
         }
         
@@ -93,13 +146,14 @@
         
         .product-image {
             width: 100%;
-            height: 350px;
-            object-fit: contain;
+            height: 400px;
+            object-fit: contain; /* ← CORRECTION : pas "cover" pour éviter couper titre */
             background: #000;
+            padding: 20px;
         }
         
         .product-info {
-            padding: 20px;
+            padding: 25px;
         }
         
         .product-title {
@@ -111,7 +165,7 @@
         .product-description {
             color: #aaa;
             margin-bottom: 15px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
         
         .product-price {
@@ -131,7 +185,10 @@
             margin-top: 10px;
         }
         
-        /* Trust Badges */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           TRUST SECTION
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
         .trust-section {
             background: #1a1a1a;
             padding: 60px 20px;
@@ -166,7 +223,10 @@
             font-size: 0.9rem;
         }
         
-        /* Footer */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           FOOTER
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
         footer {
             background: #0a0a0a;
             padding: 40px 20px;
@@ -188,27 +248,176 @@
         footer a:hover {
             text-decoration: underline;
         }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           RESPONSIVE MOBILE
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        @media (max-width: 768px) {
+            /* Navigation mobile */
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-toggle {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                gap: 0;
+                padding: 80px 0 20px 0;
+                transition: left 0.3s ease;
+                border-right: 2px solid #00ff66;
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+                justify-content: flex-start;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a {
+                display: block;
+                width: 100%;
+                padding: 20px 30px;
+                font-size: 1.1rem;
+                border-radius: 0;
+            }
+            
+            nav a:hover {
+                background: rgba(0, 255, 102, 0.2);
+                padding-left: 40px;
+            }
+            
+            nav a.active {
+                background: rgba(0, 255, 102, 0.25);
+                border-left: 4px solid #00ff66;
+                border-bottom: none;
+            }
+            
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 999;
+            }
+            
+            .nav-overlay.active {
+                display: block;
+            }
+            
+            /* Shop header mobile */
+            .shop-header {
+                padding: 40px 20px;
+            }
+            
+            .shop-header h1 {
+                font-size: 2rem;
+            }
+            
+            .shop-header p {
+                font-size: 1rem;
+            }
+            
+            /* Products mobile */
+            .products-container {
+                padding: 0 20px;
+                margin: 40px auto;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .product-image {
+                height: 300px;
+            }
+            
+            .product-info {
+                padding: 20px;
+            }
+            
+            .product-title {
+                font-size: 1.3rem;
+            }
+            
+            .product-price {
+                font-size: 1.5rem;
+            }
+            
+            /* Trust section mobile */
+            .trust-section {
+                padding: 40px 15px;
+                margin-top: 50px;
+            }
+            
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .trust-icon {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .shop-header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .product-image {
+                height: 250px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <nav>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="shop.html">SHOP</a></li>
-            <li><a href="story.html">STORY</a></li>
-            <li><a href="qualite-entretien.html">QUALITÉ</a></li>
-            <li><a href="legal.html">LEGAL</a></li>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span>☰</span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html" class="nav-link">HOME</a></li>
+            <li><a href="shop.html" class="nav-link active">SHOP</a></li>
+            <li><a href="qualite-entretien.html" class="nav-link">QUALITÉ</a></li>
+            <li><a href="story.html" class="nav-link">STORY</a></li>
+            <li><a href="legal.html" class="nav-link">LEGAL</a></li>
         </ul>
     </nav>
     
-    <!-- Shop Header -->
+    <!-- OVERLAY MOBILE -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+    
+    <!-- SHOP HEADER -->
     <div class="shop-header">
         <h1>SHOP</h1>
-        <p>Collection Awakening • 100 pièces par design</p>
+        <p>Collection Awakening • 100 pièces par design • Édition limitée</p>
     </div>
     
-    <!-- Products Grid -->
+    <!-- PRODUCTS GRID -->
     <div class="products-container">
         <div class="products-grid">
             
@@ -276,9 +485,9 @@
                 </div>
             </div>
             
-            <!-- Product 7: Triangle -->
+            <!-- Product 7: The Observer -->
             <div class="product-card">
-                <img src="triangle.png" alt="REPTILIA - Triangle" class="product-image">
+                <img src="triangle.png" alt="REPTILIA - The Observer" class="product-image">
                 <div class="product-info">
                     <h3 class="product-title">The Observer</h3>
                     <p class="product-description">Triangle, œil, serpent - symboles anciens</p>
@@ -299,12 +508,12 @@
         </div>
     </div>
     
-    <!-- Trust Section -->
+    <!-- TRUST SECTION -->
     <div class="trust-section">
         <div class="trust-grid">
             <div class="trust-item">
                 <div class="trust-icon">🛡️</div>
-                <h4 class="trust-title">30 jours satisfait ou remboursé</h4>
+                <h4 class="trust-title">14 jours satisfait ou remboursé</h4>
                 <p class="trust-text">Retours gratuits sous conditions</p>
             </div>
             <div class="trust-item">
@@ -325,7 +534,7 @@
         </div>
     </div>
     
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 REPTILIA • Fiction artistique</p>
         <p>
@@ -333,10 +542,39 @@
             <a href="qualite-entretien.html">Qualité & Entretien</a> • 
             <a href="mailto:contact@reptilien.fr">Contact</a>
         </p>
-        <p style="margin-top: 20px; font-size: 0.8rem;">
-            ⚠️ REPTILIA est une marque de fiction artistique explorant les mythologies reptiliennes à travers le design. 
+        <p style="margin-top: 20px; font-size: 0.85rem; color: #666;">
+            ⚠️ REPTILIA est une marque de fiction artistique explorant les mythologies reptiliennes. 
             Tous les contenus sont des œuvres de fiction à but artistique et culturel.
         </p>
     </footer>
+    
+    <!-- JAVASCRIPT NAVIGATION MOBILE -->
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navOverlay = document.getElementById('nav-overlay');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            const icon = navToggle.querySelector('span');
+            icon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        navOverlay.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            navToggle.querySelector('span').textContent = '☰';
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navOverlay.classList.remove('active');
+                navToggle.querySelector('span').textContent = '☰';
+            });
+        });
+    </script>
 </body>
 </html>
