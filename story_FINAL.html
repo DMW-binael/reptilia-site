@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="REPTILIA - L'histoire de la marque, fiction artistique, mythologies reptiliennes.">
+    <title>Story - REPTILIA</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            background: rgba(10, 10, 10, 0.98);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #00ff66;
+            box-shadow: 0 4px 20px rgba(0, 255, 102, 0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+        
+        nav a:hover {
+            color: #00ff66;
+            background: rgba(0, 255, 102, 0.1);
+        }
+        
+        nav a.active {
+            color: #00ff66;
+            background: rgba(0, 255, 102, 0.15);
+            border-bottom: 2px solid #00ff66;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #00ff66;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .nav-overlay {
+            display: none;
+        }
+        
+        /* HEADER */
+        .story-header {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        
+        .story-header h1 {
+            font-size: 3.5rem;
+            color: #00ff66;
+            margin-bottom: 20px;
+        }
+        
+        .story-header p {
+            font-size: 1.3rem;
+            color: #aaa;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* STORY SECTIONS */
+        .story-section {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+        
+        .story-section h2 {
+            font-size: 2.5rem;
+            color: #00ff66;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .story-section h3 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 40px 0 20px 0;
+        }
+        
+        .story-section p {
+            color: #ccc;
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+        
+        .quote-box {
+            background: rgba(0, 255, 102, 0.05);
+            border-left: 4px solid #00ff66;
+            padding: 30px;
+            margin: 40px 0;
+            font-style: italic;
+        }
+        
+        .quote-box p {
+            font-size: 1.3rem;
+            color: #00ff66;
+            margin: 0;
+        }
+        
+        .timeline {
+            margin: 60px 0;
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            padding-left: 40px;
+            border-left: 3px solid #333;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '👁️';
+            position: absolute;
+            left: -15px;
+            font-size: 1.5rem;
+            background: #0a0a0a;
+            padding: 5px;
+        }
+        
+        .timeline-item h4 {
+            color: #00ff66;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-item p {
+            color: #bbb;
+        }
+        
+        .warning-disclaimer {
+            background: rgba(255, 193, 7, 0.1);
+            border: 2px solid rgba(255, 193, 7, 0.3);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .warning-disclaimer p {
+            color: #ffb700;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #0a0a0a;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 2px solid #00ff66;
+            margin-top: 80px;
+        }
+        
+        footer p {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #00ff66;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-toggle {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                gap: 0;
+                padding: 80px 0 20px 0;
+                transition: left 0.3s ease;
+                border-right: 2px solid #00ff66;
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+                justify-content: flex-start;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a {
+                display: block;
+                width: 100%;
+                padding: 20px 30px;
+                font-size: 1.1rem;
+                border-radius: 0;
+            }
+            
+            nav a:hover {
+                background: rgba(0, 255, 102, 0.2);
+                padding-left: 40px;
+            }
+            
+            nav a.active {
+                background: rgba(0, 255, 102, 0.25);
+                border-left: 4px solid #00ff66;
+                border-bottom: none;
+            }
+            
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 999;
+            }
+            
+            .nav-overlay.active {
+                display: block;
+            }
+            
+            .story-header {
+                padding: 50px 20px;
+            }
+            
+            .story-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .story-header p {
+                font-size: 1.1rem;
+            }
+            
+            .story-section {
+                padding: 0 20px;
+                margin: 50px auto;
+            }
+            
+            .story-section h2 {
+                font-size: 2rem;
+            }
+            
+            .story-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .story-section p {
+                font-size: 1rem;
+            }
+            
+            .quote-box p {
+                font-size: 1.1rem;
+            }
+            
+            .timeline-item {
+                padding-left: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span>☰</span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html" class="nav-link">HOME</a></li>
+            <li><a href="shop.html" class="nav-link">SHOP</a></li>
+            <li><a href="qualite-entretien.html" class="nav-link">QUALITÉ</a></li>
+            <li><a href="story.html" class="nav-link active">STORY</a></li>
+            <li><a href="legal.html" class="nav-link">LEGAL</a></li>
+        </ul>
+    </nav>
+    
+    <div class="nav-overlay" id="nav-overlay"></div>
+    
+    <!-- HEADER -->
+    <div class="story-header">
+        <h1>REPTILIA</h1>
+        <p>L'histoire d'une marque née d'une fascination pour les mythologies anciennes et les mystères intemporels</p>
+    </div>
+    
+    <!-- STORY CONTENT -->
+    <div class="story-section">
+        
+        <h2>👁️ Genèse</h2>
+        
+        <p>
+            REPTILIA est née d'une question simple mais fascinante : 
+            <strong>Pourquoi toutes les civilisations anciennes parlent-elles de reptiliens ?</strong>
+        </p>
+        
+        <p>
+            Des pyramides d'Égypte aux temples mayas, des textes sumériens aux légendes chinoises, 
+            le serpent — symbole du reptile — est omniprésent. Toujours associé au pouvoir, 
+            à la connaissance cachée, à la transformation.
+        </p>
+        
+        <div class="quote-box">
+            <p>
+                "Les mythes ne meurent jamais. Ils se transforment, s'adaptent, survivent à travers les millénaires. 
+                Peut-être parce qu'ils racontent une vérité plus profonde que l'histoire."
+            </p>
+        </div>
+        
+        <h2>🐍 La Mythologie Reptilienne</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>4000 av. J.-C. - Sumer</h4>
+                <p>
+                    Les Sumériens parlent des <strong>Anunnaki</strong>, des êtres venus du ciel, 
+                    souvent représentés avec des traits reptiliens. Ils auraient apporté la civilisation à l'humanité.
+                </p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>3000 av. J.-C. - Égypte</h4>
+                <p>
+                    <strong>Wadjet</strong>, la déesse serpent, protectrice des pharaons. 
+                    L'œil d'Horus, symbole de pouvoir et de vision, est partout. 
+                    Les pyramides, constructions inexplicables, pointent vers les étoiles.
+                </p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>900 apr. J.-C. - Civilisation Maya</h4>
+                <p>
+                    <strong>Quetzalcoatl</strong>, le serpent à plumes, dieu de la connaissance et de la sagesse. 
+                    Les Mayas parlent de cycles cosmiques, de retour des dieux serpents.
+                </p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>Moyen Âge - Europe</h4>
+                <p>
+                    Les dragons, les basilics, les légendes de créatures reptiliennes gardant des trésors ou des secrets. 
+                    Toujours le même archétype : pouvoir, danger, connaissance interdite.
+                </p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>XXe siècle - Théories modernes</h4>
+                <p>
+                    David Icke et d'autres popularisent l'idée de reptiliens infiltrés dans les élites mondiales. 
+                    Fiction ? Métaphore politique ? Mythe moderne ? Peu importe — l'histoire continue.
+                </p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>2026 - REPTILIA</h4>
+                <p>
+                    Nous transformons ces mythes millénaires en <strong>streetwear</strong>. 
+                    Pas pour convaincre, mais pour <strong>questionner, explorer, créer</strong>.
+                </p>
+            </div>
+        </div>
+        
+        <h2>🎨 La Vision REPTILIA</h2>
+        
+        <h3>Fiction Artistique</h3>
+        <p>
+            REPTILIA n'est pas une marque conspirationniste. Nous ne prétendons pas détenir la vérité. 
+            Nous explorons les <strong>mythologies, les symboles, les archétypes</strong> qui fascinent l'humanité depuis toujours.
+        </p>
+        
+        <h3>Streetwear Alternatif</h3>
+        <p>
+            Le streetwear, c'est la culture urbaine, la contre-culture, l'expression de soi. 
+            REPTILIA mélange esthétique dark, symbolisme ancien et design moderne pour créer des pièces uniques.
+        </p>
+        
+        <h3>Esprit Critique</h3>
+        <p>
+            Porter REPTILIA, c'est afficher une invitation au questionnement. 
+            Ne pas tout croire. Ne rien rejeter totalement. Garder l'esprit ouvert. 
+            <strong>Stay Awake.</strong>
+        </p>
+        
+        <h3>Qualité Premium</h3>
+        <p>
+            Parce qu'une bonne histoire mérite un bon support. Bella+Canvas, impression DTG, 
+            production responsable. Nos designs durent, comme les mythes qu'ils représentent.
+        </p>
+        
+        <h2>🌍 Production Éthique</h2>
+        
+        <p>
+            Nous utilisons le <strong>print-on-demand</strong> (production à la demande). Pourquoi ?
+        </p>
+        
+        <ul style="color: #ccc; margin-left: 30px; line-height: 1.8;">
+            <li><strong>Zéro gaspillage :</strong> On produit uniquement ce qui est commandé</li>
+            <li><strong>Stock minimal :</strong> Pas de surproduction, pas de destruction d'invendus</li>
+            <li><strong>Qualité constante :</strong> Chaque pièce est fabriquée individuellement</li>
+            <li><strong>Respect de l'environnement :</strong> Moins de transport, moins de déchets</li>
+        </ul>
+        
+        <p>
+            Les tee-shirts sont fabriqués par <strong>Printful</strong> en Europe, 
+            dans des usines certifiées respectant les normes sociales et environnementales.
+        </p>
+        
+        <h2>🔮 Et Maintenant ?</h2>
+        
+        <p>
+            REPTILIA est une marque jeune, indépendante, en évolution. 
+            Chaque design raconte une partie de l'histoire. Chaque collection explore un nouveau chapitre.
+        </p>
+        
+        <p>
+            <strong>Collection Awakening</strong> (Phase 1) : L'éveil de la conscience, 
+            la découverte des symboles cachés, le premier pas vers le questionnement.
+        </p>
+        
+        <p>
+            <strong>Phase 2</strong> (à venir) : De nouveaux designs, peut-être des hoodies, des casquettes... 
+            L'histoire continue.
+        </p>
+        
+        <p style="text-align: center; margin-top: 50px; font-size: 1.3rem; color: #00ff66;">
+            Rejoins la tribu. Porte les symboles. Reste éveillé. 👁️
+        </p>
+        
+        <div class="warning-disclaimer">
+            <p>
+                ⚠️ <strong>Disclaimer :</strong> REPTILIA est une marque de fiction artistique. 
+                Tous nos contenus (textes, designs, storytelling) sont des œuvres de fiction 
+                à but artistique, culturel et de divertissement. Ils n'ont pas vocation à être 
+                pris au premier degré. Nous encourageons l'esprit critique et le questionnement, 
+                pas la croyance aveugle.
+            </p>
+        </div>
+        
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 REPTILIA • Fiction artistique</p>
+        <p>
+            <a href="legal.html">Mentions légales</a> • 
+            <a href="qualite-entretien.html">Qualité & Entretien</a> • 
+            <a href="mailto:contact@reptilien.fr">Contact</a>
+        </p>
+    </footer>
+    
+    <!-- JAVASCRIPT -->
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navOverlay = document.getElementById('nav-overlay');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            const icon = navToggle.querySelector('span');
+            icon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        navOverlay.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            navToggle.querySelector('span').textContent = '☰';
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navOverlay.classList.remove('active');
+                navToggle.querySelector('span').textContent = '☰';
+            });
+        });
+    </script>
+</body>
+</html>
