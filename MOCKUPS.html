@@ -1,479 +1,103 @@
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     SYSTÈME MOCKUPS POPUP - À INTÉGRER DANS SHOP.HTML
-     
-     FONCTIONNEMENT :
-     1. Client clique sur produit
-     2. Popup s'ouvre avec mockup(s)
-     3. Peut voir le tee porté
-     4. Ferme popup (X ou overlay)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+{
+    id: 1,
+    name: 'The Awakening',
+    price: '35€',
+    description: 'Reptilien en costume, ville moderne, éveil de conscience. Design iconique de la collection Awakening.',
+    designImage: 'the_awakening.png',
+    mockups: [
+        'mockups/the_awakening_model_female.jpg',  // ← Femme lifestyle
+        'mockups/the_awakening_flat.jpg',          // ← Flat lay
+        'mockups/the_awakening_couple.jpg'         // ← Couple
+    ]
+},
+```
 
-<!-- ═══════════════════════════════════════════════════════════
-     ÉTAPE 1 : CSS À AJOUTER DANS <style> DE SHOP.HTML
-═══════════════════════════════════════════════════════════ -->
+---
 
-<style>
-/* POPUP MOCKUP */
-.mockup-popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10000;
-    align-items: center;
-    justify-content: center;
-}
+## 🎯 **POUR LES 7 AUTRES DESIGNS**
 
-.mockup-popup.active {
-    display: flex;
-}
+### **Tu as 2 options :**
 
-.mockup-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    cursor: pointer;
-}
+#### **OPTION A - Générer sur Printful (Gratuit)**
 
-.mockup-content {
-    position: relative;
-    background: #1a1a1a;
-    border: 2px solid #00ff66;
-    border-radius: 10px;
-    max-width: 1000px;
-    max-height: 90vh;
-    width: 90%;
-    padding: 40px;
-    z-index: 10001;
-    overflow-y: auto;
-}
+**Pour chaque design :**
+1. File Library → Upload design
+2. Create product → Bella+Canvas 3001 Black
+3. Generate mockups → Model Female + Flat + Couple (si dispo)
+4. Download
+5. Renommer : `nom_design_type.jpg`
+6. Upload dans mockups/
 
-.mockup-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    color: #00ff66;
-    font-size: 2rem;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-}
+**Temps : ~3 min par design = 21 min pour les 7**
 
-.mockup-close:hover {
-    transform: rotate(90deg);
-    color: #fff;
-}
+#### **OPTION B - Utiliser seulement design (Temporaire)**
 
-.mockup-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
+**Le système popup a un fallback :**
+- Si mockup manquant → Affiche le design PNG
+- Pas idéal mais fonctionnel
+- Tu peux générer mockups plus tard
 
-.mockup-title {
-    font-size: 2rem;
-    color: #00ff66;
-    margin-bottom: 10px;
-}
+---
 
-.mockup-price {
-    font-size: 1.5rem;
-    color: #fff;
-    font-weight: 700;
-}
+## 💡 **MA RECOMMANDATION**
 
-.mockup-images {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
-}
+### **MAINTENANT (10 MIN) :**
+```
+✅ Renomme les 3 mockups The Awakening
+✅ Upload dans mockups/ sur GitHub
+✅ Intègre système popup dans shop.html
+✅ Teste avec The Awakening
+✅ Valide que ça fonctionne
+```
 
-.mockup-image-container {
-    background: #000;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid #333;
-}
+### **CETTE SEMAINE (30 MIN) :**
+```
+1. Génère mockups pour les 3 best-sellers :
+   - They Are Among Us
+   - Cold Blood Society
+   - Stay Awake
+2. Upload
+3. Les 4 autres : plus tard
+```
 
-.mockup-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+### **PLUS TARD :**
+```
+- Mockups des 4 designs restants
+- Variantes (dos, autres modèles)
+- Lifestyle shots urbains
+```
 
-.mockup-description {
-    color: #ccc;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    text-align: center;
-}
+---
 
-.mockup-cta {
-    display: block;
-    width: 100%;
-    background: #00ff66;
-    color: #000;
-    padding: 18px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
+## ✅ **CHECKLIST IMMÉDIATE**
 
-.mockup-cta:hover {
-    background: #00cc52;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0, 255, 102, 0.4);
-}
+- [ ] Renommer 3 mockups (the_awakening_xxx.jpg)
+- [ ] Créer dossier mockups/ sur GitHub
+- [ ] Upload 3 mockups
+- [ ] Vérifier URLs accessibles
+- [ ] Copier code SYSTEME_MOCKUPS_COMPLET dans shop.html
+- [ ] Update JavaScript avec vrais chemins mockups
+- [ ] Commit shop.html
+- [ ] Tester reptilien.fr/shop.html
+- [ ] Cliquer The Awakening
+- [ ] Popup avec 3 mockups s'affiche ! 🎉
 
-.mockup-info {
-    margin-top: 20px;
-    padding: 20px;
-    background: rgba(0, 255, 102, 0.1);
-    border: 2px solid rgba(0, 255, 102, 0.3);
-    border-radius: 10px;
-}
+---
 
-.mockup-info h4 {
-    color: #00ff66;
-    margin-bottom: 10px;
-}
+## 🎨 **APERÇU RÉSULTAT**
 
-.mockup-info ul {
-    color: #ccc;
-    margin-left: 20px;
-}
-
-/* RESPONSIVE MOBILE */
-@media (max-width: 768px) {
-    .mockup-content {
-        width: 95%;
-        padding: 30px 20px;
-        max-height: 85vh;
-    }
-    
-    .mockup-title {
-        font-size: 1.5rem;
-    }
-    
-    .mockup-price {
-        font-size: 1.2rem;
-    }
-    
-    .mockup-images {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .mockup-cta {
-        padding: 15px;
-        font-size: 1rem;
-    }
-}
-</style>
-
-<!-- ═══════════════════════════════════════════════════════════
-     ÉTAPE 2 : HTML POPUP À AJOUTER AVANT </body> DANS SHOP.HTML
-═══════════════════════════════════════════════════════════ -->
-
-<div id="mockup-popup" class="mockup-popup">
-    <div class="mockup-overlay" onclick="closeMockupPopup()"></div>
-    <div class="mockup-content">
-        <button class="mockup-close" onclick="closeMockupPopup()">✕</button>
-        
-        <div class="mockup-header">
-            <h3 class="mockup-title" id="popup-title"></h3>
-            <p class="mockup-price" id="popup-price"></p>
-        </div>
-        
-        <div class="mockup-images" id="popup-images">
-            <!-- Images injectées dynamiquement par JavaScript -->
-        </div>
-        
-        <p class="mockup-description" id="popup-description"></p>
-        
-        <button class="mockup-cta" onclick="alert('Boutique Shopify bientôt disponible !')">
-            ACHETER MAINTENANT
-        </button>
-        
-        <div class="mockup-info">
-            <h4>🏆 Qualité Premium</h4>
-            <ul>
-                <li>Bella+Canvas 3001 - 100% coton peigné</li>
-                <li>Impression DTG haute définition</li>
-                <li>Livraison France : 5-7 jours</li>
-                <li>Retours : 14 jours satisfait ou remboursé</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════
-     ÉTAPE 3 : JAVASCRIPT À AJOUTER AVANT </body> DANS SHOP.HTML
-═══════════════════════════════════════════════════════════ -->
-
-<script>
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// BASE DE DONNÉES PRODUITS AVEC MOCKUPS
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-const products = [
-    {
-        id: 1,
-        name: 'The Awakening',
-        price: '35€',
-        description: 'Reptilien en costume, ville moderne, éveil de conscience. Design iconique de la collection Awakening.',
-        designImage: 'the_awakening.png',
-        mockups: [
-            'mockups/the_awakening_front.jpg',
-            'mockups/the_awakening_back.jpg',
-            'mockups/the_awakening_model.jpg'
-        ]
-    },
-    {
-        id: 2,
-        name: 'They Are Among Us',
-        price: '35€',
-        description: 'Infiltration silencieuse, présence cachée. Ils observent, ils attendent.',
-        designImage: 'they_are_among_us.png',
-        mockups: [
-            'mockups/they_are_among_us_front.jpg',
-            'mockups/they_are_among_us_model.jpg'
-        ]
-    },
-    {
-        id: 3,
-        name: 'Cold Blood Society',
-        price: '39€',
-        description: "L'aristocratie reptilienne, le pouvoir absolu. Design premium avec détails raffinés.",
-        designImage: 'cold_blood_society.png',
-        mockups: [
-            'mockups/cold_blood_society_front.jpg',
-            'mockups/cold_blood_society_model.jpg'
-        ]
-    },
-    {
-        id: 4,
-        name: 'Stay Awake',
-        price: '32€',
-        description: 'Vigilance constante, conscience éveillée. Ne ferme jamais les yeux.',
-        designImage: 'stay_awake.png',
-        mockups: [
-            'mockups/stay_awake_front.jpg',
-            'mockups/stay_awake_model.jpg'
-        ]
-    },
-    {
-        id: 5,
-        name: 'Lizard Eye',
-        price: '35€',
-        description: "L'œil qui voit tout, symbole de surveillance et de connaissance cachée.",
-        designImage: 'lizard_eye.png',
-        mockups: [
-            'mockups/lizard_eye_front.jpg',
-            'mockups/lizard_eye_model.jpg'
-        ]
-    },
-    {
-        id: 6,
-        name: 'Decode the Scale',
-        price: '32€',
-        description: 'Déchiffre les codes, comprends les symboles. La vérité est dans les détails.',
-        designImage: 'decode_the_scale.png',
-        mockups: [
-            'mockups/decode_the_scale_front.jpg',
-            'mockups/decode_the_scale_model.jpg'
-        ]
-    },
-    {
-        id: 7,
-        name: 'The Observer',
-        price: '35€',
-        description: 'Triangle, œil, serpent - symboles anciens de pouvoir et de connaissance.',
-        designImage: 'triangle.png',
-        mockups: [
-            'mockups/the_observer_front.jpg',
-            'mockups/the_observer_model.jpg'
-        ]
-    },
-    {
-        id: 8,
-        name: 'Sacred Circle',
-        price: '35€',
-        description: 'Cercle sacré, ouroboros, cycle éternel. Le serpent qui se mord la queue.',
-        designImage: 'cercle.png',
-        mockups: [
-            'mockups/sacred_circle_front.jpg',
-            'mockups/sacred_circle_model.jpg'
-        ]
-    }
-];
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// FONCTIONS POPUP
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-function openMockupPopup(productId) {
-    const product = products.find(p => p.id === productId);
-    if (!product) return;
-    
-    // Remplir popup avec infos produit
-    document.getElementById('popup-title').textContent = product.name;
-    document.getElementById('popup-price').textContent = product.price;
-    document.getElementById('popup-description').textContent = product.description;
-    
-    // Créer galerie images
-    const imagesContainer = document.getElementById('popup-images');
-    imagesContainer.innerHTML = '';
-    
-    product.mockups.forEach(mockupUrl => {
-        const container = document.createElement('div');
-        container.className = 'mockup-image-container';
-        
-        const img = document.createElement('img');
-        img.src = mockupUrl;
-        img.alt = `${product.name} - Mockup`;
-        img.className = 'mockup-image';
-        
-        // Fallback si image mockup pas encore uploadée
-        img.onerror = function() {
-            this.src = product.designImage; // Affiche design si mockup manquant
-        };
-        
-        container.appendChild(img);
-        imagesContainer.appendChild(container);
-    });
-    
-    // Afficher popup
-    document.getElementById('mockup-popup').classList.add('active');
-    document.body.style.overflow = 'hidden'; // Bloquer scroll
-}
-
-function closeMockupPopup() {
-    document.getElementById('mockup-popup').classList.remove('active');
-    document.body.style.overflow = 'auto'; // Réactiver scroll
-}
-
-// Fermer avec touche Escape
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeMockupPopup();
-    }
-});
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ATTACHER ÉVÉNEMENTS AUX CARTES PRODUITS
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-document.addEventListener('DOMContentLoaded', function() {
-    const productCards = document.querySelectorAll('.product-card');
-    
-    productCards.forEach((card, index) => {
-        card.addEventListener('click', function() {
-            openMockupPopup(index + 1); // ID produit = index + 1
-        });
-        
-        // Changer curseur
-        card.style.cursor = 'pointer';
-    });
-});
-</script>
-
-<!-- ═══════════════════════════════════════════════════════════
-     ÉTAPE 4 : STRUCTURE DOSSIER MOCKUPS SUR GITHUB
-═══════════════════════════════════════════════════════════ -->
-
-<!--
-CRÉER DOSSIER "mockups" à la racine de GitHub :
-
-reptilien.fr/
-├── index.html
-├── shop.html
-├── the_awakening.png
-├── mockups/
-│   ├── the_awakening_front.jpg        (tee face)
-│   ├── the_awakening_back.jpg         (tee dos - optionnel)
-│   ├── the_awakening_model.jpg        (tee porté)
-│   ├── they_are_among_us_front.jpg
-│   ├── they_are_among_us_model.jpg
-│   ├── cold_blood_society_front.jpg
-│   ├── cold_blood_society_model.jpg
-│   ├── stay_awake_front.jpg
-│   ├── stay_awake_model.jpg
-│   ├── lizard_eye_front.jpg
-│   ├── lizard_eye_model.jpg
-│   ├── decode_the_scale_front.jpg
-│   ├── decode_the_scale_model.jpg
-│   ├── the_observer_front.jpg
-│   ├── the_observer_model.jpg
-│   ├── sacred_circle_front.jpg
-│   └── sacred_circle_model.jpg
-
-TOTAL : 16-24 images mockups (2-3 par design)
--->
-
-<!-- ═══════════════════════════════════════════════════════════
-     ÉTAPE 5 : COMMENT GÉNÉRER LES MOCKUPS (PRINTFUL)
-═══════════════════════════════════════════════════════════ -->
-
-<!--
-OPTION A - Printful Mockup Generator (GRATUIT) :
-
-1. Va sur printful.com
-2. Connecte-toi
-3. Design Library → Sélectionne un design
-4. "Generate mockup"
-5. Choisis :
-   - Bella+Canvas 3001 Black
-   - Flat lay (tee à plat)
-   - Model (tee porté)
-6. Télécharge images
-7. Renomme : the_awakening_front.jpg, the_awakening_model.jpg
-8. Upload dans dossier mockups/ sur GitHub
-
-OPTION B - Placeit.net (PAYANT mais PRO) :
-- Templates professionnels
-- Modèles variés
-- Backgrounds lifestyle
-- ~15€/mois
-
-OPTION C - DIY (GRATUIT mais chronophage) :
-- Canva + templates gratuits
-- Photoshop + mockup PSD gratuits
-- Qualité moyenne
--->
-
-<!-- ═══════════════════════════════════════════════════════════
-     EXEMPLE D'UTILISATION DANS SHOP.HTML
-═══════════════════════════════════════════════════════════ -->
-
-<!--
-DANS SHOP.HTML, CHAQUE PRODUIT DEVIENT :
-
-<div class="product-card">
-    <img src="the_awakening.png" alt="The Awakening" class="product-image">
-    <div class="product-info">
-        <h3 class="product-title">The Awakening</h3>
-        <p class="product-description">Reptilien en costume, ville moderne</p>
-        <p class="product-price">35€</p>
-        <span class="product-badge">BEST-SELLER</span>
-    </div>
-</div>
-
-PAS BESOIN DE CHANGER LE HTML !
-Le JavaScript détecte automatiquement le clic et ouvre le popup ! ✅
--->
+**Quand client clique sur The Awakening :**
+```
+POPUP S'OUVRE :
+┌─────────────────────────────────────┐
+│  THE AWAKENING          35€         │
+├─────────────────────────────────────┤
+│                                      │
+│  [Mockup Femme] [Flat] [Couple]    │
+│     Lifestyle      Detail  Unisexe  │
+│                                      │
+├─────────────────────────────────────┤
+│  Reptilien en costume, ville...     │
+│  [ACHETER MAINTENANT]               │
+│  🏆 Bella+Canvas • Livraison 5-7j   │
+└─────────────────────────────────────┘
