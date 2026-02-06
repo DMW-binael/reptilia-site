@@ -1,0 +1,11 @@
+# robots.txt pour reptilien.fr
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://reptilien.fr/sitemap.xml
+
+# Fichiers à ne pas indexer
+Disallow: /assets/
+Disallow: /404.html
