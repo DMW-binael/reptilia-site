@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="REPTILIA Shop - Collection Awakening. Tee-shirts streetwear premium, designs uniques, qualité Bella+Canvas.">
+    <title>Shop - REPTILIA</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <style>
+        /* BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            background: rgba(10, 10, 10, 0.98);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #00ff66;
+            box-shadow: 0 4px 20px rgba(0, 255, 102, 0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+        
+        nav a:hover {
+            color: #00ff66;
+            background: rgba(0, 255, 102, 0.1);
+        }
+        
+        nav a.active {
+            color: #00ff66;
+            background: rgba(0, 255, 102, 0.15);
+            border-bottom: 2px solid #00ff66;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #00ff66;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .nav-overlay {
+            display: none;
+        }
+        
+        /* SHOP HEADER */
+        .shop-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        
+        .shop-header h1 {
+            font-size: 3rem;
+            color: #00ff66;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .shop-header p {
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+        
+        /* PRODUCTS GRID */
+        .products-container {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        .product-card {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: #00ff66;
+            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.3);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background: #000;
+            padding: 20px;
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-title {
+            font-size: 1.5rem;
+            color: #00ff66;
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            color: #aaa;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .product-badge {
+            display: inline-block;
+            background: #00ff66;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        /* MOCKUP POPUP */
+        .mockup-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mockup-popup.active {
+            display: flex;
+        }
+        
+        .mockup-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            cursor: pointer;
+        }
+        
+        .mockup-content {
+            position: relative;
+            background: #1a1a1a;
+            border: 2px solid #00ff66;
+            border-radius: 10px;
+            max-width: 1000px;
+            max-height: 90vh;
+            width: 90%;
+            padding: 40px;
+            z-index: 10001;
+            overflow-y: auto;
+        }
+        
+        .mockup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #00ff66;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .mockup-close:hover {
+            transform: rotate(90deg);
+            color: #fff;
+        }
+        
+        .mockup-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .mockup-title {
+            font-size: 2rem;
+            color: #00ff66;
+            margin-bottom: 10px;
+        }
+        
+        .mockup-price {
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 700;
+        }
+        
+        .mockup-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .mockup-image-container {
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #333;
+        }
+        
+        .mockup-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .mockup-description {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .mockup-cta {
+            display: block;
+            width: 100%;
+            background: #00ff66;
+            color: #000;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .mockup-cta:hover {
+            background: #00cc52;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 102, 0.4);
+        }
+        
+        .mockup-info {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 255, 102, 0.1);
+            border: 2px solid rgba(0, 255, 102, 0.3);
+            border-radius: 10px;
+        }
+        
+        .mockup-info h4 {
+            color: #00ff66;
+            margin-bottom: 10px;
+        }
+        
+        .mockup-info ul {
+            color: #ccc;
+            margin-left: 20px;
+        }
+        
+        /* TRUST SECTION */
+        .trust-section {
+            background: #1a1a1a;
+            padding: 60px 20px;
+            margin-top: 80px;
+        }
+        
+        .trust-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .trust-item {
+            text-align: center;
+        }
+        
+        .trust-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .trust-title {
+            color: #00ff66;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .trust-text {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #0a0a0a;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 2px solid #00ff66;
+            margin-top: 80px;
+        }
+        
+        footer p {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #00ff66;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* RESPONSIVE MOBILE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-toggle {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                gap: 0;
+                padding: 80px 0 20px 0;
+                transition: left 0.3s ease;
+                border-right: 2px solid #00ff66;
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+                justify-content: flex-start;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a {
+                display: block;
+                width: 100%;
+                padding: 20px 30px;
+                font-size: 1.1rem;
+                border-radius: 0;
+            }
+            
+            nav a:hover {
+                background: rgba(0, 255, 102, 0.2);
+                padding-left: 40px;
+            }
+            
+            nav a.active {
+                background: rgba(0, 255, 102, 0.25);
+                border-left: 4px solid #00ff66;
+                border-bottom: none;
+            }
+            
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 999;
+            }
+            
+            .nav-overlay.active {
+                display: block;
+            }
+            
+            .shop-header {
+                padding: 40px 20px;
+            }
+            
+            .shop-header h1 {
+                font-size: 2rem;
+            }
+            
+            .products-container {
+                padding: 0 20px;
+                margin: 40px auto;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .product-image {
+                height: 300px;
+            }
+            
+            .mockup-content {
+                width: 95%;
+                padding: 30px 20px;
+                max-height: 85vh;
+            }
+            
+            .mockup-title {
+                font-size: 1.5rem;
+            }
+            
+            .mockup-images {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span>☰</span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html" class="nav-link">HOME</a></li>
+            <li><a href="shop.html" class="nav-link active">SHOP</a></li>
+            <li><a href="qualite-entretien.html" class="nav-link">QUALITÉ</a></li>
+            <li><a href="story.html" class="nav-link">STORY</a></li>
+            <li><a href="legal.html" class="nav-link">LEGAL</a></li>
+        </ul>
+    </nav>
+    
+    <div class="nav-overlay" id="nav-overlay"></div>
+    
+    <!-- SHOP HEADER -->
+    <div class="shop-header">
+        <h1>SHOP</h1>
+        <p>Collection Awakening • 100 pièces par design • Édition limitée</p>
+    </div>
+    
+    <!-- PRODUCTS GRID -->
+    <div class="products-container">
+        <div class="products-grid">
+            
+            <!-- Product 1: The Awakening -->
+            <div class="product-card" data-product-id="1">
+                <img src="the_awakening.png" alt="REPTILIA - The Awakening" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">The Awakening</h3>
+                    <p class="product-description">Reptilien en costume, ville moderne, éveil de conscience</p>
+                    <p class="product-price">35€</p>
+                    <span class="product-badge">BEST-SELLER</span>
+                </div>
+            </div>
+            
+            <!-- Product 2: They Are Among Us -->
+            <div class="product-card" data-product-id="2">
+                <img src="they_are_among_us.png" alt="REPTILIA - They Are Among Us" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">They Are Among Us</h3>
+                    <p class="product-description">Infiltration silencieuse, présence cachée</p>
+                    <p class="product-price">35€</p>
+                    <span class="product-badge">ICONIQUE</span>
+                </div>
+            </div>
+            
+            <!-- Product 3: Cold Blood Society -->
+            <div class="product-card" data-product-id="3">
+                <img src="cold_blood_society.png" alt="REPTILIA - Cold Blood Society" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Cold Blood Society</h3>
+                    <p class="product-description">L'aristocratie reptilienne, le pouvoir absolu</p>
+                    <p class="product-price">39€</p>
+                    <span class="product-badge">PREMIUM</span>
+                </div>
+            </div>
+            
+            <!-- Product 4: Stay Awake -->
+            <div class="product-card" data-product-id="4">
+                <img src="stay_awake.png" alt="REPTILIA - Stay Awake" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Stay Awake</h3>
+                    <p class="product-description">Vigilance constante, conscience éveillée</p>
+                    <p class="product-price">32€</p>
+                </div>
+            </div>
+            
+            <!-- Product 5: Lizard Eye -->
+            <div class="product-card" data-product-id="5">
+                <img src="lizard_eye.png" alt="REPTILIA - Lizard Eye" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Lizard Eye</h3>
+                    <p class="product-description">L'œil qui voit tout, symbole de surveillance</p>
+                    <p class="product-price">35€</p>
+                    <span class="product-badge">CULT</span>
+                </div>
+            </div>
+            
+            <!-- Product 6: Decode the Scale -->
+            <div class="product-card" data-product-id="6">
+                <img src="decode_the_scale.png" alt="REPTILIA - Decode the Scale" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Decode the Scale</h3>
+                    <p class="product-description">Déchiffre les codes, comprends les symboles</p>
+                    <p class="product-price">32€</p>
+                </div>
+            </div>
+            
+            <!-- Product 7: The Observer -->
+            <div class="product-card" data-product-id="7">
+                <img src="triangle.png" alt="REPTILIA - The Observer" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">The Observer</h3>
+                    <p class="product-description">Triangle, œil, serpent - symboles anciens</p>
+                    <p class="product-price">35€</p>
+                </div>
+            </div>
+            
+            <!-- Product 8: Sacred Circle -->
+            <div class="product-card" data-product-id="8">
+                <img src="cercle.png" alt="REPTILIA - Sacred Circle" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Sacred Circle</h3>
+                    <p class="product-description">Cercle sacré, ouroboros, cycle éternel</p>
+                    <p class="product-price">35€</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- TRUST SECTION -->
+    <div class="trust-section">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="trust-icon">🛡️</div>
+                <h4 class="trust-title">14 jours satisfait ou remboursé</h4>
+                <p class="trust-text">Retours gratuits sous conditions</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🌱</div>
+                <h4 class="trust-title">Production responsable</h4>
+                <p class="trust-text">Print-on-demand, zéro gaspillage</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🔒</div>
+                <h4 class="trust-title">Paiement sécurisé</h4>
+                <p class="trust-text">Stripe & PayPal</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🚚</div>
+                <h4 class="trust-title">Livraison rapide</h4>
+                <p class="trust-text">France 5-7 jours, Europe 7-10 jours</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MOCKUP POPUP -->
+    <div id="mockup-popup" class="mockup-popup">
+        <div class="mockup-overlay" onclick="closeMockupPopup()"></div>
+        <div class="mockup-content">
+            <button class="mockup-close" onclick="closeMockupPopup()">✕</button>
+            
+            <div class="mockup-header">
+                <h3 class="mockup-title" id="popup-title"></h3>
+                <p class="mockup-price" id="popup-price"></p>
+            </div>
+            
+            <div class="mockup-images" id="popup-images"></div>
+            
+            <p class="mockup-description" id="popup-description"></p>
+            
+            <button class="mockup-cta" onclick="alert('Boutique Shopify bientôt disponible ! 🚀')">
+                ACHETER MAINTENANT
+            </button>
+            
+            <div class="mockup-info">
+                <h4>🏆 Qualité Premium</h4>
+                <ul>
+                    <li>Bella+Canvas 3001 - 100% coton peigné</li>
+                    <li>Impression DTG haute définition</li>
+                    <li>Livraison France : 5-7 jours</li>
+                    <li>Retours : 14 jours satisfait ou remboursé</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 REPTILIA • Fiction artistique</p>
+        <p>
+            <a href="legal.html">Mentions légales</a> • 
+            <a href="qualite-entretien.html">Qualité & Entretien</a> • 
+            <a href="/cdn-cgi/l/email-protection#73101c1d0712100733011603071a1f1a161d5d1501">Contact</a>
+        </p>
+        <p style="margin-top: 20px; font-size: 0.85rem; color: #666;">
+            ⚠️ REPTILIA est une marque de fiction artistique explorant les mythologies reptiliennes. 
+            Tous les contenus sont des œuvres de fiction à but artistique et culturel.
+        </p>
+    </footer>
+    
+    <!-- JAVASCRIPT -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // BASE DE DONNÉES PRODUITS
+        const products = [
+            {
+                id: 1,
+                name: 'The Awakening',
+                price: '35€',
+                description: 'Reptilien en costume, ville moderne, éveil de conscience. Design iconique de la collection Awakening.',
+                designImage: 'the_awakening.png',
+                mockups: [
+                    'mockups/the_awakening_model.jpg',
+                    'mockups/the_awakening_flat.jpg',
+                    'mockups/the_awakening_lifestyle.jpg'
+                ]
+            },
+            {
+                id: 2,
+                name: 'They Are Among Us',
+                price: '35€',
+                description: 'Infiltration silencieuse, présence cachée. Ils observent, ils attendent.',
+                designImage: 'they_are_among_us.png',
+                mockups: [
+                    'mockups/they_are_among_us_model.jpg',
+                    'mockups/they_are_among_us_flat.jpg'
+                ]
+            },
+            {
+                id: 3,
+                name: 'Cold Blood Society',
+                price: '39€',
+                description: "L'aristocratie reptilienne, le pouvoir absolu. Design premium avec détails raffinés.",
+                designImage: 'cold_blood_society.png',
+                mockups: [
+                    'mockups/cold_blood_society_model.jpg',
+                    'mockups/cold_blood_society_flat.jpg',
+                    'mockups/cold_blood_society_lifestyle.jpg'
+                ]
+            },
+            {
+                id: 4,
+                name: 'Stay Awake',
+                price: '32€',
+                description: 'Vigilance constante, conscience éveillée. Ne ferme jamais les yeux.',
+                designImage: 'stay_awake.png',
+                mockups: [
+                    'mockups/stay_awake_model.jpg',
+                    'mockups/stay_awake_flat.jpg'
+                ]
+            },
+            {
+                id: 5,
+                name: 'Lizard Eye',
+                price: '35€',
+                description: "L'œil qui voit tout, symbole de surveillance et de connaissance cachée.",
+                designImage: 'lizard_eye.png',
+                mockups: [
+                    'mockups/lizard_eye_model.jpg',
+                    'mockups/lizard_eye_flat.jpg'
+                ]
+            },
+            {
+                id: 6,
+                name: 'Decode the Scale',
+                price: '32€',
+                description: 'Déchiffre les codes, comprends les symboles. La vérité est dans les détails.',
+                designImage: 'decode_the_scale.png',
+                mockups: [
+                    'mockups/decode_the_scale_model.jpg',
+                    'mockups/decode_the_scale_flat.jpg'
+                ]
+            },
+            {
+                id: 7,
+                name: 'The Observer',
+                price: '35€',
+                description: 'Triangle, œil, serpent - symboles anciens de pouvoir et de connaissance.',
+                designImage: 'triangle.png',
+                mockups: [
+                    'mockups/the_observer_model.jpg',
+                    'mockups/the_observer_flat.jpg'
+                ]
+            },
+            {
+                id: 8,
+                name: 'Sacred Circle',
+                price: '35€',
+                description: 'Cercle sacré, ouroboros, cycle éternel. Le serpent qui se mord la queue.',
+                designImage: 'cercle.png',
+                mockups: [
+                    'mockups/sacred_circle_model.jpg',
+                    'mockups/sacred_circle_flat.jpg'
+                ]
+            }
+        ];
+        
+        // FONCTIONS POPUP
+        function openMockupPopup(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            document.getElementById('popup-title').textContent = product.name;
+            document.getElementById('popup-price').textContent = product.price;
+            document.getElementById('popup-description').textContent = product.description;
+            
+            const imagesContainer = document.getElementById('popup-images');
+            imagesContainer.innerHTML = '';
+            
+            // Si mockups disponibles, les afficher
+            if (product.mockups && product.mockups.length > 0) {
+                product.mockups.forEach(mockupUrl => {
+                    const container = document.createElement('div');
+                    container.className = 'mockup-image-container';
+                    
+                    const img = document.createElement('img');
+                    img.src = mockupUrl;
+                    img.alt = `${product.name} - Mockup`;
+                    img.className = 'mockup-image';
+                    
+                    // Fallback si mockup pas trouvé
+                    img.onerror = function() {
+                        this.src = product.designImage;
+                    };
+                    
+                    container.appendChild(img);
+                    imagesContainer.appendChild(container);
+                });
+            } else {
+                // Sinon afficher juste le design
+                const container = document.createElement('div');
+                container.className = 'mockup-image-container';
+                
+                const img = document.createElement('img');
+                img.src = product.designImage;
+                img.alt = product.name;
+                img.className = 'mockup-image';
+                
+                container.appendChild(img);
+                imagesContainer.appendChild(container);
+            }
+            
+            document.getElementById('mockup-popup').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMockupPopup() {
+            document.getElementById('mockup-popup').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // ÉVÉNEMENTS
+        document.addEventListener('DOMContentLoaded', function() {
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-product-id'));
+                    openMockupPopup(productId);
+                });
+            });
+        });
+        
+        // Fermer avec Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMockupPopup();
+            }
+        });
+        
+        // Navigation mobile
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navOverlay = document.getElementById('nav-overlay');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            const icon = navToggle.querySelector('span');
+            icon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        navOverlay.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            navToggle.querySelector('span').textContent = '☰';
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navOverlay.clas
