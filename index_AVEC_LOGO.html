@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPTILIA • Awakening</title>
+    <meta name="description" content="REPTILIA - Streetwear qui éveille les consciences. Fiction artistique, designs uniques, univers immersif.">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #111;
+            --accent: #00ff66;
+            --link: #0ff;
+            --text: #eee;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: rgba(17, 17, 17, 0.95);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 102, 0.3));
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover .logo-img {
+            transform: scale(1.1);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: #888;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .cta-btn {
+            background: var(--accent);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .cta-btn:hover {
+            background: var(--link);
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.4);
+        }
+        
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 102, 0.15) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+        }
+        
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 40px;
+            filter: drop-shadow(0 0 30px rgba(0, 255, 102, 0.5));
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero h1 {
+            font-size: 6rem;
+            color: var(--accent);
+            letter-spacing: 15px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 40px rgba(0, 255, 102, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: #aaa;
+            margin-bottom: 50px;
+            letter-spacing: 3px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+        }
+        
+        .btn-primary:hover {
+            background: var(--link);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.5);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--text);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .section {
+            padding: 100px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            color: var(--accent);
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .section-desc {
+            color: #888;
+            font-size: 1.2rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .product-card {
+            background: var(--panel);
+            border: 1px solid #222;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 255, 102, 0.2);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 400px;
+            background: #000;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-name {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .product-desc {
+            color: #888;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            color: var(--text);
+            font-weight: 700;
+        }
+        
+        .story-section {
+            background: linear-gradient(180deg, #000 0%, #0a0a0a 50%, #000 100%);
+            padding: 100px 20px;
+        }
+        
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .story-content h2 {
+            font-size: 3rem;
+            color: var(--link);
+            margin-bottom: 40px;
+            letter-spacing: 5px;
+        }
+        
+        .story-content p {
+            font-size: 1.3rem;
+            color: #aaa;
+            line-height: 2;
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            background: var(--panel);
+            padding: 60px 20px 20px;
+            border-top: 1px solid #222;
+        }
+        
+        .footer-disclaimer {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            background: rgba(255, 51, 102, 0.05);
+            border: 1px solid rgba(255, 51, 102, 0.3);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .footer-disclaimer h4 {
+            color: #ff3366;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .footer-disclaimer p {
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .footer-disclaimer a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            text-align: center;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+                letter-spacing: 5px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+                letter-spacing: 3px;
+            }
+            
+            .hero-logo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="logo_reptilia.png" alt="REPTILIA Logo" class="logo-img">
+                <span class="logo-text">REPTILIA</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="shop.html">Shop</a>
+                <a href="reptilia_evolution_final.html">Évolution</a>
+                <a href="simulation.html">Simulation</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="cold-blood-society.html" class="cta-btn">Rejoindre</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="logo_reptilia.png" alt="REPTILIA" class="hero-logo">
+            <h1>REPTILIA</h1>
+            <p class="hero-subtitle">ILS SONT PARMI NOUS</p>
+            <p style="color: #888; font-size: 1.2rem; margin-bottom: 40px;">
+                Streetwear • Fiction • Éveil
+            </p>
+            <div class="hero-buttons">
+                <a href="shop.html" class="btn btn-primary">DÉCOUVRIR LA COLLECTION</a>
+                <a href="quiz.html" class="btn btn-secondary">QUEL REPTILIEN ES-TU ?</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">COLLECTION</h2>
+            <p class="section-desc">Designs exclusifs • Éditions limitées</p>
+        </div>
+        
+        <div class="products-grid">
+            
+            <div class="product-card" onclick="window.location.href='shop.html'">
+                <div class="product-img">
+                    <img src="assets/img/reptilia/They_are_among_us.jpg" alt="They Are Among Us">
+                    <span class="product-badge">NEW</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">THEY ARE AMONG US</div>
+                    <div class="product-desc">Le reptilien urbain qui marche parmi nous.</div>
+                    <div class="product-price">35€</div>
+                </div>
+            </div>
+            
+            <div class="product-card" onclick="window.location.href='shop.html'">
+                <div class="product-img">
+                    <img src="assets/img/reptilia/reptilia-cold_blood_society.jpg" alt="Cold Blood Society">
+                    <span class="product-badge">PREMIUM</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">COLD BLOOD SOCIETY</div>
+                    <div class="product-desc">L'aristocrate reptilien sur son trône.</div>
+                    <div class="product-price">39€</div>
+                </div>
+            </div>
+            
+            <div class="product-card" onclick="window.location.href='shop.html'">
+                <div class="product-img">
+                    <img src="assets/img/reptilia/species_4.jpg" alt="Species 4">
+                    <span class="product-badge">LIMITED</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">SPECIES 4</div>
+                    <div class="product-desc">La quatrième espèce révélée.</div>
+                    <div class="product-price">35€</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="shop.html" class="btn btn-primary">VOIR TOUTE LA COLLECTION</a>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="story-content">
+            <h2>L'ÉVEIL COMMENCE</h2>
+            <p>
+                Depuis la nuit des temps, ils sont là. Dans les mythes sumériens, 
+                les temples égyptiens, les pyramides mayas.
+            </p>
+            <p>
+                <strong style="color: var(--accent);">REPTILIA n'est pas qu'une marque.</strong> 
+                C'est un univers, une fiction immersive.
+            </p>
+            <div style="margin-top: 50px;">
+                <a href="reptilia_evolution_final.html" class="btn btn-secondary">DÉCOUVRIR L'UNIVERS</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-disclaimer">
+            <h4>⚠️ FICTION ARTISTIQUE</h4>
+            <p>
+                <strong>REPTILIA est un univers de FICTION.</strong> 
+                <a href="legal.html">Lire les mentions légales →</a>
+            </p>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SHOP</h3>
+                <ul>
+                    <li><a href="shop.html">Tous les produits</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>UNIVERS</h3>
+                <ul>
+                    <li><a href="reptilia_evolution_final.html">L'Évolution</a></li>
+                    <li><a href="simulation.html">La Simulation</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>LÉGAL</h3>
+                <ul>
+                    <li><a href="legal.html">Mentions Légales</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p><strong>REPTILIA</strong> © 2026</p>
+            <p>Fiction artistique</p>
+        </div>
+    </footer>
+
+</body>
+</html>
