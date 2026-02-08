@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -666,7 +665,7 @@
         <p>
             <a href="legal.html">Mentions légales</a> • 
             <a href="qualite-entretien.html">Qualité & Entretien</a> • 
-            <a href="/cdn-cgi/l/email-protection#73101c1d0712100733011603071a1f1a161d5d1501">Contact</a>
+            <a href="mailto:contact@reptilien.fr">Contact</a>
         </p>
         <p style="margin-top: 20px; font-size: 0.85rem; color: #666;">
             ⚠️ REPTILIA est une marque de fiction artistique explorant les mythologies reptiliennes. 
@@ -675,7 +674,7 @@
     </footer>
     
     <!-- JAVASCRIPT -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // BASE DE DONNÉES PRODUITS
         const products = [
             {
@@ -782,7 +781,6 @@
             const imagesContainer = document.getElementById('popup-images');
             imagesContainer.innerHTML = '';
             
-            // Si mockups disponibles, les afficher
             if (product.mockups && product.mockups.length > 0) {
                 product.mockups.forEach(mockupUrl => {
                     const container = document.createElement('div');
@@ -790,10 +788,9 @@
                     
                     const img = document.createElement('img');
                     img.src = mockupUrl;
-                    img.alt = `${product.name} - Mockup`;
+                    img.alt = product.name + ' - Mockup';
                     img.className = 'mockup-image';
                     
-                    // Fallback si mockup pas trouvé
                     img.onerror = function() {
                         this.src = product.designImage;
                     };
@@ -802,7 +799,6 @@
                     imagesContainer.appendChild(container);
                 });
             } else {
-                // Sinon afficher juste le design
                 const container = document.createElement('div');
                 container.className = 'mockup-image-container';
                 
@@ -836,14 +832,13 @@
             });
         });
         
-        // Fermer avec Escape
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeMockupPopup();
             }
         });
         
-        // Navigation mobile
+        // NAVIGATION MOBILE
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.getElementById('nav-menu');
         const navOverlay = document.getElementById('nav-overlay');
@@ -865,4 +860,10 @@
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
-                navOverlay.clas
+                navOverlay.classList.remove('active');
+                navToggle.querySelector('span').textContent = '☰';
+            });
+        });
+    </script>
+</body>
+</html>
