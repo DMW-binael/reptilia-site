@@ -43,7 +43,7 @@
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
         
@@ -107,11 +107,30 @@
             display: none;
         }
         
-        /* HERO SIMPLE */
+        /* HERO AVEC LOGO */
         .hero {
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 80px 20px 60px;
             background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-logo {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 40px;
+            object-fit: contain;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(0, 255, 102, 0.4));
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
         
         .hero h1 {
@@ -443,6 +462,12 @@
                 display: block;
             }
             
+            .hero-logo {
+                width: 180px;
+                height: 180px;
+                margin-bottom: 30px;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
                 letter-spacing: 5px;
@@ -476,10 +501,6 @@
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span>☰</span>
             </button>
-            <a href="index.html" class="logo">
-                <img src="logo_reptilia.png" alt="REPTILIA Logo" class="logo-img">
-                <span class="logo-text">REPTILIA</span>
-            </a>
             <ul id="nav-menu" class="nav-links">
                 <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="shop.html">Shop</a></li>
@@ -491,8 +512,9 @@
     
     <div class="nav-overlay" id="nav-overlay"></div>
 
-    <!-- HERO SIMPLE (SANS LOGO GÉANT) -->
+    <!-- HERO AVEC LOGO GLOW -->
     <section class="hero">
+        <img src="hero_logo_glow_transparent.png" alt="REPTILIA" class="hero-logo">
         <h1>REPTILIA</h1>
         <p class="hero-subtitle">Collection Awakening • Streetwear • Fiction</p>
         <div class="hero-buttons">
