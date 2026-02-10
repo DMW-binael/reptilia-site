@@ -1,0 +1,315 @@
+<!-- NEWSLETTER POPUP - À AJOUTER AVANT </body> SUR TOUTES LES PAGES -->
+
+<!-- Newsletter Popup HTML -->
+<div id="newsletter-popup" class="newsletter-popup">
+    <div class="newsletter-overlay"></div>
+    <div class="newsletter-content">
+        <button class="newsletter-close" onclick="closeNewsletter()">✕</button>
+        
+        <div class="newsletter-header">
+            <img src="logo_reptilia.png" alt="REPTILIA" class="newsletter-logo">
+            <h2>REJOINS LA COMMUNAUTÉ</h2>
+            <p>Sois le premier informé des nouveaux drops et reçois <strong>-10% sur ta première commande</strong></p>
+        </div>
+        
+        <form class="newsletter-form" id="newsletter-form" onsubmit="submitNewsletter(event)">
+            <input 
+                type="email" 
+                id="newsletter-email" 
+                placeholder="ton@email.com" 
+                required
+                class="newsletter-input"
+            >
+            <button type="submit" class="newsletter-submit">
+                JE REJOINS 🦎
+            </button>
+        </form>
+        
+        <p class="newsletter-privacy">
+            🔒 Pas de spam. Désinscription à tout moment.
+        </p>
+    </div>
+</div>
+
+<!-- Newsletter Styles -->
+<style>
+    .newsletter-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .newsletter-popup.active {
+        display: flex;
+    }
+    
+    .newsletter-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
+    }
+    
+    .newsletter-content {
+        position: relative;
+        background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        border: 3px solid #00ff66;
+        border-radius: 15px;
+        max-width: 500px;
+        width: 90%;
+        padding: 50px 40px;
+        z-index: 10001;
+        box-shadow: 0 0 50px rgba(0, 255, 102, 0.3);
+        animation: popupSlideIn 0.4s ease-out;
+    }
+    
+    @keyframes popupSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50px) scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    .newsletter-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        color: #00ff66;
+        font-size: 2rem;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+    }
+    
+    .newsletter-close:hover {
+        transform: rotate(90deg);
+        color: #fff;
+    }
+    
+    .newsletter-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .newsletter-logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 20px rgba(0, 255, 102, 0.5));
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    .newsletter-header h2 {
+        font-size: 2rem;
+        color: #00ff66;
+        margin-bottom: 15px;
+        letter-spacing: 3px;
+    }
+    
+    .newsletter-header p {
+        color: #aaa;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    .newsletter-header strong {
+        color: #00ff66;
+        font-weight: 700;
+    }
+    
+    .newsletter-form {
+        margin-bottom: 20px;
+    }
+    
+    .newsletter-input {
+        width: 100%;
+        padding: 18px 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid #333;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        transition: all 0.3s;
+    }
+    
+    .newsletter-input:focus {
+        outline: none;
+        border-color: #00ff66;
+        background: rgba(0, 255, 102, 0.05);
+    }
+    
+    .newsletter-input::placeholder {
+        color: #666;
+    }
+    
+    .newsletter-submit {
+        width: 100%;
+        padding: 18px;
+        background: #00ff66;
+        color: #000;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .newsletter-submit:hover {
+        background: #00cc52;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(0, 255, 102, 0.4);
+    }
+    
+    .newsletter-privacy {
+        text-align: center;
+        color: #666;
+        font-size: 0.9rem;
+    }
+    
+    .newsletter-success {
+        text-align: center;
+        padding: 40px;
+    }
+    
+    .newsletter-success h3 {
+        color: #00ff66;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .newsletter-success p {
+        color: #aaa;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    /* Mobile */
+    @media (max-width: 768px) {
+        .newsletter-content {
+            padding: 40px 25px;
+        }
+        
+        .newsletter-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .newsletter-header p {
+            font-size: 1rem;
+        }
+        
+        .newsletter-logo {
+            width: 60px;
+            height: 60px;
+        }
+    }
+</style>
+
+<!-- Newsletter JavaScript -->
+<script>
+    // Show popup after 5 seconds (first visit only)
+    function initNewsletter() {
+        // Check if user already subscribed or closed popup
+        const newsletterClosed = localStorage.getItem('newsletter_closed');
+        const newsletterSubscribed = localStorage.getItem('newsletter_subscribed');
+        
+        if (!newsletterClosed && !newsletterSubscribed) {
+            setTimeout(() => {
+                document.getElementById('newsletter-popup').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }, 5000); // 5 seconds delay
+        }
+    }
+    
+    // Close popup
+    function closeNewsletter() {
+        document.getElementById('newsletter-popup').classList.remove('active');
+        document.body.style.overflow = 'auto';
+        localStorage.setItem('newsletter_closed', 'true');
+    }
+    
+    // Close on overlay click
+    document.addEventListener('DOMContentLoaded', function() {
+        const overlay = document.querySelector('.newsletter-overlay');
+        if (overlay) {
+            overlay.addEventListener('click', closeNewsletter);
+        }
+        
+        // Initialize newsletter popup
+        initNewsletter();
+    });
+    
+    // Handle form submission
+    function submitNewsletter(event) {
+        event.preventDefault();
+        
+        const email = document.getElementById('newsletter-email').value;
+        
+        // TODO: Intégrer avec Mailchimp/Sendinblue/etc.
+        // Pour l'instant, stockage local
+        console.log('Email inscrit:', email);
+        
+        // Save to localStorage (temporaire)
+        localStorage.setItem('newsletter_email', email);
+        localStorage.setItem('newsletter_subscribed', 'true');
+        
+        // Show success message
+        const content = document.querySelector('.newsletter-content');
+        content.innerHTML = `
+            <button class="newsletter-close" onclick="closeNewsletter()">✕</button>
+            <div class="newsletter-success">
+                <h3>🎉 BIENVENUE !</h3>
+                <p>Tu fais maintenant partie de la communauté REPTILIA.</p>
+                <p style="margin-top: 20px;">Ton code <strong>-10%</strong> :</p>
+                <p style="font-size: 2rem; color: #00ff66; font-weight: 700; margin: 15px 0;">AWAKEN10</p>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">
+                    (Valable sur ta première commande)
+                </p>
+            </div>
+        `;
+        
+        // Auto-close after 5 seconds
+        setTimeout(closeNewsletter, 5000);
+    }
+    
+    // Exit intent (desktop only)
+    if (window.innerWidth > 768) {
+        document.addEventListener('mouseleave', function(event) {
+            if (event.clientY <= 0) {
+                const newsletterClosed = localStorage.getItem('newsletter_closed');
+                const newsletterSubscribed = localStorage.getItem('newsletter_subscribed');
+                
+                if (!newsletterClosed && !newsletterSubscribed) {
+                    document.getElementById('newsletter-popup').classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+        });
+    }
+</script>
