@@ -494,180 +494,7 @@
     </style>
 </head>
 <body>
-
-    <!-- NAVIGATION AVEC BURGER -->
-    <header>
-        <nav>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span>☰</span>
-            </button>
-            <ul id="nav-menu" class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="story.html">Story</a></li>
-                <li><a href="legal.html">Legal</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <div class="nav-overlay" id="nav-overlay"></div>
-
-    <!-- HERO AVEC LOGO GLOW -->
-    <section class="hero">
-        <img src="hero_logo_glow_transparent.png" alt="REPTILIA" class="hero-logo">
-        <div class="hero-buttons">
-            <a href="shop.html" class="btn btn-primary">VOIR LA COLLECTION</a>
-            <a href="story.html" class="btn btn-secondary">DÉCOUVRIR L'UNIVERS</a>
-        </div>
-    </section>
-
-    <!-- COLLECTION (3 PRODUITS) -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">COLLECTION</h2>
-            <p class="section-desc">Designs exclusifs • Éditions limitées • 100 pièces par design</p>
-        </div>
-        
-        <div class="products-grid">
-            
-            <!-- The Awakening -->
-            <div class="product-card" onclick="window.location.href='shop.html'">
-                <div class="product-img">
-                    <img src="the_awakening.png" alt="The Awakening" loading="lazy">
-                    <span class="product-badge">BEST-SELLER</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">THE AWAKENING</div>
-                    <div class="product-desc">Reptilien en costume, ville moderne, éveil de conscience.</div>
-                    <div class="product-price">35€</div>
-                </div>
-            </div>
-            
-            <!-- They Are Among Us -->
-            <div class="product-card" onclick="window.location.href='shop.html'">
-                <div class="product-img">
-                    <img src="they_are_among_us.png" alt="They Are Among Us" loading="lazy">
-                    <span class="product-badge">NEW</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">THEY ARE AMONG US</div>
-                    <div class="product-desc">Infiltration silencieuse, présence cachée.</div>
-                    <div class="product-price">35€</div>
-                </div>
-            </div>
-            
-            <!-- Cold Blood Society -->
-            <div class="product-card" onclick="window.location.href='shop.html'">
-                <div class="product-img">
-                    <img src="cold_blood_society.png" alt="Cold Blood Society" loading="lazy">
-                    <span class="product-badge">PREMIUM</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">COLD BLOOD SOCIETY</div>
-                    <div class="product-desc">L'aristocratie reptilienne, le pouvoir absolu.</div>
-                    <div class="product-price">39€</div>
-                </div>
-            </div>
-            
-        </div>
-        
-        <div style="text-align: center; margin-top: 60px;">
-            <a href="shop.html" class="btn btn-primary">VOIR TOUTE LA COLLECTION</a>
-        </div>
-    </section>
-
-    <!-- STORY SECTION -->
-    <section class="story-section">
-        <div class="story-content">
-            <h2 style="color: #00ff66;">L'ÉVEIL COMMENCE</h2>
-            <p>
-                Depuis la nuit des temps, ils sont là. Dans les mythes sumériens, 
-                les temples égyptiens, les pyramides mayas.
-            </p>
-            <p>
-                <strong style="color: var(--accent);">REPTILIA n'est pas qu'une marque.</strong> 
-                C'est un univers, une fiction immersive qui interroge nos mythologies.
-            </p>
-            <div style="margin-top: 40px;">
-                <a href="story.html" class="btn btn-secondary">DÉCOUVRIR L'HISTOIRE</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-disclaimer">
-            <h4>⚠️ FICTION ARTISTIQUE</h4>
-            <p>
-                <strong>REPTILIA est un univers de FICTION.</strong> 
-                <a href="legal.html">Lire les mentions légales →</a>
-            </p>
-        </div>
-
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>SHOP</h3>
-                <ul>
-                    <li><a href="shop.html">Collection Awakening</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>UNIVERS</h3>
-                <ul>
-                    <li><a href="story.html">L'Histoire</a></li>
-                    <li><a href="clans-symbols.html">Les Clans</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>LÉGAL</h3>
-                <ul>
-                    <li><a href="legal.html">Mentions Légales</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p><strong>REPTILIA</strong> © 2026 • Fiction artistique</p>
-        </div>
-    </footer>
-
-    <!-- JAVASCRIPT BURGER MENU -->
-    <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        const navOverlay = document.getElementById('nav-overlay');
-        const navLinks = document.querySelectorAll('.nav-links a');
-        
-        if (navToggle && navMenu && navOverlay) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                navOverlay.classList.toggle('active');
-                const icon = navToggle.querySelector('span');
-                icon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-            });
-            
-            navOverlay.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                navOverlay.classList.remove('active');
-                navToggle.querySelector('span').textContent = '☰';
-            });
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    navOverlay.classList.remove('active');
-                    if (navToggle.querySelector('span')) {
-                        navToggle.querySelector('span').textContent = '☰';
-                    }
-                });
-            });
-        }
-    </script>
-
-</body>
-    <div class="promo-banner-container">
+<div class="promo-banner-container">
     <div class="promo-banner" id="promo-banner">
         <div class="promo-content">
             <span class="promo-icon">🔥</span>
@@ -912,4 +739,176 @@
         }
     });
 </script>
-</html>
+    <!-- NAVIGATION AVEC BURGER -->
+    <header>
+        <nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span>☰</span>
+            </button>
+            <ul id="nav-menu" class="nav-links">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="story.html">Story</a></li>
+                <li><a href="legal.html">Legal</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- HERO AVEC LOGO GLOW -->
+    <section class="hero">
+        <img src="hero_logo_glow_transparent.png" alt="REPTILIA" class="hero-logo">
+        <div class="hero-buttons">
+            <a href="shop.html" class="btn btn-primary">VOIR LA COLLECTION</a>
+            <a href="story.html" class="btn btn-secondary">DÉCOUVRIR L'UNIVERS</a>
+        </div>
+    </section>
+
+    <!-- COLLECTION (3 PRODUITS) -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">COLLECTION</h2>
+            <p class="section-desc">Designs exclusifs • Éditions limitées • 100 pièces par design</p>
+        </div>
+        
+        <div class="products-grid">
+            
+            <!-- The Awakening -->
+            <div class="product-card" onclick="window.location.href='shop.html'">
+                <div class="product-img">
+                    <img src="the_awakening.png" alt="The Awakening" loading="lazy">
+                    <span class="product-badge">BEST-SELLER</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">THE AWAKENING</div>
+                    <div class="product-desc">Reptilien en costume, ville moderne, éveil de conscience.</div>
+                    <div class="product-price">35€</div>
+                </div>
+            </div>
+            
+            <!-- They Are Among Us -->
+            <div class="product-card" onclick="window.location.href='shop.html'">
+                <div class="product-img">
+                    <img src="they_are_among_us.png" alt="They Are Among Us" loading="lazy">
+                    <span class="product-badge">NEW</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">THEY ARE AMONG US</div>
+                    <div class="product-desc">Infiltration silencieuse, présence cachée.</div>
+                    <div class="product-price">35€</div>
+                </div>
+            </div>
+            
+            <!-- Cold Blood Society -->
+            <div class="product-card" onclick="window.location.href='shop.html'">
+                <div class="product-img">
+                    <img src="cold_blood_society.png" alt="Cold Blood Society" loading="lazy">
+                    <span class="product-badge">PREMIUM</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">COLD BLOOD SOCIETY</div>
+                    <div class="product-desc">L'aristocratie reptilienne, le pouvoir absolu.</div>
+                    <div class="product-price">39€</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="shop.html" class="btn btn-primary">VOIR TOUTE LA COLLECTION</a>
+        </div>
+    </section>
+
+    <!-- STORY SECTION -->
+    <section class="story-section">
+        <div class="story-content">
+            <h2 style="color: #00ff66;">L'ÉVEIL COMMENCE</h2>
+            <p>
+                Depuis la nuit des temps, ils sont là. Dans les mythes sumériens, 
+                les temples égyptiens, les pyramides mayas.
+            </p>
+            <p>
+                <strong style="color: var(--accent);">REPTILIA n'est pas qu'une marque.</strong> 
+                C'est un univers, une fiction immersive qui interroge nos mythologies.
+            </p>
+            <div style="margin-top: 40px;">
+                <a href="story.html" class="btn btn-secondary">DÉCOUVRIR L'HISTOIRE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-disclaimer">
+            <h4>⚠️ FICTION ARTISTIQUE</h4>
+            <p>
+                <strong>REPTILIA est un univers de FICTION.</strong> 
+                <a href="legal.html">Lire les mentions légales →</a>
+            </p>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SHOP</h3>
+                <ul>
+                    <li><a href="shop.html">Collection Awakening</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>UNIVERS</h3>
+                <ul>
+                    <li><a href="story.html">L'Histoire</a></li>
+                    <li><a href="clans-symbols.html">Les Clans</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>LÉGAL</h3>
+                <ul>
+                    <li><a href="legal.html">Mentions Légales</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p><strong>REPTILIA</strong> © 2026 • Fiction artistique</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT BURGER MENU -->
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navOverlay = document.getElementById('nav-overlay');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        if (navToggle && navMenu && navOverlay) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+                const icon = navToggle.querySelector('span');
+                icon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+            });
+            
+            navOverlay.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navOverlay.classList.remove('active');
+                navToggle.querySelector('span').textContent = '☰';
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    navOverlay.classList.remove('active');
+                    if (navToggle.querySelector('span')) {
+                        navToggle.querySelector('span').textContent = '☰';
+                    }
+                });
+            });
+        }
+    </script>
+
+</body>
+    </html>
