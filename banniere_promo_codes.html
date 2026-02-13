@@ -1,16 +1,18 @@
-<!-- BANNIÈRE PROMO CODES - À AJOUTER EN HAUT DE TOUTES LES PAGES -->
+<!-- BANNIÈRE PROMO CODES AVEC BOUTON COPIER - VERSION CORRIGÉE -->
 
-<!-- HTML - Place juste APRÈS <body> sur index.html, shop.html, story.html -->
+<!-- HTML - Place juste APRÈS <body> -->
 <div class="promo-banner-container">
-    <!-- Bannière principale (alterne entre les 2 codes) -->
     <div class="promo-banner" id="promo-banner">
         <div class="promo-content">
             <span class="promo-icon">🔥</span>
             <span class="promo-text" id="promo-text">
-                CODE <strong>AWAKEN15</strong> : -15% • 33 PREMIERS CLIENTS SEULEMENT
+                <strong id="promo-code">AWAKEN15</strong> : -15% au paiement • 33 PREMIERS SEULEMENT
             </span>
+            <button class="promo-copy" id="promo-copy" onclick="copyPromoCode()">
+                📋 COPIER LE CODE
+            </button>
             <a href="https://shop.reptilien.fr/discount/AWAKEN15" class="promo-link" id="promo-link">
-                J'EN PROFITE →
+                ACHETER →
             </a>
         </div>
         <button class="promo-close" onclick="closePromoBanner()">✕</button>
@@ -58,6 +60,7 @@
         gap: 15px;
         flex: 1;
         justify-content: center;
+        flex-wrap: wrap;
     }
     
     .promo-icon {
@@ -82,10 +85,34 @@
     
     .promo-text strong {
         font-weight: 900;
-        font-size: 1.1rem;
-        padding: 2px 6px;
-        background: rgba(0, 0, 0, 0.1);
-        border-radius: 3px;
+        font-size: 1.2rem;
+        padding: 4px 8px;
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        letter-spacing: 1px;
+    }
+    
+    .promo-copy {
+        background: #000;
+        color: #00ff66;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        white-space: nowrap;
+    }
+    
+    .promo-copy:hover {
+        background: #1a1a1a;
+        transform: scale(1.05);
+    }
+    
+    .promo-copy.copied {
+        background: #00ff66;
+        color: #000;
     }
     
     .promo-link {
@@ -128,22 +155,23 @@
         }
         
         .promo-content {
-            flex-direction: column;
             gap: 8px;
             text-align: center;
         }
         
         .promo-text {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            width: 100%;
         }
         
         .promo-text strong {
             font-size: 1rem;
         }
         
+        .promo-copy,
         .promo-link {
-            padding: 6px 15px;
-            font-size: 0.85rem;
+            padding: 6px 12px;
+            font-size: 0.8rem;
         }
         
         .promo-icon {
@@ -154,33 +182,56 @@
 
 <!-- JavaScript -->
 <script>
-    // Alternance entre les 2 codes toutes les 5 secondes
+    // Alternance entre les 2 codes toutes les 7 secondes
     const promos = [
         {
-            text: 'CODE <strong>AWAKEN15</strong> : -15% • 33 PREMIERS CLIENTS SEULEMENT',
+            code: 'AWAKEN15',
+            text: '<strong id="promo-code">AWAKEN15</strong> : -15% au paiement • 33 PREMIERS SEULEMENT',
             link: 'https://shop.reptilien.fr/discount/AWAKEN15',
             icon: '🔥'
         },
         {
-            text: 'CODE <strong>LAUNCH20</strong> : -20% JUSQU\'AU 31 MAI',
+            code: 'LAUNCH20',
+            text: '<strong id="promo-code">LAUNCH20</strong> : -20% au paiement • JUSQU\'AU 31 MAI',
             link: 'https://shop.reptilien.fr/discount/LAUNCH20',
             icon: '🎉'
         }
     ];
     
     let currentPromoIndex = 0;
+    let currentCode = 'AWAKEN15';
     
     function rotatePromo() {
         currentPromoIndex = (currentPromoIndex + 1) % promos.length;
         const promo = promos[currentPromoIndex];
+        currentCode = promo.code;
         
         document.getElementById('promo-text').innerHTML = promo.text;
         document.getElementById('promo-link').href = promo.link;
         document.querySelector('.promo-icon').textContent = promo.icon;
+        
+        // Reset bouton copier
+        const copyBtn = document.getElementById('promo-copy');
+        copyBtn.textContent = '📋 COPIER LE CODE';
+        copyBtn.classList.remove('copied');
     }
     
-    // Change de code toutes les 5 secondes
-    setInterval(rotatePromo, 5000);
+    // Change de code toutes les 7 secondes
+    setInterval(rotatePromo, 7000);
+    
+    // Copier le code dans le presse-papier
+    function copyPromoCode() {
+        navigator.clipboard.writeText(currentCode).then(function() {
+            const btn = document.getElementById('promo-copy');
+            btn.textContent = '✓ COPIÉ !';
+            btn.classList.add('copied');
+            
+            setTimeout(function() {
+                btn.textContent = '📋 COPIER LE CODE';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
     
     // Fermer la bannière
     function closePromoBanner() {
