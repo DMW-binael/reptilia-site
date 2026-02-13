@@ -494,251 +494,245 @@
     </style>
 </head>
 <body>
-<div class="promo-banner-container">
-    <div class="promo-banner" id="promo-banner">
-        <div class="promo-content">
-            <span class="promo-icon">🔥</span>
-            <span class="promo-text" id="promo-text">
-                <strong id="promo-code">AWAKEN15</strong> : -15% au paiement • 33 PREMIERS SEULEMENT
-            </span>
-            <button class="promo-copy" id="promo-copy" onclick="copyPromoCode()">
-                📋 COPIER LE CODE
-            </button>
-            <a href="https://shop.reptilien.fr/discount/AWAKEN15" class="promo-link" id="promo-link">
-                ACHETER →
-            </a>
-        </div>
-        <button class="promo-close" onclick="closePromoBanner()">✕</button>
-    </div>
-</div>
 
-<!-- CSS -->
-<style>
-    .promo-banner-container {
-        position: sticky;
-        top: 0;
-        z-index: 9999;
-        width: 100%;
-    }
-    
-    .promo-banner {
-        background: linear-gradient(135deg, #00ff66 0%, #00cc52 100%);
-        color: #000;
-        padding: 12px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 10px rgba(0, 255, 102, 0.3);
-        animation: slideDown 0.5s ease-out;
-    }
-    
-    @keyframes slideDown {
-        from {
-            transform: translateY(-100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-    
-    .promo-banner.hidden {
-        display: none;
-    }
-    
-    .promo-content {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        flex: 1;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .promo-icon {
-        font-size: 1.5rem;
-        animation: pulse 2s ease-in-out infinite;
-    }
-    
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.2);
-        }
-    }
-    
-    .promo-text {
-        font-size: 0.95rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-    
-    .promo-text strong {
-        font-weight: 900;
-        font-size: 1.2rem;
-        padding: 4px 8px;
-        background: rgba(0, 0, 0, 0.15);
-        border-radius: 4px;
-        letter-spacing: 1px;
-    }
-    
-    .promo-copy {
-        background: #000;
-        color: #00ff66;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 5px;
-        font-weight: 700;
-        font-size: 0.85rem;
-        cursor: pointer;
-        transition: all 0.3s;
-        white-space: nowrap;
-    }
-    
-    .promo-copy:hover {
-        background: #1a1a1a;
-        transform: scale(1.05);
-    }
-    
-    .promo-copy.copied {
-        background: #00ff66;
-        color: #000;
-    }
-    
-    .promo-link {
-        background: #000;
-        color: #00ff66;
-        padding: 8px 20px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 0.9rem;
-        transition: all 0.3s;
-        white-space: nowrap;
-    }
-    
-    .promo-link:hover {
-        background: #1a1a1a;
-        transform: translateX(3px);
-    }
-    
-    .promo-close {
-        background: none;
-        border: none;
-        color: #000;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0 10px;
-        transition: transform 0.3s;
-        opacity: 0.7;
-    }
-    
-    .promo-close:hover {
-        transform: rotate(90deg);
-        opacity: 1;
-    }
-    
-    /* Mobile */
-    @media (max-width: 768px) {
-        .promo-banner {
-            padding: 10px 15px;
-        }
-        
-        .promo-content {
-            gap: 8px;
-            text-align: center;
-        }
-        
-        .promo-text {
-            font-size: 0.8rem;
+    <!-- BANNIÈRE PROMO CODES -->
+    <div class="promo-banner-container">
+        <div class="promo-banner" id="promo-banner">
+            <div class="promo-content">
+                <span class="promo-icon">🔥</span>
+                <span class="promo-text" id="promo-text">
+                    <strong id="promo-code">AWAKEN15</strong> : -15% au paiement • 33 PREMIERS SEULEMENT
+                </span>
+                <button class="promo-copy" id="promo-copy" onclick="copyPromoCode()">
+                    📋 COPIER LE CODE
+                </button>
+                <a href="https://shop.reptilien.fr/discount/AWAKEN15" class="promo-link" id="promo-link">
+                    ACHETER →
+                </a>
+            </div>
+            <button class="promo-close" onclick="closePromoBanner()">✕</button>
+        </div>
+    </div>
+
+    <style>
+        .promo-banner-container {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
             width: 100%;
         }
         
-        .promo-text strong {
-            font-size: 1rem;
+        .promo-banner {
+            background: linear-gradient(135deg, #00ff66 0%, #00cc52 100%);
+            color: #000;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 255, 102, 0.3);
+            animation: slideDown 0.5s ease-out;
         }
         
-        .promo-copy,
-        .promo-link {
-            padding: 6px 12px;
-            font-size: 0.8rem;
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .promo-banner.hidden {
+            display: none;
+        }
+        
+        .promo-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         .promo-icon {
+            font-size: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        
+        .promo-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .promo-text strong {
+            font-weight: 900;
             font-size: 1.2rem;
+            padding: 4px 8px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            letter-spacing: 1px;
         }
-    }
-</style>
-
-<!-- JavaScript -->
-<script>
-    // Alternance entre les 2 codes toutes les 7 secondes
-    const promos = [
-        {
-            code: 'AWAKEN15',
-            text: '<strong id="promo-code">AWAKEN15</strong> : -15% au paiement • 33 PREMIERS SEULEMENT',
-            link: 'https://shop.reptilien.fr/discount/AWAKEN15',
-            icon: '🔥'
-        },
-        {
-            code: 'LAUNCH20',
-            text: '<strong id="promo-code">LAUNCH20</strong> : -20% au paiement • JUSQU\'AU 31 MAI',
-            link: 'https://shop.reptilien.fr/discount/LAUNCH20',
-            icon: '🎉'
+        
+        .promo-copy {
+            background: #000;
+            color: #00ff66;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
         }
-    ];
-    
-    let currentPromoIndex = 0;
-    let currentCode = 'AWAKEN15';
-    
-    function rotatePromo() {
-        currentPromoIndex = (currentPromoIndex + 1) % promos.length;
-        const promo = promos[currentPromoIndex];
-        currentCode = promo.code;
         
-        document.getElementById('promo-text').innerHTML = promo.text;
-        document.getElementById('promo-link').href = promo.link;
-        document.querySelector('.promo-icon').textContent = promo.icon;
+        .promo-copy:hover {
+            background: #1a1a1a;
+            transform: scale(1.05);
+        }
         
-        // Reset bouton copier
-        const copyBtn = document.getElementById('promo-copy');
-        copyBtn.textContent = '📋 COPIER LE CODE';
-        copyBtn.classList.remove('copied');
-    }
-    
-    // Change de code toutes les 7 secondes
-    setInterval(rotatePromo, 7000);
-    
-    // Copier le code dans le presse-papier
-    function copyPromoCode() {
-        navigator.clipboard.writeText(currentCode).then(function() {
-            const btn = document.getElementById('promo-copy');
-            btn.textContent = '✓ COPIÉ !';
-            btn.classList.add('copied');
+        .promo-copy.copied {
+            background: #00ff66;
+            color: #000;
+        }
+        
+        .promo-link {
+            background: #000;
+            color: #00ff66;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .promo-link:hover {
+            background: #1a1a1a;
+            transform: translateX(3px);
+        }
+        
+        .promo-close {
+            background: none;
+            border: none;
+            color: #000;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 10px;
+            transition: transform 0.3s;
+            opacity: 0.7;
+        }
+        
+        .promo-close:hover {
+            transform: rotate(90deg);
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .promo-banner {
+                padding: 10px 15px;
+            }
             
-            setTimeout(function() {
-                btn.textContent = '📋 COPIER LE CODE';
-                btn.classList.remove('copied');
-            }, 2000);
-        });
-    }
-    
-    // Fermer la bannière
-    function closePromoBanner() {
-        document.querySelector('.promo-banner').classList.add('hidden');
-        localStorage.setItem('promo_banner_closed', 'true');
-    }
-    
-    // Ne pas afficher si déjà fermée
-    window.addEventListener('DOMContentLoaded', function() {
-        if (localStorage.getItem('promo_banner_closed') === 'true') {
-            document.querySelector('.promo-banner').classList.add('hidden');
+            .promo-content {
+                gap: 8px;
+                text-align: center;
+            }
+            
+            .promo-text {
+                font-size: 0.8rem;
+                width: 100%;
+            }
+            
+            .promo-text strong {
+                font-size: 1rem;
+            }
+            
+            .promo-copy,
+            .promo-link {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .promo-icon {
+                font-size: 1.2rem;
+            }
         }
-    });
-</script>
+    </style>
+
+    <script>
+        const promos = [
+            {
+                code: 'AWAKEN15',
+                text: '<strong id="promo-code">AWAKEN15</strong> : -15% au paiement • 33 PREMIERS SEULEMENT',
+                link: 'https://shop.reptilien.fr/discount/AWAKEN15',
+                icon: '🔥'
+            },
+            {
+                code: 'LAUNCH20',
+                text: '<strong id="promo-code">LAUNCH20</strong> : -20% au paiement • JUSQU\'AU 31 MAI',
+                link: 'https://shop.reptilien.fr/discount/LAUNCH20',
+                icon: '🎉'
+            }
+        ];
+        
+        let currentPromoIndex = 0;
+        let currentCode = 'AWAKEN15';
+        
+        function rotatePromo() {
+            currentPromoIndex = (currentPromoIndex + 1) % promos.length;
+            const promo = promos[currentPromoIndex];
+            currentCode = promo.code;
+            
+            document.getElementById('promo-text').innerHTML = promo.text;
+            document.getElementById('promo-link').href = promo.link;
+            document.querySelector('.promo-icon').textContent = promo.icon;
+            
+            const copyBtn = document.getElementById('promo-copy');
+            copyBtn.textContent = '📋 COPIER LE CODE';
+            copyBtn.classList.remove('copied');
+        }
+        
+        setInterval(rotatePromo, 7000);
+        
+        function copyPromoCode() {
+            navigator.clipboard.writeText(currentCode).then(function() {
+                const btn = document.getElementById('promo-copy');
+                btn.textContent = '✓ COPIÉ !';
+                btn.classList.add('copied');
+                
+                setTimeout(function() {
+                    btn.textContent = '📋 COPIER LE CODE';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+        
+        function closePromoBanner() {
+            document.querySelector('.promo-banner').classList.add('hidden');
+            localStorage.setItem('promo_banner_closed', 'true');
+        }
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('promo_banner_closed') === 'true') {
+                document.querySelector('.promo-banner').classList.add('hidden');
+            }
+        });
+    </script>
+
     <!-- NAVIGATION AVEC BURGER -->
     <header>
         <nav>
@@ -911,4 +905,4 @@
     </script>
 
 </body>
-    </html>
+</html>
