@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPTILIA • L'ÉVOLUTION COMMENCE ICI</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --accent: #00ff66;
+            --link: #0ff;
+            --text: #eee;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+            padding: 20px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 102, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-logo {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(0, 255, 102, 0.5); }
+            50% { text-shadow: 0 0 40px rgba(0, 255, 102, 0.8); }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--link);
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+        
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: #888;
+            max-width: 600px;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #555;
+            font-size: 0.9rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        /* Timeline Navigation */
+        .timeline-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #222;
+            padding: 20px;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .timeline-nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            border-radius: 25px;
+        }
+        
+        .timeline-nav a:hover,
+        .timeline-nav a.active {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        /* Epoch Sections */
+        .epoch-section {
+            min-height: 100vh;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .epoch-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .epoch-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .epoch-year {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .epoch-2026 .epoch-year {
+            color: var(--accent);
+        }
+        
+        .epoch-2060 .epoch-year {
+            background: linear-gradient(45deg, var(--accent), #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .epoch-2126 .epoch-year {
+            background: linear-gradient(45deg, var(--link), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .epoch-title {
+            font-size: 2rem;
+            color: #ccc;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .epoch-description {
+            font-size: 1.1rem;
+            color: #888;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            line-height: 1.8;
+        }
+        
+        /* Visual Grid */
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .visual-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        
+        .visual-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .epoch-2026 .visual-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 255, 102, 0.2);
+        }
+        
+        .epoch-2060 .visual-card:hover {
+            border-color: #8b5cf6;
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+        
+        .epoch-2126 .visual-card:hover {
+            border-color: var(--link);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+        
+        .visual-image {
+            width: 100%;
+            height: 450px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .visual-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        
+        .visual-card:hover .visual-image img {
+            transform: scale(1.05);
+        }
+        
+        .visual-content {
+            padding: 30px;
+        }
+        
+        .visual-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .epoch-2026 .visual-name {
+            color: var(--accent);
+        }
+        
+        .epoch-2060 .visual-name {
+            color: #8b5cf6;
+        }
+        
+        .epoch-2126 .visual-name {
+            color: var(--link);
+        }
+        
+        .visual-desc {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .visual-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .feature-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #777;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+        }
+        
+        .cta-title {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+        
+        .cta-text {
+            font-size: 1.3rem;
+            color: #888;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            border: 2px solid;
+        }
+        
+        .cta-btn-primary {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+        
+        .cta-btn-primary:hover {
+            background: transparent;
+            color: var(--accent);
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.4);
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: var(--link);
+            border-color: var(--link);
+        }
+        
+        .cta-btn-secondary:hover {
+            background: var(--link);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555;
+            border-top: 1px solid #222;
+        }
+        
+        footer a {
+            color: var(--link);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-logo {
+                font-size: 3rem;
+            }
+            
+            .visual-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-nav {
+                gap: 15px;
+            }
+            
+            .epoch-year {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">REPTILIA</div>
+            <div class="hero-subtitle">L'ÉVOLUTION EN 3 ACTES</div>
+            <div class="hero-tagline">
+                Découvre comment une simple marque de streetwear devient 
+                le symbole d'une transformation globale de la conscience humaine.
+            </div>
+        </div>
+        <div class="scroll-hint">↓ Explore les époques ↓</div>
+    </section>
+
+    <!-- Timeline Navigation -->
+    <nav class="timeline-nav">
+        <a href="#epoch-origins">ORIGINES • LÉGENDES</a>
+        <a href="#epoch-2026">2026 • AWAKENING</a>
+        <a href="#epoch-2060">2060 • EVOLUTION</a>
+        <a href="#epoch-2126">2126 • NEXUS</a>
+        <a href="index.html" style="color: var(--accent);">← Retour au site</a>
+    </nav>
+
+    <!-- ORIGINS Section -->
+    <section id="epoch-origins" class="epoch-section" style="background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);">
+        <div class="epoch-container">
+            <div class="epoch-header">
+                <div class="epoch-year" style="color: #888; font-size: 3rem;">DEPUIS TOUJOURS</div>
+                <div class="epoch-title" style="color: var(--accent);">LES ORIGINES • LA LÉGENDE</div>
+                <div class="epoch-description" style="max-width: 900px;">
+                    Avant les tee-shirts. Avant les mots. Avant l'histoire écrite. 
+                    Ils étaient déjà là, gravés dans la conscience collective de l'humanité. 
+                    Serpents sacrés, dragons gardiens, dieux écailles. Toutes les civilisations les ont vus. 
+                    Toutes ont gardé la mémoire. Certains appellent ça mythologie. 
+                    <strong style="color: var(--accent);">D'autres appellent ça vérité enfouie.</strong>
+                </div>
+            </div>
+
+            <div style="max-width: 900px; margin: 0 auto 80px; padding: 40px; background: rgba(0, 255, 102, 0.03); border: 1px solid rgba(0, 255, 102, 0.1); border-radius: 15px;">
+                <p style="color: #aaa; line-height: 2; font-size: 1.1rem; margin-bottom: 30px;">
+                    <strong style="color: var(--accent);">Sumer, 4000 av. J.-C.</strong><br>
+                    Les Anunnaki descendent du ciel. Corps humanoïdes, têtes de serpents. 
+                    Ils enseignent l'écriture, l'agriculture, les lois. Les Sumériens les appellent "ceux qui sont venus des étoiles." 
+                    Leurs statues les représentent avec des yeux d'or et des écailles luisantes.
+                </p>
+
+                <p style="color: #aaa; line-height: 2; font-size: 1.1rem; margin-bottom: 30px;">
+                    <strong style="color: var(--accent);">Égypte Ancienne, 3000 av. J.-C.</strong><br>
+                    Apophis, le serpent du chaos. Sobek, le dieu crocodile. Wadjet, la déesse cobra protectrice des pharaons. 
+                    Les prêtres murmurent que les vrais maîtres de l'Égypte portent des masques humains 
+                    mais que leur sang est froid comme le Nil.
+                </p>
+
+                <p style="color: #aaa; line-height: 2; font-size: 1.1rem; margin-bottom: 30px;">
+                    <strong style="color: var(--accent);">Mésoamérique, 1500 av. J.-C.</strong><br>
+                    Quetzalcoatl, le serpent à plumes. Kukulkan chez les Mayas. 
+                    Pas une métaphore : un être réel qui marche parmi les hommes, enseigne les mathématiques, 
+                    l'astronomie, puis disparaît en promettant de revenir. Les pyramides pointent vers les étoiles. 
+                    Qui les a vraiment construites ?
+                </p>
+
+                <p style="color: #aaa; line-height: 2; font-size: 1.1rem; margin-bottom: 30px;">
+                    <strong style="color: var(--accent);">Asie, 2000 av. J.-C.</strong><br>
+                    Les Nāgas, êtres mi-humains mi-serpents, règnent sous la terre et sous les océans. 
+                    En Chine, le dragon n'est pas un monstre : c'est l'empereur, le symbole du pouvoir suprême. 
+                    Au Japon, les Ryūjin contrôlent les marées. Partout, la même histoire : 
+                    <strong style="color: var(--accent);">une race reptilienne plus ancienne que l'humanité.</strong>
+                </p>
+
+                <p style="color: #aaa; line-height: 2; font-size: 1.1rem; margin-bottom: 30px;">
+                    <strong style="color: var(--accent);">Traditions orales africaines</strong><br>
+                    Les Dogons du Mali racontent l'histoire des Nommos, êtres amphibiens venus de Sirius. 
+                    En Afrique du Sud, les Chitauri, "enfants du serpent", manipulent les rois depuis l'ombre. 
+                    Les sangomas disent qu'ils se cachent dans des tunnels souterrains, attendant leur heure.
+                </p>
+
+                <p style="color: #aaa; line-height: 2; font-size: 1.1rem; margin-bottom: 30px;">
+                    <strong style="color: var(--accent);">Bible, Genèse 3</strong><br>
+                    Le serpent dans le jardin d'Eden. Le plus rusé de tous les animaux. 
+                    Il marche, il parle, il manipule. Pourquoi un serpent ? Pourquoi cette obsession ? 
+                    Et si ce n'était pas une métaphore du mal, mais un souvenir déformé d'une rencontre réelle ?
+                </p>
+
+                <p style="color: #aaa; line-height: 2; font-size: 1.1rem; margin-bottom: 40px;">
+                    <strong style="color: var(--accent);">Aujourd'hui, 2026</strong><br>
+                    On appelle ça "théorie du complot". On en rit. On les traite de fous. 
+                    Mais regarde autour de toi : les symboles sont partout. Les logos, les monuments, les billets de banque. 
+                    Pourquoi cette obsession pour les reptiles dans toutes les cultures, sur tous les continents, 
+                    à toutes les époques ?
+                </p>
+
+                <p style="color: var(--accent); line-height: 2; font-size: 1.3rem; font-weight: 700; text-align: center; margin-top: 40px;">
+                    Coïncidence ? Archétype universel ?<br>
+                    Ou mémoire collective d'une vérité qu'on a oublié ?
+                </p>
+            </div>
+
+            <div style="text-align: center; padding: 60px 20px; background: rgba(0, 0, 0, 0.5); border-radius: 15px; max-width: 800px; margin: 0 auto 80px;">
+                <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 30px; font-weight: 900; letter-spacing: 3px;">
+                    IL EST TEMPS DE SE RÉVEILLER
+                </div>
+                <p style="color: #aaa; font-size: 1.2rem; line-height: 1.8; margin-bottom: 40px;">
+                    Pendant des millénaires, l'humanité a raconté la même histoire. 
+                    Des êtres reptiliens qui marchent parmi nous, qui nous observent, qui nous guident. 
+                    <br><br>
+                    Aujourd'hui, tu as un choix :<br>
+                    <strong style="color: var(--text);">Continuer à dormir.</strong><br>
+                    Ou <strong style="color: var(--accent);">porter le message.</strong>
+                </p>
+                <a href="#epoch-2026" style="display: inline-block; padding: 20px 50px; background: var(--accent); color: #000; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; transition: all 0.3s;">
+                    REJOINS L'ÉVEIL →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2026 Section -->
+    <section id="epoch-2026" class="epoch-section epoch-2026">
+        <div class="epoch-container">
+            <div class="epoch-header">
+                <div class="epoch-year">2026</div>
+                <div class="epoch-title">REPTILIA AWAKENING</div>
+                <div class="epoch-description">
+                    Aujourd'hui. Le début de quelque chose de plus grand. Des vêtements qui portent un message, 
+                    une communauté qui se reconnaît, un lore qui éveille les consciences. 
+                    Rejoins la société froide.
+                </div>
+            </div>
+
+            <div class="visual-grid">
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="they_are_among_us.png" alt="They Are Among Us">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">THEY ARE AMONG US</div>
+                        <div class="visual-desc">
+                            Le reptilien urbain qui marche parmi nous. Capuche relevée, regard perçant dans l'ombre. 
+                            Pour ceux qui savent que la réalité est plus étrange qu'on ne le pense. Le message qui 
+                            éveille les consciences.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">Streetwear Icon</span>
+                            <span class="feature-tag">Message Codé</span>
+                            <span class="feature-tag">Unisexe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="cold_blood_society.png" alt="Cold Blood Society">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">COLD BLOOD SOCIETY</div>
+                        <div class="visual-desc">
+                            Le reptilien aristocrate sur son trône. Pas une conspiration : une révélation. 
+                            Les membres de la Cold Blood Society se reconnaissent. Architecture mystique, 
+                            symboles ésotériques. Ils sont parmi nous.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">Édition Premium</span>
+                            <span class="feature-tag">Société Secrète</span>
+                            <span class="feature-tag">Symbolisme</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="decode_the_scale.png" alt="Decode the Scale">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">DECODE THE SCALE</div>
+                        <div class="visual-desc">
+                            Déchiffre les codes, comprends les symboles. La vérité est cachée dans les détails.
+                            Les écailles portent des messages pour ceux qui savent regarder. Analyse. Comprends. Éveille-toi.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">Cryptique</span>
+                            <span class="feature-tag">Intellectuel</span>
+                            <span class="feature-tag">Symbolisme</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="the_awakening.png" alt="The Awakening">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">THE AWAKENING</div>
+                        <div class="visual-desc">
+                            Le reptilien businessman urbain. Costume, ville illuminée, UFO discret. 
+                            Ils contrôlent les tours, les empires, les décisions. L'éveil commence quand 
+                            tu réalises qu'ils ont toujours été là.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">Design Iconique</span>
+                            <span class="feature-tag">Urban Legend</span>
+                            <span class="feature-tag">Premium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="stay_awake.png" alt="Stay Awake">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">STAY AWAKE</div>
+                        <div class="visual-desc">
+                            L'œil qui ne cligne jamais. Message simple et puissant : Reptilian Awareness - Stay Awake. 
+                            Pour ceux qui refusent de dormir pendant que le monde change. La vigilance devient style.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">Minimaliste</span>
+                            <span class="feature-tag">Message Direct</span>
+                            <span class="feature-tag">Consciousness</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="lizard_eye.png" alt="Lizard Eye">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">LIZARD EYE</div>
+                        <div class="visual-desc">
+                            L'œil qui voit tout. Surveillance, connaissance cachée, vision au-delà du visible.
+                            Le symbole de ceux qui observent en silence. Simple, puissant, iconique.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">Minimaliste</span>
+                            <span class="feature-tag">Symbolique</span>
+                            <span class="feature-tag">Iconique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="index.html" class="cta-btn cta-btn-primary">VOIR LA COLLECTION 2026</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2060 Section -->
+    <section id="epoch-2060" class="epoch-section epoch-2060" style="background: linear-gradient(180deg, #0a0a0a 0%, #1a0a1a 50%, #0a0a0a 100%);">
+        <div class="epoch-container">
+            <div class="epoch-header">
+                <div class="epoch-year">2060</div>
+                <div class="epoch-title">REPTILIA EVOLUTION</div>
+                <div class="epoch-description">
+                    Dans 34 ans. Les designs d'aujourd'hui deviennent smart-wear. NFC intégré, fibres réactives, 
+                    réalité augmentée. Scanne ton "Stay Awake" pour débloquer du lore exclusif. 
+                    Ton "Cold Blood Society" te connecte au réseau global. L'évolution technologique commence.
+                </div>
+            </div>
+
+            <div class="visual-grid">
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="stay_awake.png" alt="Smart Wear Connected" style="filter: hue-rotate(30deg) brightness(1.1);">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">SMART-WEAR CONNECTÉ</div>
+                        <div class="visual-desc">
+                            Ton design "They Are Among Us" intègre maintenant des nano-capteurs. 
+                            La capuche pulse selon ton rythme cardiaque. Scanne le code AR caché pour 
+                            accéder aux drops secrets. Le streetwear devient interface.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">NFC Intégré</span>
+                            <span class="feature-tag">AR Unlock</span>
+                            <span class="feature-tag">Biométrique</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="the_awakening.png" alt="Digital Twin" style="filter: hue-rotate(30deg) saturate(1.2);">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">JUMEAU DIGITAL NFT</div>
+                        <div class="visual-desc">
+                            Achète "The Awakening" physique, reçois son jumeau NFT. Porte-le IRL, 
+                            ton avatar le porte dans le metaverse. Les deux sont liés blockchain. 
+                            Ton style transcende les réalités.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">NFT Twin</span>
+                            <span class="feature-tag">Metaverse Ready</span>
+                            <span class="feature-tag">Blockchain Auth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="decode_the_scale.png" alt="Evolution Character" style="filter: hue-rotate(30deg) contrast(1.1);">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">PERSONNAGE ÉVOLUTIF</div>
+                        <div class="visual-desc">
+                            Chaque pièce Species 4 achetée fait évoluer ton personnage reptilien. 
+                            Complète des quêtes communautaires, gagne de l'XP, débloque de nouvelles 
+                            mutations. La gamification de l'identité.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">XP System</span>
+                            <span class="feature-tag">Character Growth</span>
+                            <span class="feature-tag">Quests</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="reptilia_2060.html" class="cta-btn cta-btn-secondary">EXPLORER 2060</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2126 Section -->
+    <section id="epoch-2126" class="epoch-section epoch-2126" style="background: linear-gradient(180deg, #0a0a0a 0%, #0a1a1a 50%, #0a0a0a 100%);">
+        <div class="epoch-container">
+            <div class="epoch-header">
+                <div class="epoch-year">2126</div>
+                <div class="epoch-title">REPTILIA NEXUS</div>
+                <div class="epoch-description">
+                    Dans 100 ans. Les designs ne sont plus imprimés : ils sont bio-injectés. 
+                    "Decode The Scale" devient pattern ADN. "Stay Awake" s'intègre à ton système nerveux. 
+                    La Cold Blood Society devient conscience collective. L'évolution ultime.
+                </div>
+            </div>
+
+            <div class="visual-grid">
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="Decode-the-scale.png" alt="Bio Fusion" style="filter: hue-rotate(60deg) saturate(1.3) brightness(1.2);">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">BIO-PATTERN NEURAL</div>
+                        <div class="visual-desc">
+                            "Decode The Scale" devient ton code génétique. Les écailles sont maintenant 
+                            des nano-cellules qui changent selon tes émotions. Le glitch devient 
+                            bioluminescence. Tu ne portes plus le design : tu l'ES.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">Bio-Intégré</span>
+                            <span class="feature-tag">ADN Encodé</span>
+                            <span class="feature-tag">Bioluminescent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="cold_blood_society.png" alt="Collective Mind" style="filter: hue-rotate(60deg) saturate(1.2);">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">CONSCIENCE COLLECTIVE</div>
+                        <div class="visual-desc">
+                            La Cold Blood Society n'est plus une communauté : c'est un réseau neural global. 
+                            Tous les porteurs connectés par interface cérébrale. Le trône devient nœud 
+                            de conscience. L'individualité rejoint le collectif.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">Hive Mind</span>
+                            <span class="feature-tag">Neural Link</span>
+                            <span class="feature-tag">Global Network</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <div class="visual-image">
+                        <img src="stay_awake.png" alt="Planetary Guardian" style="filter: hue-rotate(60deg) brightness(1.3);">
+                    </div>
+                    <div class="visual-content">
+                        <div class="visual-name">GARDIEN PLANÉTAIRE</div>
+                        <div class="visual-desc">
+                            "Stay Awake" devient mission écologique. L'œil surveille la santé de la Terre. 
+                            Chaque bio-skin absorbe 10kg CO2/an. La vigilance n'est plus individuelle : 
+                            elle est planétaire. Fashion régénérative.
+                        </div>
+                        <div class="visual-features">
+                            <span class="feature-tag">Carbon-Negative</span>
+                            <span class="feature-tag">Eco-Symbiose</span>
+                            <span class="feature-tag">Earth Guardian</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="reptilia_2126.html" class="cta-btn" style="background: var(--link); color: #000; border-color: var(--link);">EXPLORER 2126</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="cta-title">TOUT COMMENCE MAINTENANT</div>
+        <div class="cta-text">
+            L'évolution prend 100 ans. Mais elle commence par un choix simple : 
+            porter un message, rejoindre une communauté, éveiller les consciences. 
+            <br><br>
+            <strong style="color: var(--accent);">Commande ton premier tee-shirt Reptilia.</strong>
+            <br>
+            Deviens partie de l'histoire.
+        </div>
+        <div class="cta-buttons">
+            <a href="index.html" class="cta-btn cta-btn-primary">ACHETER MAINTENANT</a>
+            <a href="reptilia_2060.html" class="cta-btn cta-btn-secondary">VOIR L'ÉVOLUTION</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            REPTILIA © 2026-2126 | 
+            <a href="index.html">Site Principal</a> • 
+            <a href="reptilia_2060.html">Vision 2060</a> • 
+            <a href="reptilia_2126.html">Vision 2126</a>
+        </p>
+        <p style="margin-top: 20px; color: #333;">
+            Ils sont parmi nous. Et maintenant, tu peux les porter.
+        </p>
+    </footer>
+
+</body>
+</html>
