@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog REPTILIA • Fiction, Design & Éveil de Conscience</title>
+    <meta name="description" content="Découvre le blog REPTILIA : lore reptilien, design streetwear, éveil de conscience. Articles exclusifs sur la fiction artistique et la culture alternative.">
+    <meta name="keywords" content="blog reptilia, streetwear, fiction artistique, théorie reptilienne, design, éveil conscience, culture alternative">
+    <link rel="icon" type="image/png" href="logo_reptilia.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog REPTILIA • Fiction & Éveil">
+    <meta property="og:description" content="Articles exclusifs sur la fiction reptilienne, le design streetwear et l'éveil de conscience">
+    <meta property="og:image" content="https://reptilien.fr/hero_logo_glow_transparent.png">
+    <meta property="og:url" content="https://reptilien.fr/blog/">
+    
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #111;
+            --accent: #00ff66;
+            --text: #eee;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* NAVIGATION */
+        header {
+            background: rgba(17, 17, 17, 0.95);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: #888;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            color: var(--accent);
+        }
+        
+        /* HERO BLOG */
+        .blog-hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+        }
+        
+        .blog-hero h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .blog-hero p {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* CATEGORIES */
+        .categories {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .category-tag {
+            background: var(--panel);
+            color: var(--text);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 1px solid #333;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-tag:hover,
+        .category-tag.active {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+        
+        /* ARTICLES GRID */
+        .articles-grid {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .article-card {
+            background: var(--panel);
+            border: 1px solid #222;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #222;
+        }
+        
+        .article-content {
+            padding: 25px;
+        }
+        
+        .article-category {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .article-title {
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .article-excerpt {
+            color: #aaa;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        .read-more {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--panel);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-top: 2px solid var(--accent);
+        }
+        
+        footer p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="reptilia_evolution_final.html">Évolution</a>
+            <a href="shop.html">Shop</a>
+            <a href="story.html">Story</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="legal.html">Legal</a>
+        </nav>
+    </header>
+    
+    <!-- HERO -->
+    <section class="blog-hero">
+        <h1>🦎 Blog REPTILIA</h1>
+        <p>Fiction, Design, Éveil de Conscience. Plonge dans l'univers REPTILIA à travers nos articles exclusifs.</p>
+    </section>
+    
+    <!-- CATEGORIES -->
+    <section class="categories">
+        <div class="category-tag active">Tous</div>
+        <div class="category-tag">Lore & Mythologie</div>
+        <div class="category-tag">Design</div>
+        <div class="category-tag">Streetwear</div>
+        <div class="category-tag">Culture</div>
+    </section>
+    
+    <!-- ARTICLES -->
+    <section class="articles-grid">
+        <!-- Article 1 -->
+        <article class="article-card" onclick="window.location.href='blog/les-7-signes-reptiliens.html'">
+            <img src="the_awakening.png" alt="Les 7 signes que les reptiliens existent - fiction REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🦎 Lore & Mythologie</div>
+                <h2 class="article-title">Les 7 Signes que les Reptiliens Existent (Fiction)</h2>
+                <p class="article-excerpt">Entre mythe et réalité, découvre les 7 indices qui alimentent la plus grande fiction artistique de notre époque...</p>
+                <div class="article-meta">
+                    <span>5 min de lecture</span>
+                    <a href="blog/les-7-signes-reptiliens.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Article 2 -->
+        <article class="article-card" onclick="window.location.href='blog/creation-design-reptilia.html'">
+            <img src="cold_blood_society.png" alt="Comment créer un design REPTILIA - process créatif" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🎨 Design</div>
+                <h2 class="article-title">Comment On Crée un Design REPTILIA</h2>
+                <p class="article-excerpt">De l'esquisse au t-shirt final : le process créatif complet derrière Cold Blood Society...</p>
+                <div class="article-meta">
+                    <span>7 min de lecture</span>
+                    <a href="blog/creation-design-reptilia.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Article 3 -->
+        <article class="article-card" onclick="window.location.href='blog/porter-reptilia-5-looks.html'">
+            <img src="they_are_among_us.png" alt="Comment porter REPTILIA - 5 looks streetwear complets" class="article-image">
+            <div class="article-content">
+                <div class="article-category">👕 Streetwear</div>
+                <h2 class="article-title">Comment Porter un T-shirt REPTILIA : 5 Looks</h2>
+                <p class="article-excerpt">Styling homme et femme, du casual au statement piece. 5 façons de porter REPTILIA avec style...</p>
+                <div class="article-meta">
+                    <span>6 min de lecture</span>
+                    <a href="blog/porter-reptilia-5-looks.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Article 4 -->
+        <article class="article-card" onclick="window.location.href='blog/symbolisme-serpent-cultures.html'">
+            <img src="sacred_circle.png" alt="Symbolisme du serpent dans 10 cultures anciennes" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🦎 Lore & Mythologie</div>
+                <h2 class="article-title">Le Serpent dans 10 Cultures Anciennes</h2>
+                <p class="article-excerpt">Égypte, Aztèques, Asie, Europe... Le serpent traverse toutes les civilisations. Coïncidence ?...</p>
+                <div class="article-meta">
+                    <span>8 min de lecture</span>
+                    <a href="blog/symbolisme-serpent-cultures.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Article 5 -->
+        <article class="article-card" onclick="window.location.href='blog/fiction-artistique-realite.html'">
+            <img src="stay_awake.png" alt="Fiction artistique et questionnement de la réalité" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🌍 Culture</div>
+                <h2 class="article-title">Quand la Fiction Questionne la Réalité</h2>
+                <p class="article-excerpt">Matrix, Black Mirror, REPTILIA... Pourquoi les œuvres de fiction éveillent plus que les documentaires...</p>
+                <div class="article-meta">
+                    <span>9 min de lecture</span>
+                    <a href="blog/fiction-artistique-realite.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>⚠️ REPTILIA est une fiction artistique • Tous droits réservés © 2026</p>
+        <p style="margin-top: 10px;"><a href="index.html" style="color: var(--accent);">Retour à l'accueil</a></p>
+    </footer>
+</body>
+</html>
