@@ -235,17 +235,17 @@
     
     <!-- CATEGORIES -->
     <section class="categories">
-        <div class="category-tag active">Tous</div>
-        <div class="category-tag">Lore & Mythologie</div>
-        <div class="category-tag">Design</div>
-        <div class="category-tag">Streetwear</div>
-        <div class="category-tag">Culture</div>
+        <div class="category-tag active" data-category="all">Tous</div>
+        <div class="category-tag" data-category="lore">Lore & Mythologie</div>
+        <div class="category-tag" data-category="design">Design</div>
+        <div class="category-tag" data-category="streetwear">Streetwear</div>
+        <div class="category-tag" data-category="culture">Culture</div>
     </section>
     
     <!-- ARTICLES -->
     <section class="articles-grid">
         <!-- Article 1 -->
-        <article class="article-card" onclick="window.location.href='blog/les-7-signes-reptiliens.html'">
+        <article class="article-card" data-categories="lore" onclick="window.location.href='blog/les-7-signes-reptiliens.html'">
             <img src="the_awakening.png" alt="Les 7 signes que les reptiliens existent - fiction REPTILIA" class="article-image">
             <div class="article-content">
                 <div class="article-category">🦎 Lore & Mythologie</div>
@@ -259,7 +259,7 @@
         </article>
         
         <!-- Article 2 -->
-        <article class="article-card" onclick="window.location.href='blog/creation-design-reptilia.html'">
+        <article class="article-card" data-categories="design" onclick="window.location.href='blog/creation-design-reptilia.html'">
             <img src="cold_blood_society.png" alt="Comment créer un design REPTILIA - process créatif" class="article-image">
             <div class="article-content">
                 <div class="article-category">🎨 Design</div>
@@ -273,7 +273,7 @@
         </article>
         
         <!-- Article 3 -->
-        <article class="article-card" onclick="window.location.href='blog/porter-reptilia-5-looks.html'">
+        <article class="article-card" data-categories="streetwear" onclick="window.location.href='blog/porter-reptilia-5-looks.html'">
             <img src="they_are_among_us.png" alt="Comment porter REPTILIA - 5 looks streetwear complets" class="article-image">
             <div class="article-content">
                 <div class="article-category">👕 Streetwear</div>
@@ -287,7 +287,7 @@
         </article>
         
         <!-- Article 4 -->
-        <article class="article-card" onclick="window.location.href='blog/symbolisme-serpent-cultures.html'">
+        <article class="article-card" data-categories="lore" onclick="window.location.href='blog/symbolisme-serpent-cultures.html'">
             <img src="sacred_circle.png" alt="Symbolisme du serpent dans 10 cultures anciennes" class="article-image">
             <div class="article-content">
                 <div class="article-category">🦎 Lore & Mythologie</div>
@@ -301,7 +301,7 @@
         </article>
         
         <!-- Article 5 -->
-        <article class="article-card" onclick="window.location.href='blog/fiction-artistique-realite.html'">
+        <article class="article-card" data-categories="culture" onclick="window.location.href='blog/fiction-artistique-realite.html'">
             <img src="stay_awake.png" alt="Fiction artistique et questionnement de la réalité" class="article-image">
             <div class="article-content">
                 <div class="article-category">🌍 Culture</div>
@@ -320,5 +320,46 @@
         <p>⚠️ REPTILIA est une fiction artistique • Tous droits réservés © 2026</p>
         <p style="margin-top: 10px;"><a href="index.html" style="color: var(--accent);">Retour à l'accueil</a></p>
     </footer>
+    
+    <script>
+        // Filtrage des articles par catégorie
+        const categoryTags = document.querySelectorAll('.category-tag');
+        const articles = document.querySelectorAll('.article-card');
+        
+        categoryTags.forEach(tag => {
+            tag.addEventListener('click', function() {
+                // Empêcher la navigation
+                event.stopPropagation();
+                
+                // Retirer la classe active de tous les tags
+                categoryTags.forEach(t => t.classList.remove('active'));
+                
+                // Ajouter la classe active au tag cliqué
+                this.classList.add('active');
+                
+                // Récupérer la catégorie
+                const category = this.getAttribute('data-category');
+                
+                // Filtrer les articles
+                articles.forEach(article => {
+                    if (category === 'all') {
+                        article.style.display = 'block';
+                    } else {
+                        const articleCategories = article.getAttribute('data-categories');
+                        if (articleCategories && articleCategories.includes(category)) {
+                            article.style.display = 'block';
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Empêcher que les catégories déclenchent la navigation vers l'article
+        document.querySelectorAll('.category-tag').forEach(tag => {
+            tag.style.cursor = 'pointer';
+        });
+    </script>
 </body>
 </html>
