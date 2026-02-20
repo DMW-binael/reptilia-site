@@ -903,38 +903,18 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT BURGER MENU -->
+        <!-- JAVASCRIPT BURGER MENU -->
     <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        const navOverlay = document.getElementById('nav-overlay');
-        const navLinks = document.querySelectorAll('.nav-links a');
-        
-        if (navToggle && navMenu && navOverlay) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                navOverlay.classList.toggle('active');
-                const icon = navToggle.querySelector('span');
-                icon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-            });
-            
-            navOverlay.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                navOverlay.classList.remove('active');
-                navToggle.querySelector('span').textContent = '☰';
-            });
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    navOverlay.classList.remove('active');
-                    if (navToggle.querySelector('span')) {
-                        navToggle.querySelector('span').textContent = '☰';
-                    }
-                });
-            });
-        }
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const burger = document.querySelector('.burger-menu');
+        menu.classList.toggle('active');
+        burger.classList.toggle('active');
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+    }
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => toggleMobileMenu());
+    });
     </script>
-
 </body>
 </html>
