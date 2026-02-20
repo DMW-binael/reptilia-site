@@ -404,20 +404,28 @@
 </head>
 <body>
 
-    <header style="background: rgba(17, 17, 17, 0.95); padding: 20px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--accent);">
+   <header style="background: rgba(17, 17, 17, 0.95); padding: 20px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--accent); backdrop-filter: blur(10px);">
     <nav style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
         <a href="index.html" style="font-size: 1.8rem; font-weight: 900; color: var(--accent); letter-spacing: 5px; text-decoration: none;">REPTILIA</a>
-        <div style="display: flex; gap: 30px;">
-            <a href="index.html" style="color: #888; text-decoration: none; font-weight: 600;">Accueil</a>
-            <a href="reptilia_evolution_final.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Évolution</a>
-            <a href="shop.html" style="color: #888; text-decoration: none; font-weight: 600;">Shop</a>
-            <a href="story.html" style="color: #888; text-decoration: none; font-weight: 600;">Story</a>
-            <a href="clans-symbols.html" style="color: #888; text-decoration: none; font-weight: 600;">Clans</a>
-            <a href="blog.html" style="color: #888; text-decoration: none; font-weight: 600;">Blog</a>
-            <a href="legal.html" style="color: #888; text-decoration: none; font-weight: 600;">Legal</a>
+        <!-- BURGER ICON -->
+        <div class="burger-menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 </header>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Accueil</a>
+    <a href="reptilia_evolution_final.html" class="active">Évolution</a>
+    <a href="shop.html">Shop</a>
+    <a href="story.html">Story</a>
+    <a href="clans-symbols.html">Clans</a>
+    <a href="blog.html">Blog</a>
+    <a href="legal.html">Legal</a>
+</div>
 
     <!-- Hero -->
     <section class="hero">
