@@ -1,0 +1,186 @@
+<!-- NAVIGATION UNIVERSELLE REPTILIA AVEC BURGER MENU -->
+<!-- À copier dans TOUTES les pages entre <body> et le contenu -->
+
+<style>
+    /* NAVIGATION STYLES */
+    header {
+        background: rgba(17, 17, 17, 0.95);
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 2px solid var(--accent, #00ff66);
+        backdrop-filter: blur(10px);
+    }
+    
+    nav {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: var(--accent, #00ff66);
+        letter-spacing: 5px;
+        text-decoration: none;
+        z-index: 1001;
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+    
+    .nav-links a {
+        color: #888;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+        font-size: 0.95rem;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--accent, #00ff66);
+    }
+    
+    /* BURGER MENU */
+    .burger-menu {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 10px;
+    }
+    
+    .burger-menu span {
+        width: 25px;
+        height: 3px;
+        background: var(--accent, #00ff66);
+        transition: all 0.3s;
+        border-radius: 2px;
+    }
+    
+    .burger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .burger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* MOBILE MENU */
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98);
+        z-index: 1000;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .mobile-menu.active {
+        display: flex;
+    }
+    
+    .mobile-menu a {
+        color: #888;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        letter-spacing: 2px;
+    }
+    
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+        color: var(--accent, #00ff66);
+        transform: scale(1.1);
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .burger-menu {
+            display: flex;
+        }
+    }
+</style>
+
+<header>
+    <nav>
+        <a href="index.html" class="logo">REPTILIA</a>
+        
+        <!-- DESKTOP NAV -->
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="reptilia_evolution_final.html">Évolution</a>
+            <a href="shop.html">Shop</a>
+            <a href="story.html">Story</a>
+            <a href="clans-symbols.html">Clans</a>
+            <a href="blog.html">Blog</a>
+            <a href="legal.html">Legal</a>
+        </div>
+        
+        <!-- BURGER ICON -->
+        <div class="burger-menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Accueil</a>
+    <a href="reptilia_evolution_final.html">Évolution</a>
+    <a href="shop.html">Shop</a>
+    <a href="story.html">Story</a>
+    <a href="clans-symbols.html">Clans</a>
+    <a href="blog.html">Blog</a>
+    <a href="legal.html">Legal</a>
+</div>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const burger = document.querySelector('.burger-menu');
+    
+    menu.classList.toggle('active');
+    burger.classList.toggle('active');
+    
+    // Empêcher scroll quand menu ouvert
+    if (menu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Fermer menu si clic sur un lien
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        toggleMobileMenu();
+    });
+});
+</script>
