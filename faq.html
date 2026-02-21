@@ -3,15 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ REPTILIA — Livraison, Retours, Tailles | Questions Fréquentes</title>
-<meta name="description" content="Toutes les réponses sur REPTILIA : livraison France, retours, guide des tailles, qualité Bella+Canvas, paiement sécurisé. FAQ complète.">
-<meta name="keywords" content="reptilien, FAQ REPTILIA, livraison t-shirt, retour commande, guide tailles, qualité Bella+Canvas, paiement sécurisé">
-<meta property="og:title" content="FAQ REPTILIA — Questions Fréquentes">
-<meta property="og:description" content="Livraison, retours, tailles, qualité, paiement. Toutes les réponses à vos questions REPTILIA.">
-<meta property="og:url" content="https://reptilien.fr/faq.html">
-<meta property="og:type" content="website">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://reptilien.fr/faq.html">
+    <title>FAQ - REPTILIA | Questions Fréquentes</title>
+    <meta name="description" content="Questions fréquentes sur REPTILIA. Livraison, retours, tailles, qualité, paiement. Toutes les réponses à vos questions.">
     <link rel="icon" type="image/png" href="logo_reptilia.png">
     
     <style>
@@ -28,26 +21,25 @@
             line-height: 1.6;
         }
         
-        /* Navigation */
+        /* Navigation burger */
         nav {
             position: sticky;
             top: 0;
             background: rgba(10, 10, 10, 0.98);
             backdrop-filter: blur(10px);
-            padding: 20px 0;
+            padding: 20px;
             z-index: 1000;
             border-bottom: 2px solid #00ff66;
         }
-        
+
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
         }
-        
+
         .logo {
             color: #00ff66;
             font-size: 1.8rem;
@@ -55,24 +47,56 @@
             letter-spacing: 6px;
             text-decoration: none;
         }
-        
-        .nav-links {
+
+        .burger-menu {
             display: flex;
-            gap: 35px;
-            list-style: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
         }
-        
-        .nav-links a {
-            color: #eee;
+
+        .burger-menu span {
+            width: 25px;
+            height: 3px;
+            background: #00ff66;
+            transition: all 0.3s;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu.active { display: flex; }
+
+        .mobile-menu a {
+            color: #888;
             text-decoration: none;
+            font-size: 1.5rem;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            letter-spacing: 2px;
         }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #00ff66;
-        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active { color: #00ff66; transform: scale(1.1); }
         
         /* Hero */
         .hero {
@@ -308,9 +332,7 @@
                 padding: 0 20px 20px;
             }
             
-            .nav-links {
-                display: none;
-            }
+
         }
     </style>
 </head>
@@ -320,15 +342,22 @@
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">REPTILIA</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="story.html">Story</a></li>
-                <li><a href="faq.html" class="active">FAQ</a></li>
-                <li><a href="legal.html">Legal</a></li>
-            </ul>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </div>
         </div>
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Accueil</a>
+        <a href="reptilia_evolution_final.html">Évolution</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Story</a>
+        <a href="clans-symbols.html">Clans</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html" class="active">FAQ</a>
+        <a href="legal.html">Legal</a>
+    </div>
 
     <!-- Hero -->
     <div class="hero">
@@ -388,7 +417,7 @@
                 <div class="faq-answer">
                     <div class="faq-answer-content">
                         <p>Les modifications sont possibles <strong>dans les 2 heures</strong> après validation.</p>
-                        <p>Contacte-nous rapidement à <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">contact@reptilien.fr</a> avec ton numéro de commande.</p>
+                        <p>Contacte-nous rapidement à <a href="/cdn-cgi/l/email-protection#2b4844455f4a485f6b594e5b5f4247424e45054d59" style="color: #00ff66;"><span class="__cf_email__" data-cfemail="4c2f2322382d2f380c3e293c382520252922622a3e">[email&#160;protected]</span></a> avec ton numéro de commande.</p>
                         <p>⚠️ Après 2h, la commande est en production et ne peut plus être modifiée.</p>
                     </div>
                 </div>
@@ -402,7 +431,7 @@
                 <div class="faq-answer">
                     <div class="faq-answer-content">
                         <p>Oui, <strong>dans les 2 heures</strong> après validation.</p>
-                        <p>Email : <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">contact@reptilien.fr</a> avec ton numéro de commande.</p>
+                        <p>Email : <a href="/cdn-cgi/l/email-protection#86e5e9e8f2e7e5f2c6f4e3f6f2efeaefe3e8a8e0f4" style="color: #00ff66;"><span class="__cf_email__" data-cfemail="a7c4c8c9d3c6c4d3e7d5c2d7d3cecbcec2c989c1d5">[email&#160;protected]</span></a> avec ton numéro de commande.</p>
                         <p>Remboursement intégral sous 5-7 jours.</p>
                     </div>
                 </div>
@@ -628,7 +657,7 @@
                             <li>✅ Emballage d'origine</li>
                             <li>✅ Dans les 14 jours après réception</li>
                         </ul>
-                        <p>📧 Email : <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">contact@reptilien.fr</a> pour demander un retour.</p>
+                        <p>📧 Email : <a href="/cdn-cgi/l/email-protection#670408091306041327150217130e0b0e0209490115" style="color: #00ff66;"><span class="__cf_email__" data-cfemail="f5969a9b81949681b5879085819c999c909bdb9387">[email&#160;protected]</span></a> pour demander un retour.</p>
                     </div>
                 </div>
             </div>
@@ -677,7 +706,7 @@
                 <div class="faq-answer">
                     <div class="faq-answer-content">
                         <p><strong>Contacte-nous immédiatement :</strong></p>
-                        <p>📧 <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">contact@reptilien.fr</a></p>
+                        <p>📧 <a href="/cdn-cgi/l/email-protection#74171b1a0015170034061104001d181d111a5a1206" style="color: #00ff66;"><span class="__cf_email__" data-cfemail="92f1fdfce6f3f1e6d2e0f7e2e6fbfefbf7fcbcf4e0">[email&#160;protected]</span></a></p>
                         <p><strong>Fournis :</strong></p>
                         <ul>
                             <li>Numéro de commande</li>
@@ -695,13 +724,13 @@
         <div class="faq-cta">
             <h3>Une autre question ?</h3>
             <p>Notre équipe est là pour t'aider !</p>
-            <a href="mailto:contact@reptilien.fr" class="btn">NOUS CONTACTER</a>
+            <a href="/cdn-cgi/l/email-protection#1c7f7372687d7f685c6e796c687570757972327a6e" class="btn">NOUS CONTACTER</a>
         </div>
 
     </div>
 
     <!-- JavaScript -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // FAQ Accordion
         document.querySelectorAll('.faq-item').forEach(item => {
             const question = item.querySelector('.faq-question');
@@ -731,21 +760,4 @@
         });
 
         // Search
-        document.getElementById('search-faq').addEventListener('input', function(e) {
-            const search = e.target.value.toLowerCase();
-            
-            document.querySelectorAll('.faq-item').forEach(item => {
-                const question = item.querySelector('.faq-question').textContent.toLowerCase();
-                const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
-                
-                if (question.includes(search) || answer.includes(search)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    </script>
-
-</body>
-</html>
+        document
