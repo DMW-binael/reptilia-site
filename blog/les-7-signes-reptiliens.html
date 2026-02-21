@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les 7 Signes que les Reptiliens Existent (Fiction) • Blog REPTILIA</title>
-    <meta name="description" content="Fiction artistique REPTILIA : les 7 signes mystérieux de la théorie reptilienne. Symbolisme, storytelling unique, questionnement de la réalité. Parfait Halloween.">
-<meta name="keywords" content="reptilien, théorie reptilienne, fiction artistique, symbolisme serpent, reptiliens fiction, halloween mystère, éveil conscience, REPTILIA">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://reptilien.fr/blog/les-7-signes-reptiliens.html">
+    <meta name="description" content="Découvre les 7 indices mystérieux de la théorie reptilienne. Fiction artistique REPTILIA : entre mythe, symbolisme et questionnement de la réalité.">
+    <meta name="keywords" content="reptiliens, théorie reptilienne, fiction artistique, David Icke, symbolisme serpent, éveil conscience, REPTILIA">
     <link rel="icon" type="image/png" href="../logo_reptilia.png">
     
     <!-- Open Graph -->
@@ -60,7 +58,7 @@
             line-height: 1.8;
         }
         
-        /* NAV */
+        /* NAV BURGER */
         header {
             background: rgba(17, 17, 17, 0.95);
             padding: 20px;
@@ -69,23 +67,64 @@
             z-index: 1000;
             border-bottom: 2px solid var(--accent);
         }
-        
+
         nav {
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        nav a {
+
+        .burger-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
+        }
+
+        .burger-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu.active { display: flex; }
+
+        .mobile-menu a {
             color: #888;
             text-decoration: none;
+            font-size: 1.5rem;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            letter-spacing: 2px;
         }
-        
-        nav a:hover { color: var(--accent); }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active { color: var(--accent); transform: scale(1.1); }
         
         /* ARTICLE */
         article {
@@ -273,12 +312,22 @@
 <body>
     <header>
         <nav>
-            <a href="../index.html">Accueil</a>
-            <a href="../reptilia_evolution_final.html">Évolution</a>
-            <a href="../shop.html">Shop</a>
-            <a href="../blog.html">Blog</a>
+            <a href="../index.html" style="color: #00ff66; font-size: 1.5rem; font-weight: 900; letter-spacing: 4px; text-decoration: none;">REPTILIA</a>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </div>
         </nav>
     </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Accueil</a>
+        <a href="../reptilia_evolution_final.html">Évolution</a>
+        <a href="../shop.html">Shop</a>
+        <a href="../story.html">Story</a>
+        <a href="../clans-symbols.html">Clans</a>
+        <a href="../blog.html" class="active">Blog</a>
+        <a href="../legal.html">Legal</a>
+    </div>
     
     <article>
         <div class="article-header">
@@ -360,24 +409,24 @@
         
         <div class="cta-box">
             <h3>🦎 Rejoins l'Évolution</h3>
-            <p>Découvre la collection REPTILIA. 8 designs qui questionnent la réalité.</p>
-            <a href="../shop.html" class="cta-btn">VOIR LA COLLECTION</a>
+            <p><strong>The Awakening</strong> — le design iconique du reptilien éveillé. 8 designs qui questionnent la réalité.</p>
+            <a href="https://shop.reptilien.fr/products/the-awakening" class="cta-btn">THE AWAKENING — 33€</a>
         </div>
         
         <div class="related-articles">
             <h3>Articles Connexes</h3>
             <div class="related-grid">
-                <a href="symbolisme-serpent-cultures.html" class="related-card">
-                    <h4>Le Serpent dans 10 Cultures</h4>
-                    <p>Pourquoi ce symbole traverse toutes les civilisations...</p>
+                <a href="symbolisme-reptilien.html" class="related-card">
+                    <h4>Le Serpent à Travers les Civilisations</h4>
+                    <p>6000 ans de symbolisme reptilien dans toutes les cultures...</p>
                 </a>
                 <a href="creation-design-reptilia.html" class="related-card">
                     <h4>Comment On Crée un Design REPTILIA</h4>
                     <p>Le process créatif de Cold Blood Society...</p>
                 </a>
-                <a href="fiction-artistique-realite.html" class="related-card">
-                    <h4>Quand la Fiction Questionne la Réalité</h4>
-                    <p>Pourquoi Matrix éveille plus qu'un documentaire...</p>
+                <a href="theorie-reptilienne-david-icke.html" class="related-card">
+                    <h4>Théorie Reptilienne David Icke : Vrai ou Fiction ?</h4>
+                    <p>Analyse critique de la théorie la plus connue...</p>
                 </a>
             </div>
         </div>
@@ -387,6 +436,17 @@
         <p>⚠️ REPTILIA est une fiction artistique</p>
         <p style="margin-top: 20px;"><a href="../blog.html" style="color: var(--accent);">← Retour au blog</a> | <a href="../index.html" style="color: var(--accent);">Accueil</a></p>
     </footer>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.querySelector('.burger-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu());
+        });
+    </script>
 </body>
 </html>
-
