@@ -32,13 +32,7 @@
             border-bottom: 2px solid #00ff66;
             backdrop-filter: blur(10px);
         }
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { color: #00ff66; font-size: 1.8rem; font-weight: 900; letter-spacing: 5px; text-decoration: none; }
         .burger-menu { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 10px; }
         .burger-menu span { width: 25px; height: 3px; background: #00ff66; transition: all 0.3s; border-radius: 2px; display: block; }
@@ -359,7 +353,7 @@
         
         <p style="margin-top: 30px; text-align: center;">
             <strong>Des questions ?</strong><br>
-            Contacte-nous : <a href="/cdn-cgi/l/email-protection#771418190316140337051207031e1b1e1219591105" style="color: #00ff66;"><span class="__cf_email__" data-cfemail="74171b1a0015170034061104001d181d111a5a1206">[email&#160;protected]</span></a>
+            Contacte-nous : <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">contact@reptilien.fr</a>
         </p>
         
     </div>
@@ -369,8 +363,8 @@
         <p>&copy; 2026 REPTILIA • Fiction artistique</p>
         <p>
             <a href="legal.html">Mentions légales</a> • 
-            <a href="qualite-entretien.html">Qualité & Entretien</a> • 
-            <a href="/cdn-cgi/l/email-protection#92f1fdfce6f3f1e6d2e0f7e2e6fbfefbf7fcbcf4e0">Contact</a>
+            <a href="faq.html">FAQ</a> •
+            <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">Contact</a>
         </p>
     </footer>
     
@@ -395,3 +389,17 @@
         });
         
         navLinks.forEach(link =>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.querySelector('.burger-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu());
+        });
+    </script>
+</body>
+</html>
