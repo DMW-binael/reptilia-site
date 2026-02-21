@@ -4,22 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog REPTILIA — Fiction Reptilienne & Streetwear | Inspiration</title>
-<meta name="description" content="Blog REPTILIA : articles streetwear reptilien, fiction artistique, symbolisme. Découvrez l'univers et trouvez l'inspiration cadeau original Halloween EVG.">
-<meta name="keywords" content="reptilien, blog streetwear, fiction artistique, symbolisme reptilien, cadeau original, inspiration halloween, REPTILIA">
-<meta property="og:title" content="Blog REPTILIA — Fiction Reptilienne & Streetwear">
-<meta property="og:description" content="Articles streetwear reptilien, fiction artistique, symbolisme. Inspiration cadeau original Halloween EVG.">
-<meta property="og:url" content="https://reptilien.fr/blog.html">
-<meta property="og:type" content="website">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://reptilien.fr/blog.html">
+    <meta name="description" content="Blog REPTILIA : articles streetwear reptilien, fiction artistique, symbolisme. Découvrez l'univers et trouvez l'inspiration cadeau original Halloween EVG.">
+    <meta name="keywords" content="reptilien, blog streetwear, fiction artistique, symbolisme reptilien, cadeau original, inspiration halloween, REPTILIA">
+    <meta property="og:title" content="Blog REPTILIA — Fiction Reptilienne & Streetwear">
+    <meta property="og:description" content="Articles streetwear reptilien, fiction artistique, symbolisme. Inspiration cadeau original Halloween EVG.">
+    <meta property="og:url" content="https://reptilien.fr/blog.html">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://reptilien.fr/blog.html">
     <link rel="icon" type="image/png" href="logo_reptilia.png">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Blog REPTILIA • Fiction & Éveil">
-    <meta property="og:description" content="Articles exclusifs sur la fiction reptilienne, le design streetwear et l'éveil de conscience">
-    <meta property="og:image" content="https://reptilien.fr/hero_logo_glow_transparent.png">
-    <meta property="og:url" content="https://reptilien.fr/blog/">
-    
     <style>
         :root {
             --bg: #0a0a0a;
@@ -27,21 +20,19 @@
             --accent: #00ff66;
             --text: #eee;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
         }
-        
-        /* NAVIGATION */
+
+        /* =====================
+           NAVIGATION BURGER
+        ===================== */
         header {
             background: rgba(17, 17, 17, 0.95);
             padding: 20px;
@@ -49,51 +40,94 @@
             top: 0;
             z-index: 1000;
             border-bottom: 2px solid var(--accent);
+            backdrop-filter: blur(10px);
         }
-        
+
         nav {
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        nav a {
+
+        .logo {
+            color: var(--accent);
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-decoration: none;
+        }
+
+        .burger-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
+        }
+
+        .burger-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu.active { display: flex; }
+
+        .mobile-menu a {
             color: #888;
             text-decoration: none;
+            font-size: 1.5rem;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            letter-spacing: 2px;
         }
-        
-        nav a:hover,
-        nav a.active {
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
             color: var(--accent);
+            transform: scale(1.1);
         }
-        
-        /* HERO BLOG */
+
+        /* =====================
+           HERO BLOG
+        ===================== */
         .blog-hero {
             text-align: center;
             padding: 80px 20px 60px;
             background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
         }
-        
-        .blog-hero h1 {
-            font-size: 3rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-        
-        .blog-hero p {
-            font-size: 1.2rem;
-            color: #aaa;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* CATEGORIES */
+
+        .blog-hero h1 { font-size: 3rem; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 3px; }
+        .blog-hero p { font-size: 1.2rem; color: #aaa; max-width: 600px; margin: 0 auto; }
+
+        /* =====================
+           CATEGORIES
+        ===================== */
         .categories {
             max-width: 1200px;
             margin: 40px auto;
@@ -103,7 +137,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        
+
         .category-tag {
             background: var(--panel);
             color: var(--text);
@@ -113,15 +147,17 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .category-tag:hover,
         .category-tag.active {
             background: var(--accent);
             color: #000;
             border-color: var(--accent);
         }
-        
-        /* ARTICLES GRID */
+
+        /* =====================
+           ARTICLES GRID
+        ===================== */
         .articles-grid {
             max-width: 1200px;
             margin: 60px auto;
@@ -130,7 +166,7 @@
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
-        
+
         .article-card {
             background: var(--panel);
             border: 1px solid #222;
@@ -139,62 +175,24 @@
             transition: all 0.3s;
             cursor: pointer;
         }
-        
+
         .article-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
             box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
         }
-        
-        .article-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 1px solid #222;
-        }
-        
-        .article-content {
-            padding: 25px;
-        }
-        
-        .article-category {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        
-        .article-title {
-            font-size: 1.4rem;
-            color: var(--text);
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-        
-        .article-excerpt {
-            color: #aaa;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #666;
-            font-size: 0.85rem;
-        }
-        
-        .read-more {
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
-        }
-        
-        /* FOOTER */
+
+        .article-image { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid #222; }
+        .article-content { padding: 25px; }
+        .article-category { color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .article-title { font-size: 1.4rem; color: var(--text); margin-bottom: 15px; line-height: 1.3; }
+        .article-excerpt { color: #aaa; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; }
+        .article-meta { display: flex; justify-content: space-between; align-items: center; color: #666; font-size: 0.85rem; }
+        .read-more { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+        /* =====================
+           FOOTER
+        ===================== */
         footer {
             background: var(--panel);
             padding: 40px 20px;
@@ -202,43 +200,49 @@
             margin-top: 80px;
             border-top: 2px solid var(--accent);
         }
-        
-        footer p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        /* RESPONSIVE */
+
+        footer p { color: #666; font-size: 0.9rem; }
+
+        /* =====================
+           RESPONSIVE
+        ===================== */
         @media (max-width: 768px) {
-            .blog-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .articles-grid {
-                grid-template-columns: 1fr;
-            }
+            .blog-hero h1 { font-size: 2rem; }
+            .articles-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
     <!-- NAVIGATION -->
     <header>
         <nav>
-            <a href="index.html">Accueil</a>
-            <a href="reptilia_evolution_final.html">Évolution</a>
-            <a href="shop.html">Shop</a>
-            <a href="story.html">Story</a>
-            <a href="blog.html" class="active">Blog</a>
-            <a href="legal.html">Legal</a>
+            <a href="index.html" class="logo">REPTILIA</a>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
-    
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Accueil</a>
+        <a href="reptilia_evolution_final.html">Évolution</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Story</a>
+        <a href="clans-symbols.html">Clans</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="legal.html">Legal</a>
+    </div>
+
     <!-- HERO -->
     <section class="blog-hero">
         <h1>🦎 Blog REPTILIA</h1>
         <p>Fiction, Design, Éveil de Conscience. Plonge dans l'univers REPTILIA à travers nos articles exclusifs.</p>
     </section>
-    
+
     <!-- CATEGORIES -->
     <section class="categories">
         <div class="category-tag active" data-category="all">Tous</div>
@@ -247,10 +251,9 @@
         <div class="category-tag" data-category="streetwear">Streetwear</div>
         <div class="category-tag" data-category="culture">Culture</div>
     </section>
-    
+
     <!-- ARTICLES -->
     <section class="articles-grid">
-        <!-- Article 1 -->
         <article class="article-card" data-categories="lore" onclick="window.location.href='blog/les-7-signes-reptiliens.html'">
             <img src="the_awakening.png" alt="Les 7 signes que les reptiliens existent - fiction REPTILIA" class="article-image">
             <div class="article-content">
@@ -263,146 +266,139 @@
                 </div>
             </div>
         </article>
-     <!-- Article Idées Cadeaux Reptiliens -->
-<article class="article-card" data-categories="culture" onclick="window.location.href='blog/idee-cadeau-reptilien.html'">
-    <img src="they_are_among_us.png" alt="10 idées cadeaux reptiliens originaux - REPTILIA" class="article-image">
-    <div class="article-content">
-        <div class="article-category">🎁 Guide Cadeaux</div>
-        <h2 class="article-title">10 Idées Cadeaux Reptiliens pour un Homme Impossible à Surprendre</h2>
-        <p class="article-excerpt">Cadeau papa, Halloween, EVG, anniversaire... Stop aux cadeaux génériques. 10 idées reptiliennes qui marquent les esprits à 33€...</p>
-        <div class="article-meta">
-            <span>7 min de lecture</span>
-            <a href="blog/idee-cadeau-reptilien.html" class="read-more">Lire →</a>
-        </div>
-    </div>
-    </article>
-        <!-- Article Théorie Reptilienne David Icke -->
-<article class="article-card" data-categories="lore" onclick="window.location.href='blog/theorie-reptilienne-david-icke.html'">
-    <img src="decode_the_scale.png" alt="Théorie reptilienne David Icke vrai ou fiction - REPTILIA" class="article-image">
-    <div class="article-content">
-        <div class="article-category">🔍 Analyse & Fiction</div>
-        <h2 class="article-title">Théorie Reptilienne David Icke : Vrai ou Fiction ?</h2>
-        <p class="article-excerpt">Des millions de personnes y croient. D'où vient cette théorie, pourquoi fascine-t-elle autant, et où s'arrête la fiction ?</p>
-        <div class="article-meta">
-            <span>9 min de lecture</span>
-            <a href="blog/theorie-reptilienne-david-icke.html" class="read-more">Lire →</a>
-        </div>
-    </div>
-</article>
-        <!-- Article Cerveau Reptilien -->
-<article class="article-card" data-categories="lore" onclick="window.location.href='blog/cerveau-reptilien.html'">
-    <img src="the_awakening.png" alt="Le cerveau reptilien mythe ou réalité - neurosciences REPTILIA" class="article-image">
-    <div class="article-content">
-        <div class="article-category">🧠 Neurosciences & Fiction</div>
-        <h2 class="article-title">Le Cerveau Reptilien : Mythe ou Réalité ?</h2>
-        <p class="article-excerpt">La science derrière le mythe. Pourquoi l'idée du cerveau reptilien continue de fasciner et ce qu'elle révèle sur notre nature profonde...</p>
-        <div class="article-meta">
-            <span>8 min de lecture</span>
-            <a href="blog/cerveau-reptilien.html" class="read-more">Lire →</a>
-        </div>
-    </div>
-</article>
-        <!-- Article Reptiliens Culture Pop -->
-<article class="article-card" data-categories="culture" onclick="window.location.href='blog/reptiliens-culture-pop.html'">
-    <img src="the_awakening.png" alt="Les reptiliens dans la culture pop - Matrix V Game of Thrones REPTILIA" class="article-image">
-    <div class="article-content">
-        <div class="article-category">🎬 Culture Pop & Fiction</div>
-        <h2 class="article-title">Les Reptiliens dans la Culture Pop : Matrix, V, et REPTILIA</h2>
-        <p class="article-excerpt">De V à Matrix en passant par Game of Thrones — pourquoi les reptiliens fascinent la culture pop depuis des décennies...</p>
-        <div class="article-meta">
-            <span>10 min de lecture</span>
-            <a href="blog/reptiliens-culture-pop.html" class="read-more">Lire →</a>
-        </div>
-    </div>
-</article>
-        <!-- Article Symbolisme Reptilien -->
-<article class="article-card" data-categories="lore" onclick="window.location.href='blog/symbolisme-reptilien.html'">
-    <img src="cercle.png" alt="Symbolisme reptilien à travers les civilisations - REPTILIA" class="article-image">
-        <div class="article-content">
-        <div class="article-category">🐍 Mythologie & Symboles</div>
-        <h2 class="article-title">Symbolisme Reptilien : Le Serpent à Travers les Civilisations</h2>
-        <p class="article-excerpt">Égypte, Aztèques, Grèce, Inde, Chine... Partout et toujours, le reptile au cœur de la mythologie humaine. 6000 ans de symbolisme...</p>
-        <div class="article-meta">
-            <span>11 min de lecture</span>
-            <a href="blog/symbolisme-reptilien.html" class="read-more">Lire →</a>
-        </div>
-    </div>
-</article>
-                            
-        <!-- Article Porter REPTILIA 5 Looks -->
-<article class="article-card" data-categories="streetwear" onclick="window.location.href='blog/porter-reptilia-5-looks.html'">
-    <img src="they_are_among_us.png" alt="Comment porter un t-shirt REPTILIA 5 looks streetwear" class="article-image">
-    <div class="article-content">
-        <div class="article-category">👕 Style & Symbolisme</div>
-        <h2 class="article-title">Comment Porter un T-shirt REPTILIA : 5 Looks Reptiliens</h2>
-        <p class="article-excerpt">Du casual quotidien à Halloween, EVG ou soirée thème — 5 façons de porter REPTILIA avec intention et symbolisme...</p>
-        <div class="article-meta">
-            <span>6 min de lecture</span>
-            <a href="blog/porter-reptilia-5-looks.html" class="read-more">Lire →</a>
-        </div>
-    </div>
-</article>
-        <!-- Article Création Design REPTILIA -->
-<article class="article-card" data-categories="design" onclick="window.location.href='blog/creation-design-reptilia.html'">
-    <img src="cold_blood_society.png" alt="Comment créer un design REPTILIA process créatif" class="article-image">
-    <div class="article-content">
-        <div class="article-category">🎨 Design & Création</div>
-        <h2 class="article-title">Comment On Crée un Design REPTILIA : Le Process Créatif</h2>
-        <p class="article-excerpt">De l'intuition symbolique au t-shirt final — les coulisses de la création REPTILIA entre ésotérisme, fiction et streetwear...</p>
-        <div class="article-meta">
-            <span>7 min de lecture</span>
-            <a href="blog/creation-design-reptilia.html" class="read-more">Lire →</a>
-        </div>
-    </div>
-</article>
-        
+
+        <article class="article-card" data-categories="culture" onclick="window.location.href='blog/idee-cadeau-reptilien.html'">
+            <img src="they_are_among_us.png" alt="10 idées cadeaux reptiliens originaux - REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🎁 Guide Cadeaux</div>
+                <h2 class="article-title">10 Idées Cadeaux Reptiliens pour un Homme Impossible à Surprendre</h2>
+                <p class="article-excerpt">Cadeau papa, Halloween, EVG, anniversaire... Stop aux cadeaux génériques. 10 idées reptiliennes qui marquent les esprits à 33€...</p>
+                <div class="article-meta">
+                    <span>7 min de lecture</span>
+                    <a href="blog/idee-cadeau-reptilien.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="lore" onclick="window.location.href='blog/theorie-reptilienne-david-icke.html'">
+            <img src="decode_the_scale.png" alt="Théorie reptilienne David Icke vrai ou fiction - REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🔍 Analyse & Fiction</div>
+                <h2 class="article-title">Théorie Reptilienne David Icke : Vrai ou Fiction ?</h2>
+                <p class="article-excerpt">Des millions de personnes y croient. D'où vient cette théorie, pourquoi fascine-t-elle autant, et où s'arrête la fiction ?</p>
+                <div class="article-meta">
+                    <span>9 min de lecture</span>
+                    <a href="blog/theorie-reptilienne-david-icke.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="lore" onclick="window.location.href='blog/cerveau-reptilien.html'">
+            <img src="the_awakening.png" alt="Le cerveau reptilien mythe ou réalité - neurosciences REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🧠 Neurosciences & Fiction</div>
+                <h2 class="article-title">Le Cerveau Reptilien : Mythe ou Réalité ?</h2>
+                <p class="article-excerpt">La science derrière le mythe. Pourquoi l'idée du cerveau reptilien continue de fasciner et ce qu'elle révèle sur notre nature profonde...</p>
+                <div class="article-meta">
+                    <span>8 min de lecture</span>
+                    <a href="blog/cerveau-reptilien.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="culture" onclick="window.location.href='blog/reptiliens-culture-pop.html'">
+            <img src="the_awakening.png" alt="Les reptiliens dans la culture pop - Matrix V Game of Thrones REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🎬 Culture Pop & Fiction</div>
+                <h2 class="article-title">Les Reptiliens dans la Culture Pop : Matrix, V, et REPTILIA</h2>
+                <p class="article-excerpt">De V à Matrix en passant par Game of Thrones — pourquoi les reptiliens fascinent la culture pop depuis des décennies...</p>
+                <div class="article-meta">
+                    <span>10 min de lecture</span>
+                    <a href="blog/reptiliens-culture-pop.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="lore" onclick="window.location.href='blog/symbolisme-reptilien.html'">
+            <img src="cercle.png" alt="Symbolisme reptilien à travers les civilisations - REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🐍 Mythologie & Symboles</div>
+                <h2 class="article-title">Symbolisme Reptilien : Le Serpent à Travers les Civilisations</h2>
+                <p class="article-excerpt">Égypte, Aztèques, Grèce, Inde, Chine... Partout et toujours, le reptile au cœur de la mythologie humaine. 6000 ans de symbolisme...</p>
+                <div class="article-meta">
+                    <span>11 min de lecture</span>
+                    <a href="blog/symbolisme-reptilien.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="streetwear" onclick="window.location.href='blog/porter-reptilia-5-looks.html'">
+            <img src="they_are_among_us.png" alt="Comment porter un t-shirt REPTILIA 5 looks streetwear" class="article-image">
+            <div class="article-content">
+                <div class="article-category">👕 Style & Symbolisme</div>
+                <h2 class="article-title">Comment Porter un T-shirt REPTILIA : 5 Looks Reptiliens</h2>
+                <p class="article-excerpt">Du casual quotidien à Halloween, EVG ou soirée thème — 5 façons de porter REPTILIA avec intention et symbolisme...</p>
+                <div class="article-meta">
+                    <span>6 min de lecture</span>
+                    <a href="blog/porter-reptilia-5-looks.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="design" onclick="window.location.href='blog/creation-design-reptilia.html'">
+            <img src="cold_blood_society.png" alt="Comment créer un design REPTILIA process créatif" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🎨 Design & Création</div>
+                <h2 class="article-title">Comment On Crée un Design REPTILIA : Le Process Créatif</h2>
+                <p class="article-excerpt">De l'intuition symbolique au t-shirt final — les coulisses de la création REPTILIA entre ésotérisme, fiction et streetwear...</p>
+                <div class="article-meta">
+                    <span>7 min de lecture</span>
+                    <a href="blog/creation-design-reptilia.html" class="read-more">Lire →</a>
+                </div>
+            </div>
+        </article>
     </section>
-    
+
     <!-- FOOTER -->
     <footer>
         <p>⚠️ REPTILIA est une fiction artistique • Tous droits réservés © 2026</p>
         <p style="margin-top: 10px;"><a href="index.html" style="color: var(--accent);">Retour à l'accueil</a></p>
     </footer>
-    
+
     <script>
         // Filtrage des articles par catégorie
         const categoryTags = document.querySelectorAll('.category-tag');
         const articles = document.querySelectorAll('.article-card');
-        
+
         categoryTags.forEach(tag => {
-            tag.addEventListener('click', function() {
-                // Empêcher la navigation
+            tag.addEventListener('click', function(event) {
                 event.stopPropagation();
-                
-                // Retirer la classe active de tous les tags
                 categoryTags.forEach(t => t.classList.remove('active'));
-                
-                // Ajouter la classe active au tag cliqué
                 this.classList.add('active');
-                
-                // Récupérer la catégorie
                 const category = this.getAttribute('data-category');
-                
-                // Filtrer les articles
                 articles.forEach(article => {
                     if (category === 'all') {
                         article.style.display = 'block';
                     } else {
                         const articleCategories = article.getAttribute('data-categories');
-                        if (articleCategories && articleCategories.includes(category)) {
-                            article.style.display = 'block';
-                        } else {
-                            article.style.display = 'none';
-                        }
+                        article.style.display = (articleCategories && articleCategories.includes(category)) ? 'block' : 'none';
                     }
                 });
             });
         });
-        
-        // Empêcher que les catégories déclenchent la navigation vers l'article
-        document.querySelectorAll('.category-tag').forEach(tag => {
-            tag.style.cursor = 'pointer';
+
+        // Burger menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.querySelector('.burger-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu());
         });
     </script>
+
 </body>
 </html>

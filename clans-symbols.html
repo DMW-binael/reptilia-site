@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clans & Symboles Reptiliens — Univers REPTILIA | Mythologie Fiction</title>
-<meta name="description" content="Découvrez les 7 clans reptiliens et leurs symboles sacrés. Mythologie, symbolisme ancestral, fiction immersive. Parfait cadeau geek Halloween.">
-<meta name="keywords" content="reptilien, symbolisme reptilien, clans mystiques, mythologie fiction, symboles sacrés, lore reptilien, cadeau geek, REPTILIA">
-<meta property="og:title" content="Clans & Symboles Reptiliens — Univers REPTILIA">
-<meta property="og:description" content="Les 7 clans reptiliens et leurs symboles sacrés. Mythologie, symbolisme ancestral, fiction immersive.">
-<meta property="og:url" content="https://reptilien.fr/clans-symbols.html">
-<meta property="og:type" content="website">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://reptilien.fr/clans-symbols.html">
+    <meta name="description" content="Découvrez les 7 clans reptiliens et leurs symboles sacrés. Mythologie, symbolisme ancestral, fiction immersive. Parfait cadeau geek Halloween.">
+    <meta name="keywords" content="reptilien, symbolisme reptilien, clans mystiques, mythologie fiction, symboles sacrés, lore reptilien, cadeau geek, REPTILIA">
+    <meta property="og:title" content="Clans & Symboles Reptiliens — Univers REPTILIA">
+    <meta property="og:description" content="Les 7 clans reptiliens et leurs symboles sacrés. Mythologie, symbolisme ancestral, fiction immersive.">
+    <meta property="og:url" content="https://reptilien.fr/clans-symbols.html">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://reptilien.fr/clans-symbols.html">
+    <link rel="icon" type="image/png" href="logo_reptilia.png">
     <style>
         :root {
             --bg: #0a0a0a;
@@ -20,19 +21,14 @@
             --gold: #d4af37;
             --text: #eee;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); }
+
+        /* =====================
+           NAVIGATION BURGER
+        ===================== */
         header {
             background: rgba(17, 17, 17, 0.95);
             padding: 20px;
@@ -42,7 +38,7 @@
             border-bottom: 1px solid #222;
             backdrop-filter: blur(10px);
         }
-        
+
         nav {
             max-width: 1400px;
             margin: 0 auto;
@@ -50,7 +46,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 1.8rem;
             font-weight: 900;
@@ -58,518 +54,268 @@
             letter-spacing: 5px;
             text-decoration: none;
         }
-        
-        .nav-links {
+
+        .burger-menu {
             display: flex;
-            gap: 30px;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
         }
-        
-        .nav-links a {
+
+        .burger-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu.active { display: flex; }
+
+        .mobile-menu a {
             color: #888;
             text-decoration: none;
+            font-size: 1.5rem;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            letter-spacing: 2px;
         }
-        
-        .nav-links a:hover {
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
             color: var(--accent);
+            transform: scale(1.1);
         }
-        
+
+        /* =====================
+           HERO
+        ===================== */
         .hero {
             padding: 100px 20px;
             text-align: center;
             background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
             position: relative;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
+            top: 0; left: 0;
             background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
             animation: pulse 4s ease-in-out infinite;
         }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            color: var(--gold);
-            letter-spacing: 10px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
-        }
-        
-        .hero p {
-            color: #aaa;
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-        
-        .section {
-            max-width: 1400px;
-            margin: 100px auto;
-            padding: 0 20px;
-        }
-        
-        .section-title {
-            font-size: 3rem;
-            color: var(--accent);
-            letter-spacing: 5px;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-        
-        .section-title.gold {
-            color: var(--gold);
-        }
-        
-        .map-container {
-            background: var(--panel);
-            border: 2px solid var(--gold);
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 60px;
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
-        }
-        
-        .map-img {
-            width: 100%;
-            border-radius: 10px;
-            border: 1px solid #333;
-        }
-        
-        .clans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .clan-card {
-            background: var(--panel);
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.4s;
-        }
-        
-        .clan-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-        }
-        
-        .clan-name {
-            font-size: 1.8rem;
-            color: var(--gold);
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-        
-        .clan-desc {
-            color: #aaa;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-        
-        .clan-trait {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-            align-items: center;
-        }
-        
-        .clan-trait-label {
-            color: #666;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            min-width: 80px;
-        }
-        
-        .clan-trait-value {
-            color: var(--accent);
-            font-weight: 700;
-        }
-        
-        .symbols-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-        
-        .symbol-card {
-            background: var(--panel);
-            border: 1px solid #333;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            transition: all 0.4s;
-        }
-        
-        .symbol-card:hover {
-            border-color: var(--accent);
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 255, 102, 0.2);
-        }
-        
-        .symbol-img {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #000;
-            border-radius: 50%;
-            border: 2px solid #222;
-        }
-        
-        .symbol-img img {
-            max-width: 80%;
-            max-height: 80%;
-        }
-        
-        .symbol-name {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        
-        .symbol-meaning {
-            color: #aaa;
-            line-height: 1.8;
-        }
-        
-        .lore-text {
-            background: rgba(212, 175, 55, 0.05);
-            border-left: 4px solid var(--gold);
-            padding: 30px;
-            border-radius: 8px;
-            margin: 40px 0;
-        }
-        
-        .lore-text p {
-            color: #aaa;
-            line-height: 2;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        footer {
-            background: var(--panel);
-            padding: 60px 20px 20px;
-            border-top: 1px solid #222;
-            margin-top: 100px;
-        }
-        
-        .footer-disclaimer {
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            padding: 20px;
-            background: rgba(255, 51, 102, 0.05);
-            border: 1px solid rgba(255, 51, 102, 0.3);
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .footer-disclaimer h4 {
-            color: #ff3366;
-            margin-bottom: 10px;
-        }
-        
-        .footer-disclaimer p {
-            color: #888;
-            font-size: 0.9rem;
-        }
-        
-        .footer-disclaimer a {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-        
+
+        @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .hero h1 { font-size: 4rem; color: var(--gold); letter-spacing: 10px; margin-bottom: 20px; text-shadow: 0 0 40px rgba(212, 175, 55, 0.5); }
+        .hero p { color: #aaa; font-size: 1.3rem; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+
+        /* =====================
+           SECTIONS
+        ===================== */
+        .section { max-width: 1400px; margin: 100px auto; padding: 0 20px; }
+        .section-title { font-size: 3rem; color: var(--accent); letter-spacing: 5px; margin-bottom: 50px; text-align: center; }
+        .section-title.gold { color: var(--gold); }
+
+        .map-container { background: var(--panel); border: 2px solid var(--gold); border-radius: 15px; padding: 40px; margin-bottom: 60px; box-shadow: 0 0 50px rgba(212, 175, 55, 0.2); }
+        .map-img { width: 100%; border-radius: 10px; border: 1px solid #333; }
+
+        .clans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+
+        .clan-card { background: var(--panel); border: 1px solid #333; border-radius: 12px; padding: 30px; transition: all 0.4s; }
+        .clan-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
+
+        .clan-name { font-size: 1.8rem; color: var(--gold); margin-bottom: 15px; font-weight: 700; letter-spacing: 2px; }
+        .clan-desc { color: #aaa; line-height: 1.8; margin-bottom: 20px; }
+        .clan-trait { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
+        .clan-trait-label { color: #666; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; min-width: 80px; }
+        .clan-trait-value { color: var(--accent); font-weight: 700; }
+
+        .symbols-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+
+        .symbol-card { background: var(--panel); border: 1px solid #333; border-radius: 15px; padding: 40px; text-align: center; transition: all 0.4s; }
+        .symbol-card:hover { border-color: var(--accent); transform: scale(1.05); box-shadow: 0 20px 40px rgba(0, 255, 102, 0.2); }
+
+        .symbol-img { width: 200px; height: 200px; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; background: #000; border-radius: 50%; border: 2px solid #222; }
+        .symbol-img img { max-width: 80%; max-height: 80%; }
+
+        .symbol-name { font-size: 1.5rem; color: var(--accent); margin-bottom: 15px; font-weight: 700; }
+        .symbol-meaning { color: #aaa; line-height: 1.8; }
+
+        .lore-text { background: rgba(212, 175, 55, 0.05); border-left: 4px solid var(--gold); padding: 30px; border-radius: 8px; margin: 40px 0; }
+        .lore-text p { color: #aaa; line-height: 2; margin-bottom: 20px; font-size: 1.1rem; }
+
+        /* =====================
+           FOOTER
+        ===================== */
+        footer { background: var(--panel); padding: 60px 20px 20px; border-top: 1px solid #222; margin-top: 100px; }
+
+        .footer-disclaimer { max-width: 1200px; margin: 0 auto 40px; padding: 20px; background: rgba(255, 51, 102, 0.05); border: 1px solid rgba(255, 51, 102, 0.3); border-radius: 8px; text-align: center; }
+        .footer-disclaimer h4 { color: #ff3366; margin-bottom: 10px; }
+        .footer-disclaimer p { color: #888; font-size: 0.9rem; }
+        .footer-disclaimer a { color: var(--accent); text-decoration: underline; }
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-                letter-spacing: 5px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
+            .hero h1 { font-size: 2.5rem; letter-spacing: 5px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVIGATION -->
     <header>
         <nav>
             <a href="index.html" class="logo">REPTILIA</a>
-            <div class="nav-links">
-                <a href="index.html">Accueil</a>
-                <a href="shop.html">Shop</a>
-                <a href="clans-symbols.html">Clans & Symbols</a>
-                <a href="blog.html">Blog</a>
-                <a href="reptilia_evolution_final.html">Évolution</a>
-                <a href="quiz.html">Quiz</a>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
 
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Accueil</a>
+        <a href="reptilia_evolution_final.html">Évolution</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Story</a>
+        <a href="clans-symbols.html" class="active">Clans</a>
+        <a href="blog.html">Blog</a>
+        <a href="legal.html">Legal</a>
+    </div>
+
     <section class="hero">
         <div class="hero-content">
             <h1>CLANS & SYMBOLES</h1>
-            <p>
-                Depuis l'aube des temps, sept clans reptiliens règnent sur les lignes de pouvoir. 
-                Chacun garde un symbole sacré, une connaissance oubliée, un territoire ancestral.
-            </p>
+            <p>Depuis l'aube des temps, sept clans reptiliens règnent sur les lignes de pouvoir. Chacun garde un symbole sacré, une connaissance oubliée, un territoire ancestral.</p>
         </div>
     </section>
 
     <!-- CARTE DES CLANS -->
     <section class="section">
         <h2 class="section-title gold">LA CARTE DES SEPT CLANS</h2>
-        
+
         <div class="map-container">
             <img src="assets/img/reptilia/carte_des_clans_reptilien.png" alt="Carte des Clans Reptiliens" class="map-img">
         </div>
 
         <div class="lore-text">
-            <p>
-                <strong>L'Ancient Parchemin</strong> révèle sept territoires, sept lignées, sept secrets. 
-                Chaque clan possède un savoir unique transmis depuis des millénaires.
-            </p>
-            <p>
-                Les frontières ne sont pas géographiques, mais énergétiques. Les clans ne se font pas la guerre : 
-                ils maintiennent l'équilibre. Quand un humain "éveillé" voit le serpent, il voit un membre d'un de ces sept clans.
-            </p>
+            <p><strong>L'Ancient Parchemin</strong> révèle sept territoires, sept lignées, sept secrets. Chaque clan possède un savoir unique transmis depuis des millénaires.</p>
+            <p>Les frontières ne sont pas géographiques, mais énergétiques. Les clans ne se font pas la guerre : ils maintiennent l'équilibre. Quand un humain "éveillé" voit le serpent, il voit un membre d'un de ces sept clans.</p>
         </div>
 
         <div class="clans-grid">
-            
             <div class="clan-card">
                 <div class="clan-name">REDAMT</div>
-                <div class="clan-desc">
-                    Les gardiens du feu intérieur. Maîtres de la transformation et du renouveau. 
-                    Leur territoire est le désert, là où tout se consume et renaît.
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Élément</div>
-                    <div class="clan-trait-value">Feu</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Pouvoir</div>
-                    <div class="clan-trait-value">Transformation</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Symbole</div>
-                    <div class="clan-trait-value">Phoenix Reptilien</div>
-                </div>
+                <div class="clan-desc">Les gardiens du feu intérieur. Maîtres de la transformation et du renouveau. Leur territoire est le désert, là où tout se consume et renaît.</div>
+                <div class="clan-trait"><div class="clan-trait-label">Élément</div><div class="clan-trait-value">Feu</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Pouvoir</div><div class="clan-trait-value">Transformation</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Symbole</div><div class="clan-trait-value">Phoenix Reptilien</div></div>
             </div>
-
             <div class="clan-card">
                 <div class="clan-name">LLAQAR</div>
-                <div class="clan-desc">
-                    Les seigneurs des profondeurs. Ils habitent les océans et contrôlent les courants marins. 
-                    Leur connaissance : les secrets enfouis sous les eaux.
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Élément</div>
-                    <div class="clan-trait-value">Eau</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Pouvoir</div>
-                    <div class="clan-trait-value">Mémoire Ancestrale</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Symbole</div>
-                    <div class="clan-trait-value">Serpent de Mer</div>
-                </div>
+                <div class="clan-desc">Les seigneurs des profondeurs. Ils habitent les océans et contrôlent les courants marins. Leur connaissance : les secrets enfouis sous les eaux.</div>
+                <div class="clan-trait"><div class="clan-trait-label">Élément</div><div class="clan-trait-value">Eau</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Pouvoir</div><div class="clan-trait-value">Mémoire Ancestrale</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Symbole</div><div class="clan-trait-value">Serpent de Mer</div></div>
             </div>
-
             <div class="clan-card">
                 <div class="clan-name">THODOSS</div>
-                <div class="clan-desc">
-                    Les architectes de la réalité. Bâtisseurs des pyramides et des structures sacrées. 
-                    Leur géométrie défie le temps.
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Élément</div>
-                    <div class="clan-trait-value">Terre</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Pouvoir</div>
-                    <div class="clan-trait-value">Architecture Sacrée</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Symbole</div>
-                    <div class="clan-trait-value">Triangle d'Or</div>
-                </div>
+                <div class="clan-desc">Les architectes de la réalité. Bâtisseurs des pyramides et des structures sacrées. Leur géométrie défie le temps.</div>
+                <div class="clan-trait"><div class="clan-trait-label">Élément</div><div class="clan-trait-value">Terre</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Pouvoir</div><div class="clan-trait-value">Architecture Sacrée</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Symbole</div><div class="clan-trait-value">Triangle d'Or</div></div>
             </div>
-
             <div class="clan-card">
                 <div class="clan-name">YAKRA</div>
-                <div class="clan-desc">
-                    Les veilleurs du ciel. Navigateurs stellaires qui lisent les constellations. 
-                    Ils ont apporté la connaissance des étoiles.
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Élément</div>
-                    <div class="clan-trait-value">Air/Éther</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Pouvoir</div>
-                    <div class="clan-trait-value">Navigation Cosmique</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Symbole</div>
-                    <div class="clan-trait-value">Œil Stellaire</div>
-                </div>
+                <div class="clan-desc">Les veilleurs du ciel. Navigateurs stellaires qui lisent les constellations. Ils ont apporté la connaissance des étoiles.</div>
+                <div class="clan-trait"><div class="clan-trait-label">Élément</div><div class="clan-trait-value">Air/Éther</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Pouvoir</div><div class="clan-trait-value">Navigation Cosmique</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Symbole</div><div class="clan-trait-value">Œil Stellaire</div></div>
             </div>
-
             <div class="clan-card">
                 <div class="clan-name">SORORTH</div>
-                <div class="clan-desc">
-                    Les marcheurs de l'ombre. Maîtres du secret et de la discrétion. 
-                    Leur influence est invisible mais omniprésente.
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Élément</div>
-                    <div class="clan-trait-value">Ombre</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Pouvoir</div>
-                    <div class="clan-trait-value">Infiltration</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Symbole</div>
-                    <div class="clan-trait-value">Serpent Noir</div>
-                </div>
+                <div class="clan-desc">Les marcheurs de l'ombre. Maîtres du secret et de la discrétion. Leur influence est invisible mais omniprésente.</div>
+                <div class="clan-trait"><div class="clan-trait-label">Élément</div><div class="clan-trait-value">Ombre</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Pouvoir</div><div class="clan-trait-value">Infiltration</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Symbole</div><div class="clan-trait-value">Serpent Noir</div></div>
             </div>
-
             <div class="clan-card">
                 <div class="clan-name">GHAARAK</div>
-                <div class="clan-desc">
-                    Les gardiens de la sagesse. Scribes qui ont enregistré toute l'histoire de l'humanité 
-                    depuis sa création.
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Élément</div>
-                    <div class="clan-trait-value">Connaissance</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Pouvoir</div>
-                    <div class="clan-trait-value">Mémoire Universelle</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Symbole</div>
-                    <div class="clan-trait-value">Livre Sacré</div>
-                </div>
+                <div class="clan-desc">Les gardiens de la sagesse. Scribes qui ont enregistré toute l'histoire de l'humanité depuis sa création.</div>
+                <div class="clan-trait"><div class="clan-trait-label">Élément</div><div class="clan-trait-value">Connaissance</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Pouvoir</div><div class="clan-trait-value">Mémoire Universelle</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Symbole</div><div class="clan-trait-value">Livre Sacré</div></div>
             </div>
-
             <div class="clan-card">
                 <div class="clan-name">TAROTAAS</div>
-                <div class="clan-desc">
-                    Les prophètes du futur. Ceux qui voient les lignes temporelles et guident l'évolution. 
-                    Leur regard porte au-delà du présent.
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Élément</div>
-                    <div class="clan-trait-value">Temps</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Pouvoir</div>
-                    <div class="clan-trait-value">Prophétie</div>
-                </div>
-                <div class="clan-trait">
-                    <div class="clan-trait-label">Symbole</div>
-                    <div class="clan-trait-value">Cercle Temporel</div>
-                </div>
+                <div class="clan-desc">Les prophètes du futur. Ceux qui voient les lignes temporelles et guident l'évolution. Leur regard porte au-delà du présent.</div>
+                <div class="clan-trait"><div class="clan-trait-label">Élément</div><div class="clan-trait-value">Temps</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Pouvoir</div><div class="clan-trait-value">Prophétie</div></div>
+                <div class="clan-trait"><div class="clan-trait-label">Symbole</div><div class="clan-trait-value">Cercle Temporel</div></div>
             </div>
-
         </div>
     </section>
 
     <!-- SYMBOLES SACRÉS -->
     <section class="section">
         <h2 class="section-title">SYMBOLES SACRÉS</h2>
-
         <div class="lore-text">
-            <p>
-                Chaque civilisation humaine a reçu ces symboles. Égypte, Sumer, Maya, Chine... 
-                Partout, les mêmes motifs : le serpent, l'œil, le triangle.
-            </p>
-            <p>
-                Ce ne sont pas des coïncidences. Ce sont des <strong>signatures</strong>. 
-                Des rappels codés de la vérité que nous avons oubliée.
-            </p>
+            <p>Chaque civilisation humaine a reçu ces symboles. Égypte, Sumer, Maya, Chine... Partout, les mêmes motifs : le serpent, l'œil, le triangle.</p>
+            <p>Ce ne sont pas des coïncidences. Ce sont des <strong>signatures</strong>. Des rappels codés de la vérité que nous avons oubliée.</p>
         </div>
-
         <div class="symbols-grid">
-            
             <div class="symbol-card">
-                <div class="symbol-img">
-                    <img src="assets/img/reptilia/Triangle.png" alt="Le Triangle">
-                </div>
+                <div class="symbol-img"><img src="assets/img/reptilia/Triangle.png" alt="Le Triangle"></div>
                 <div class="symbol-name">LE TRIANGLE</div>
-                <div class="symbol-meaning">
-                    L'œil dans le triangle. Le regard qui voit tout. Symbole de surveillance éternelle 
-                    et de connaissance supérieure. Présent dans toutes les cultures.
-                </div>
+                <div class="symbol-meaning">L'œil dans le triangle. Le regard qui voit tout. Symbole de surveillance éternelle et de connaissance supérieure. Présent dans toutes les cultures.</div>
             </div>
-
             <div class="symbol-card">
-                <div class="symbol-img">
-                    <img src="assets/img/reptilia/Cercle.png" alt="L'Ouroboros">
-                </div>
+                <div class="symbol-img"><img src="cercle.png" alt="L'Ouroboros"></div>
                 <div class="symbol-name">L'OUROBOROS</div>
-                <div class="symbol-meaning">
-                    Le serpent qui se mord la queue. Le cycle éternel de la mort et de la renaissance. 
-                    L'infini, le temps circulaire, la régénération perpétuelle.
-                </div>
+                <div class="symbol-meaning">Le serpent qui se mord la queue. Le cycle éternel de la mort et de la renaissance. L'infini, le temps circulaire, la régénération perpétuelle.</div>
             </div>
-
             <div class="symbol-card">
-                <div class="symbol-img">
-                    <img src="assets/img/reptilia/3_glyphes.png" alt="Les Trois Glyphes">
-                </div>
+                <div class="symbol-img"><img src="assets/img/reptilia/3_glyphes.png" alt="Les Trois Glyphes"></div>
                 <div class="symbol-name">LES TROIS GLYPHES</div>
-                <div class="symbol-meaning">
-                    Serpent, Œil, Triangle. La trinité sacrée. Corps, Esprit, Âme. 
-                    Passé, Présent, Futur. Les trois piliers de la réalité.
-                </div>
+                <div class="symbol-meaning">Serpent, Œil, Triangle. La trinité sacrée. Corps, Esprit, Âme. Passé, Présent, Futur. Les trois piliers de la réalité.</div>
             </div>
-
         </div>
     </section>
 
     <!-- CTA -->
     <section class="section" style="text-align: center;">
         <div class="lore-text" style="max-width: 800px; margin: 0 auto;">
-            <p style="font-size: 1.3rem; color: var(--gold);">
-                <strong>À quel clan appartiens-tu ?</strong>
-            </p>
-            <p>
-                Fais le quiz pour découvrir ton archétype reptilien et porter le symbole de ton clan.
-            </p>
+            <p style="font-size: 1.3rem; color: var(--gold);"><strong>À quel clan appartiens-tu ?</strong></p>
+            <p>Fais le quiz pour découvrir ton archétype reptilien et porter le symbole de ton clan.</p>
             <div style="margin-top: 30px;">
-                <a href="quiz.html" style="display: inline-block; padding: 20px 50px; background: var(--accent); color: #000; text-decoration: none; border-radius: 50px; font-weight: 700; letter-spacing: 2px; transition: all 0.3s;">
-                    DÉCOUVRIR MON CLAN
-                </a>
+                <a href="quiz.html" style="display: inline-block; padding: 20px 50px; background: var(--accent); color: #000; text-decoration: none; border-radius: 50px; font-weight: 700; letter-spacing: 2px; transition: all 0.3s;">DÉCOUVRIR MON CLAN</a>
             </div>
         </div>
     </section>
@@ -577,12 +323,23 @@
     <footer>
         <div class="footer-disclaimer">
             <h4>⚠️ FICTION ARTISTIQUE</h4>
-            <p>
-                <strong>REPTILIA est un univers de FICTION.</strong>
-                <a href="legal.html">Lire les mentions légales →</a>
-            </p>
+            <p><strong>REPTILIA est un univers de FICTION.</strong> <a href="legal.html">Lire les mentions légales →</a></p>
         </div>
     </footer>
+
+    <!-- JAVASCRIPT BURGER MENU -->
+    <script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const burger = document.querySelector('.burger-menu');
+        menu.classList.toggle('active');
+        burger.classList.toggle('active');
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+    }
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => toggleMobileMenu());
+    });
+    </script>
 
 </body>
 </html>
