@@ -479,6 +479,57 @@
             .gift-price { text-align: left; }
             .btn-secondary { margin-left: 0; margin-top: 10px; display: block; text-align: center; }
         }
+
+        /* BURGER MENU */
+        .burger-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
+        }
+
+        .burger-menu span {
+            width: 25px;
+            height: 3px;
+            background: #00ff66;
+            transition: all 0.3s;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu.active { display: flex; }
+
+        .mobile-menu a {
+            color: #888;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            letter-spacing: 2px;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active { color: #00ff66; transform: scale(1.1); }
     </style>
 </head>
 <body>
@@ -494,7 +545,6 @@
                 <li><a href="../shop.html">Shop</a></li>
                 <li><a href="../blog.html" class="active">Blog</a></li>
                 <li><a href="../story.html">Story</a></li>
-                <li><a href="../faq.html">FAQ</a></li>
             </ul>
         </nav>
     </header>
@@ -756,9 +806,9 @@
         </div>
 
         <div class="article-cta">
-            <h3>🦎 TROUVE TON CADEAU REPTILIEN</h3>
-            <p>8 designs exclusifs à 33€. Livraison France rapide. Le cadeau dont on se souvient.</p>
-            <a href="https://shop.reptilien.fr" class="btn btn-primary">VOIR TOUS LES DESIGNS</a>
+            <h3>🎁 LE CADEAU REPTILIA PARFAIT</h3>
+            <p>Le cadeau parfait pour celui qui pense différemment. <strong>The Awakening</strong> — le design iconique qui déclenche les conversations. Livraison France rapide.</p>
+            <a href="https://shop.reptilien.fr/products/the-awakening" class="btn btn-primary">THE AWAKENING — 33€</a>
             <a href="../quiz.html" class="btn btn-secondary">QUEL REPTILIEN ES-TU ?</a>
         </div>
 
@@ -786,5 +836,18 @@
         <p>© 2026 REPTILIA — Fiction artistique. <a href="../legal.html">Mentions légales</a> • <a href="../blog.html">Blog</a> • <a href="https://shop.reptilien.fr">Shop</a></p>
     </footer>
 
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.querySelector('.burger-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu());
+        });
+    </script>
 </body>
 </html>
