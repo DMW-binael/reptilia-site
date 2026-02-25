@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story REPTILIA — The Reptilian Fiction Universe | Lore</title>
+    <meta name="description" content="The REPTILIA story: reptilian artistic fiction, complete lore, immersive universe. Discover the storytelling behind the designs.">
+    <meta name="keywords" content="reptilian, REPTILIA story, reptilian lore, fiction storytelling, reptilian universe, artistic fiction, worldbuilding, REPTILIA">
+    <meta property="og:title" content="Story REPTILIA — The Reptilian Fiction Universe">
+    <meta property="og:description" content="Reptilian artistic fiction, complete lore, immersive universe. The storytelling behind the designs.">
+    <meta property="og:url" content="https://reptilien.fr/story-en.html">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://reptilien.fr/story-en.html">
+    <link rel="icon" type="image/png" href="logo_reptilia.png">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJHNLQF6Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1VJHNLQF6Q');
+</script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a0a;
+            color: #eee;
+            line-height: 1.8;
+        }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(17,17,17,0.95); border: 2px solid #333; border-radius: 8px; padding: 8px 12px; cursor: pointer; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; gap: 6px; color: #888; font-size: 0.85rem; font-weight: 600; }
+        .lang-btn:hover, .lang-btn.active { border-color: #00ff66; color: #00ff66; }
+
+        /* NAVIGATION */
+        header { background: rgba(10, 10, 10, 0.95); padding: 20px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222; backdrop-filter: blur(10px); }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #00ff66; font-size: 1.8rem; font-weight: 900; letter-spacing: 6px; text-decoration: none; }
+        .burger-menu { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 10px; }
+        .burger-menu span { width: 25px; height: 3px; background: #00ff66; transition: all 0.3s; border-radius: 2px; display: block; }
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10, 10, 10, 0.98); z-index: 1000; flex-direction: column; justify-content: center; align-items: center; gap: 30px; backdrop-filter: blur(10px); }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: #888; text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: all 0.3s; letter-spacing: 2px; }
+        .mobile-menu a:hover, .mobile-menu a.active { color: #00ff66; transform: scale(1.1); }
+
+        /* HERO */
+        .hero { text-align: center; padding: 80px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #111 100%); }
+        .hero h1 { font-size: 4rem; color: #00ff66; letter-spacing: 10px; margin-bottom: 20px; }
+        .hero p { font-size: 1.3rem; color: #aaa; max-width: 700px; margin: 0 auto; }
+
+        /* CONTENT */
+        .content { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .section { margin-bottom: 80px; }
+        .section h2 { font-size: 2.5rem; color: #00ff66; margin-bottom: 30px; letter-spacing: 4px; }
+        .section h3 { font-size: 1.8rem; color: #fff; margin: 40px 0 20px; }
+        .section p { color: #bbb; font-size: 1.1rem; margin-bottom: 20px; }
+
+        .timeline { border-left: 3px solid #00ff66; padding-left: 30px; margin: 40px 0; }
+        .timeline-item { margin-bottom: 40px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -36px; top: 0; width: 12px; height: 12px; background: #00ff66; border-radius: 50%; }
+        .timeline-date { color: #00ff66; font-weight: 700; font-size: 1.2rem; margin-bottom: 10px; }
+        .timeline-title { color: #fff; font-size: 1.3rem; margin-bottom: 10px; }
+        .timeline-text { color: #aaa; }
+
+        .disclaimer-box { background: rgba(255, 193, 7, 0.1); border: 2px solid rgba(255, 193, 7, 0.5); border-radius: 15px; padding: 30px; margin: 60px 0; text-align: center; }
+        .disclaimer-box h3 { color: #ffb700; margin-bottom: 15px; }
+
+        .cta-box { background: linear-gradient(135deg, rgba(0, 255, 102, 0.1), rgba(0, 255, 102, 0.05)); border: 2px solid #00ff66; border-radius: 15px; padding: 40px; text-align: center; margin: 60px 0; }
+        .cta-box h2 { color: #00ff66; margin-bottom: 20px; }
+        .cta-btn { display: inline-block; padding: 15px 40px; background: #00ff66; color: #000; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 1.1rem; margin-top: 20px; transition: all 0.3s; }
+        .cta-btn:hover { background: #00cc44; transform: scale(1.05); }
+
+        /* FOOTER */
+        footer { background: #111; padding: 60px 20px 30px; margin-top: 100px; border-top: 1px solid #222; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-column h3 { color: #00ff66; margin-bottom: 20px; }
+        .footer-column a { color: #aaa; text-decoration: none; display: block; margin-bottom: 10px; }
+        .footer-column a:hover { color: #00ff66; }
+        .footer-bottom { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid #222; color: #666; font-size: 0.85rem; }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+        <a href="story.html" class="lang-btn">🇫🇷 FR</a>
+        <a href="story-en.html" class="lang-btn active">🇬🇧 EN</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <a href="index-en.html" class="logo">REPTILIA</a>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index-en.html">Home</a>
+        <a href="reptilia_evolution_final.html">Evolution</a>
+        <a href="shop-en.html">Shop</a>
+        <a href="story-en.html" class="active">Story</a>
+        <a href="clans-symbols.html">Clans</a>
+        <a href="blog.html">Blog</a>
+        <a href="legal.html">Legal</a>
+    </div>
+
+    <section class="hero">
+        <h1>THE UNIVERSE</h1>
+        <p>6000 years of mythologies. Vanished civilizations. A recurring symbol.<br>Welcome to the REPTILIA universe.</p>
+    </section>
+
+    <div class="content">
+
+        <div class="disclaimer-box">
+            <h3>⚠️ ARTISTIC FICTION</h3>
+            <p>
+                REPTILIA is a work of artistic fiction exploring ancient mythologies.<br>
+                No factual claims about the real world are made.<br>
+                Entertainment, critical thinking, and cultural exploration.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>THE ORIGIN OF THE MYTH</h2>
+            <p>In every great civilization in human history, one pattern repeats itself: beings that are half-human, half-reptilian. Gods, guardians, or visitors from the stars.</p>
+            <p>Egypt calls them the serpent guardians. The Mayans name them Quetzalcoatl, the feathered serpent. The Sumerians speak of the Anunnaki. India venerates the Nagas.</p>
+            <p>REPTILIA does not claim to reveal the truth. REPTILIA explores these fascinating myths through the lens of streetwear and art.</p>
+
+            <div style="text-align: center; margin: 50px 0; padding: 40px; background: linear-gradient(135deg, rgba(0, 255, 102, 0.1), rgba(0, 255, 102, 0.05)); border: 2px solid #00ff66; border-radius: 15px;">
+                <h3 style="color: #00ff66; margin-bottom: 20px; font-size: 1.8rem; letter-spacing: 3px;">⚔️ THE FOUR CLANS</h3>
+                <p style="color: #aaa; margin-bottom: 30px; font-size: 1.1rem;">Discover the symbols and hierarchies of the reptilian bloodlines. Four clans, four philosophies, one single goal: control.</p>
+                <a href="clans-symbols.html" class="cta-btn" style="display: inline-block; padding: 18px 45px; background: #00ff66; color: #000; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 1.1rem; letter-spacing: 2px;">VIEW THE CLANS MAP</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>MYTHOLOGICAL TIMELINE</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">4000 BC - SUMER</div>
+                    <div class="timeline-title">The Anunnaki</div>
+                    <div class="timeline-text">Sumerian texts speak of the Anunnaki, "those who came down from the sky." Beings said to have brought knowledge to humanity. Some representations show them with reptilian characteristics.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">3000 BC - EGYPT</div>
+                    <div class="timeline-title">Wadjet, the Serpent Goddess</div>
+                    <div class="timeline-text">The Uraeus, the cobra rearing up on the pharaoh's crown, symbolizes Wadjet, the protective goddess. The serpent as a symbol of divine power and protection.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2000 BC - INDIA</div>
+                    <div class="timeline-title">The Nagas</div>
+                    <div class="timeline-text">Vedic texts describe the Nagas, half-human half-serpent beings, guardians of underground treasures and secret knowledge. Both venerated and feared.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">900 AD - MAYAN CIVILIZATION</div>
+                    <div class="timeline-title">Quetzalcoatl</div>
+                    <div class="timeline-text">The feathered serpent, a major Mesoamerican deity. Bringer of knowledge, civilization, and the calendar. A promise of return.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Present - DOGON TRIBE, MALI</div>
+                    <div class="timeline-title">The Nommos</div>
+                    <div class="timeline-text">The Dogon tribe speaks of amphibious visitors from Sirius. How did they know about the existence of Sirius B, invisible to the naked eye, only discovered by our astronomers in 1862?</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026 - TODAY</div>
+                    <div class="timeline-title">REPTILIA</div>
+                    <div class="timeline-text">We explore these myths through streetwear. Artistic fiction. Critical thinking. Imagination. Each design tells part of this thousand-year-old story.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>THE SYMBOLISM</h2>
+            <h3>👁️ THE ALL-SEEING EYE</h3>
+            <p>Present in all cultures. The Eye of Horus in Egypt. The Eye of Providence in Freemasonry. The third eye in Hinduism. A symbol of knowledge, surveillance, or spiritual awakening depending on interpretation.</p>
+            <h3>△ THE TRIANGLE</h3>
+            <p>Universal sacred form. The trinity. Stability. The hierarchy of power. The pyramids of Egypt, Mexico, China. All these civilizations, with no known contact, built the same shape.</p>
+            <h3>⭕ THE OUROBOROS</h3>
+            <p>The serpent eating its own tail. Symbol of the eternal cycle. Death and rebirth. Beginning and end. Found in ancient Egypt, in Greece, in medieval alchemy, and in Eastern philosophies.</p>
+            <h3>🐍 THE SERPENT</h3>
+            <p>The most symbolic animal in human history. Wisdom in some cultures, temptation in others. Transformation through shedding skin. Kundalini, the serpent energy in yoga. The medical caduceus. Everywhere, always, the serpent.</p>
+        </div>
+
+        <div class="section">
+            <h2>OUR MISSION</h2>
+            <p>REPTILIA is not a brand like any other. We don't just sell clothes. We create conversation starters. Questions. Curiosity.</p>
+            <p>We believe in critical thinking. In questioning. In cultural exploration. In the freedom to imagine and to question.</p>
+            <p>Each REPTILIA design is a gateway into these fascinating mythologies. A reminder that human history is more mysterious and richer than what we are sometimes taught.</p>
+            <p><strong>We claim to hold no truth.</strong> We explore. We create. We imagine. This is artistic fiction, intelligent entertainment, and creative expression.</p>
+        </div>
+
+        <div class="cta-box">
+            <h2>Ready to Explore?</h2>
+            <p style="color: #aaa; font-size: 1.1rem;">Discover our collection and choose the design that resonates with you.</p>
+            <a href="shop-en.html" class="cta-btn">DISCOVER THE COLLECTION</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>REPTILIA</h3>
+                <p style="color: #aaa;">Artistic fiction exploring reptilian mythologies through streetwear.</p>
+            </div>
+            <div class="footer-column">
+                <h3>NAVIGATION</h3>
+                <a href="index-en.html">Home</a>
+                <a href="shop-en.html">Shop</a>
+                <a href="story-en.html">Story</a>
+                <a href="blog.html">Blog</a>
+                <a href="qualite-entretien.html">Quality</a>
+            </div>
+            <div class="footer-column">
+                <h3>LEGAL</h3>
+                <a href="legal.html">Legal Notice</a>
+                <a href="legal.html#cgv">Terms & Conditions</a>
+                <a href="legal.html#retours">Returns</a>
+            </div>
+            <div class="footer-column">
+                <h3>CONTACT</h3>
+                <p style="color: #aaa;">📧 contact@reptilien.fr<br>📍 France</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 REPTILIA — Artistic fiction | <a href="legal.html" style="color: #00ff66;">Legal Notice</a></p>
+        </div>
+    </footer>
+
+    <script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const burger = document.querySelector('.burger-menu');
+        menu.classList.toggle('active');
+        burger.classList.toggle('active');
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+    }
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => toggleMobileMenu());
+    });
+    </script>
+
+</body>
+</html>
