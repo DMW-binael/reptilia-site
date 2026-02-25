@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog REPTILIA — Reptilian Fiction & Streetwear | Inspiration</title>
+    <meta name="description" content="REPTILIA Blog: reptilian streetwear articles, artistic fiction, symbolism. Discover the universe and find inspiration for original gifts.">
+    <meta name="keywords" content="reptilian, streetwear blog, artistic fiction, reptilian symbolism, original gift, halloween inspiration, REPTILIA">
+    <meta property="og:title" content="Blog REPTILIA — Reptilian Fiction & Streetwear">
+    <meta property="og:description" content="Reptilian streetwear articles, artistic fiction, symbolism. Original gift inspiration for Halloween and more.">
+    <meta property="og:url" content="https://reptilien.fr/blog-en.html">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://reptilien.fr/blog-en.html">
+    <link rel="icon" type="image/png" href="logo_reptilia.png">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJHNLQF6Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1VJHNLQF6Q');
+</script>
+
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #111;
+            --accent: #00ff66;
+            --text: #eee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(17,17,17,0.95); border: 2px solid #333; border-radius: 8px; padding: 8px 12px; cursor: pointer; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; gap: 6px; color: #888; font-size: 0.85rem; font-weight: 600; }
+        .lang-btn:hover, .lang-btn.active { border-color: #00ff66; color: #00ff66; }
+
+        /* NAVIGATION */
+        header { background: rgba(17, 17, 17, 0.95); padding: 20px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--accent); backdrop-filter: blur(10px); }
+        nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: var(--accent); font-size: 1.8rem; font-weight: 900; letter-spacing: 5px; text-decoration: none; }
+        .burger-menu { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 10px; }
+        .burger-menu span { width: 25px; height: 3px; background: var(--accent); transition: all 0.3s; border-radius: 2px; display: block; }
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10, 10, 10, 0.98); z-index: 1000; flex-direction: column; justify-content: center; align-items: center; gap: 30px; backdrop-filter: blur(10px); }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: #888; text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: all 0.3s; letter-spacing: 2px; }
+        .mobile-menu a:hover, .mobile-menu a.active { color: var(--accent); transform: scale(1.1); }
+
+        /* HERO */
+        .blog-hero { text-align: center; padding: 80px 20px 60px; background: linear-gradient(180deg, #0a0a0a 0%, #111 100%); }
+        .blog-hero h1 { font-size: 3rem; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 3px; }
+        .blog-hero p { font-size: 1.2rem; color: #aaa; max-width: 600px; margin: 0 auto; }
+
+        /* CATEGORIES */
+        .categories { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .category-tag { background: var(--panel); color: var(--text); padding: 10px 20px; border-radius: 25px; border: 1px solid #333; cursor: pointer; transition: all 0.3s; }
+        .category-tag:hover, .category-tag.active { background: var(--accent); color: #000; border-color: var(--accent); }
+
+        /* ARTICLES */
+        .articles-grid { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+        .article-card { background: var(--panel); border: 1px solid #222; border-radius: 10px; overflow: hidden; transition: all 0.3s; cursor: pointer; }
+        .article-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2); }
+        .article-image { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid #222; }
+        .article-content { padding: 25px; }
+        .article-category { color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .article-title { font-size: 1.4rem; color: var(--text); margin-bottom: 15px; line-height: 1.3; }
+        .article-excerpt { color: #aaa; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; }
+        .article-meta { display: flex; justify-content: space-between; align-items: center; color: #666; font-size: 0.85rem; }
+        .read-more { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+        /* FOOTER */
+        footer { background: var(--panel); padding: 40px 20px; text-align: center; margin-top: 80px; border-top: 2px solid var(--accent); }
+        footer p { color: #666; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .blog-hero h1 { font-size: 2rem; }
+            .articles-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+        <a href="blog.html" class="lang-btn">🇫🇷 FR</a>
+        <a href="blog-en.html" class="lang-btn active">🇬🇧 EN</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <a href="index-en.html" class="logo">REPTILIA</a>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index-en.html">Home</a>
+        <a href="reptilia_evolution_final.html">Evolution</a>
+        <a href="shop-en.html">Shop</a>
+        <a href="story-en.html">Story</a>
+        <a href="clans-symbols-en.html">Clans</a>
+        <a href="blog-en.html" class="active">Blog</a>
+        <a href="legal.html">Legal</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="blog-hero">
+        <h1>🦎 REPTILIA Blog</h1>
+        <p>Fiction, Design, Awakening of Consciousness. Dive into the REPTILIA universe through our exclusive articles.</p>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories">
+        <div class="category-tag active" data-category="all">All</div>
+        <div class="category-tag" data-category="lore">Lore & Mythology</div>
+        <div class="category-tag" data-category="design">Design</div>
+        <div class="category-tag" data-category="streetwear">Streetwear</div>
+        <div class="category-tag" data-category="culture">Culture</div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class="articles-grid">
+        <article class="article-card" data-categories="lore" onclick="window.location.href='blog/les-7-signes-reptiliens.html'">
+            <img src="the_awakening.png" alt="The 7 signs that reptilians exist - REPTILIA fiction" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🦎 Lore & Mythology</div>
+                <h2 class="article-title">The 7 Signs That Reptilians Exist (Fiction)</h2>
+                <p class="article-excerpt">Between myth and reality, discover the 7 clues that fuel the greatest artistic fiction of our era...</p>
+                <div class="article-meta">
+                    <span>5 min read</span>
+                    <a href="blog/les-7-signes-reptiliens.html" class="read-more">Read →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="culture" onclick="window.location.href='blog/idee-cadeau-reptilien.html'">
+            <img src="they_are_among_us.png" alt="10 original reptilian gift ideas - REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🎁 Gift Guide</div>
+                <h2 class="article-title">10 Reptilian Gift Ideas for the Person Who Has Everything</h2>
+                <p class="article-excerpt">Halloween, birthday, stag do... Stop with generic gifts. 10 reptilian ideas that leave a mark at €33...</p>
+                <div class="article-meta">
+                    <span>7 min read</span>
+                    <a href="blog/idee-cadeau-reptilien.html" class="read-more">Read →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="lore" onclick="window.location.href='blog/theorie-reptilienne-david-icke.html'">
+            <img src="decode_the_scale.png" alt="David Icke reptilian theory truth or fiction - REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🔍 Analysis & Fiction</div>
+                <h2 class="article-title">David Icke's Reptilian Theory: Truth or Fiction?</h2>
+                <p class="article-excerpt">Millions of people believe it. Where does this theory come from, why does it fascinate so many, and where does fiction end?</p>
+                <div class="article-meta">
+                    <span>9 min read</span>
+                    <a href="blog/theorie-reptilienne-david-icke.html" class="read-more">Read →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="lore" onclick="window.location.href='blog/cerveau-reptilien.html'">
+            <img src="the_awakening.png" alt="The reptilian brain myth or reality - neuroscience REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🧠 Neuroscience & Fiction</div>
+                <h2 class="article-title">The Reptilian Brain: Myth or Reality?</h2>
+                <p class="article-excerpt">The science behind the myth. Why the idea of the reptilian brain continues to fascinate and what it reveals about our deep nature...</p>
+                <div class="article-meta">
+                    <span>8 min read</span>
+                    <a href="blog/cerveau-reptilien.html" class="read-more">Read →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="culture" onclick="window.location.href='blog/reptiliens-culture-pop.html'">
+            <img src="the_awakening.png" alt="Reptilians in pop culture - Matrix V Game of Thrones REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🎬 Pop Culture & Fiction</div>
+                <h2 class="article-title">Reptilians in Pop Culture: Matrix, V, and REPTILIA</h2>
+                <p class="article-excerpt">From V to Matrix via Game of Thrones — why reptilians have fascinated pop culture for decades...</p>
+                <div class="article-meta">
+                    <span>10 min read</span>
+                    <a href="blog/reptiliens-culture-pop.html" class="read-more">Read →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="lore" onclick="window.location.href='blog/symbolisme-reptilien.html'">
+            <img src="cercle.png" alt="Reptilian symbolism across civilizations - REPTILIA" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🐍 Mythology & Symbols</div>
+                <h2 class="article-title">Reptilian Symbolism: The Serpent Across Civilizations</h2>
+                <p class="article-excerpt">Egypt, Aztecs, Greece, India, China... Everywhere and always, the reptile at the heart of human mythology. 6000 years of symbolism...</p>
+                <div class="article-meta">
+                    <span>11 min read</span>
+                    <a href="blog/symbolisme-reptilien.html" class="read-more">Read →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="streetwear" onclick="window.location.href='blog/porter-reptilia-5-looks.html'">
+            <img src="they_are_among_us.png" alt="How to wear a REPTILIA t-shirt 5 streetwear looks" class="article-image">
+            <div class="article-content">
+                <div class="article-category">👕 Style & Symbolism</div>
+                <h2 class="article-title">How to Wear a REPTILIA T-shirt: 5 Reptilian Looks</h2>
+                <p class="article-excerpt">From everyday casual to Halloween, stag do or themed party — 5 ways to wear REPTILIA with intention and symbolism...</p>
+                <div class="article-meta">
+                    <span>6 min read</span>
+                    <a href="blog/porter-reptilia-5-looks.html" class="read-more">Read →</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="article-card" data-categories="design" onclick="window.location.href='blog/creation-design-reptilia.html'">
+            <img src="cold_blood_society.png" alt="How we create a REPTILIA design - creative process" class="article-image">
+            <div class="article-content">
+                <div class="article-category">🎨 Design & Creation</div>
+                <h2 class="article-title">How We Create a REPTILIA Design: The Creative Process</h2>
+                <p class="article-excerpt">From symbolic intuition to the final t-shirt — behind the scenes of REPTILIA creation between esotericism, fiction and streetwear...</p>
+                <div class="article-meta">
+                    <span>7 min read</span>
+                    <a href="blog/creation-design-reptilia.html" class="read-more">Read →</a>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>⚠️ REPTILIA is artistic fiction • All rights reserved © 2026</p>
+        <p style="margin-top: 10px;"><a href="index-en.html" style="color: var(--accent);">Back to home</a></p>
+    </footer>
+
+    <script>
+        const categoryTags = document.querySelectorAll('.category-tag');
+        const articles = document.querySelectorAll('.article-card');
+
+        categoryTags.forEach(tag => {
+            tag.addEventListener('click', function(event) {
+                event.stopPropagation();
+                categoryTags.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                const category = this.getAttribute('data-category');
+                articles.forEach(article => {
+                    if (category === 'all') {
+                        article.style.display = 'block';
+                    } else {
+                        const articleCategories = article.getAttribute('data-categories');
+                        article.style.display = (articleCategories && articleCategories.includes(category)) ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.querySelector('.burger-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu());
+        });
+    </script>
+
+</body>
+</html>
