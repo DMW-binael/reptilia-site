@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which Reptilian Are You? — REPTILIA Quiz | Find Your Clan</title>
+    <meta name="description" content="Discover which reptilian you are with the REPTILIA quiz. Find your clan, your symbol, your true nature. Immersive fiction — result in 2 minutes.">
+    <meta name="keywords" content="reptilian, reptilian quiz, which reptilian are you, reptilian clan, fiction personality test, REPTILIA quiz">
+    <meta property="og:title" content="Which Reptilian Are You? — REPTILIA Quiz">
+    <meta property="og:description" content="Find your reptilian clan in 2 minutes. Immersive REPTILIA fiction quiz.">
+    <meta property="og:url" content="https://reptilien.fr/quiz-en.html">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://reptilien.fr/quiz-en.html">
+    <link rel="icon" type="image/png" href="logo_reptilia.png">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJHNLQF6Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1VJHNLQF6Q');
+    </script>
+
+    <style>
+        :root { --bg: #0a0a0a; --accent: #00ff66; --link: #0ff; --text: #eee; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(17,17,17,0.95); border: 2px solid #333; border-radius: 8px; padding: 8px 12px; cursor: pointer; transition: all 0.3s; text-decoration: none; color: #888; font-size: 0.85rem; font-weight: 600; }
+        .lang-btn:hover, .lang-btn.active { border-color: #00ff66; color: #00ff66; }
+
+        header { background: rgba(10,10,10,0.95); padding: 20px; border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: var(--accent); font-size: 1.5rem; font-weight: 900; letter-spacing: 3px; text-decoration: none; }
+        .burger-menu { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 10px; }
+        .burger-menu span { width: 25px; height: 3px; background: var(--accent); transition: all 0.3s; border-radius: 2px; display: block; }
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10,10,10,0.98); z-index: 1000; flex-direction: column; justify-content: center; align-items: center; gap: 30px; backdrop-filter: blur(10px); }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: #888; text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: all 0.3s; letter-spacing: 2px; }
+        .mobile-menu a:hover, .mobile-menu a.active { color: var(--accent); transform: scale(1.1); }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .intro { text-align: center; margin-bottom: 60px; }
+        .intro h1 { font-size: 3rem; color: var(--accent); margin-bottom: 20px; letter-spacing: 5px; }
+        .intro p { color: #aaa; font-size: 1.2rem; line-height: 1.8; margin-bottom: 40px; }
+
+        .start-btn { padding: 20px 50px; background: var(--accent); color: #000; border: none; border-radius: 50px; font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; }
+        .start-btn:hover { background: var(--link); box-shadow: 0 0 30px rgba(0,255,102,0.5); transform: scale(1.05); }
+
+        .quiz { display: none; }
+        .quiz.active { display: block; }
+        .progress-bar { height: 8px; background: #222; border-radius: 10px; margin-bottom: 40px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--link)); width: 0%; transition: width 0.5s; }
+
+        .question-card { background: rgba(0,255,102,0.03); border: 1px solid rgba(0,255,102,0.2); border-radius: 15px; padding: 40px; margin-bottom: 30px; }
+        .question-number { color: #888; font-size: 0.9rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .question-text { font-size: 1.8rem; color: var(--text); margin-bottom: 30px; line-height: 1.4; }
+        .answers { display: grid; gap: 15px; }
+        .answer-btn { padding: 20px; background: rgba(0,0,0,0.5); border: 2px solid #333; border-radius: 12px; color: var(--text); text-align: left; cursor: pointer; transition: all 0.3s; font-size: 1.1rem; }
+        .answer-btn:hover { border-color: var(--accent); background: rgba(0,255,102,0.05); transform: translateX(5px); }
+
+        .result { display: none; text-align: center; }
+        .result.active { display: block; }
+        .result-icon { font-size: 8rem; margin-bottom: 30px; animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .result h2 { font-size: 3rem; color: var(--accent); margin-bottom: 20px; letter-spacing: 5px; }
+        .result-desc { font-size: 1.3rem; color: #aaa; line-height: 1.8; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .traits { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .trait { background: rgba(0,0,0,0.5); border: 1px solid #333; border-radius: 12px; padding: 20px; }
+        .trait-label { color: var(--accent); font-weight: 700; margin-bottom: 10px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+        .trait-value { color: var(--text); font-size: 1.2rem; }
+
+        .recommended-product { background: rgba(0,255,102,0.05); border: 2px solid var(--accent); border-radius: 15px; padding: 40px; margin-bottom: 40px; }
+        .recommended-product h3 { color: var(--accent); font-size: 2rem; margin-bottom: 20px; }
+        .product-preview { display: flex; gap: 30px; align-items: center; margin-bottom: 30px; }
+        .product-image { width: 200px; height: 200px; background: #000; border-radius: 12px; overflow: hidden; flex-shrink: 0; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; }
+        .product-info { flex: 1; text-align: left; }
+        .product-name { font-size: 1.5rem; color: var(--text); margin-bottom: 10px; font-weight: 700; }
+        .product-desc { color: #888; line-height: 1.6; margin-bottom: 20px; }
+        .product-price { font-size: 1.8rem; color: var(--accent); font-weight: 700; }
+
+        .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn { padding: 20px 40px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .cta-primary { background: var(--accent); color: #000; }
+        .cta-primary:hover { background: var(--link); box-shadow: 0 0 30px rgba(0,255,102,0.5); }
+        .cta-secondary { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+        .cta-secondary:hover { background: rgba(0,255,102,0.1); }
+
+        .share-section { margin-top: 60px; padding-top: 40px; border-top: 1px solid #333; }
+        .share-section h4 { color: var(--text); margin-bottom: 20px; }
+        .share-buttons { display: flex; gap: 15px; justify-content: center; }
+        .share-btn { padding: 12px 25px; background: rgba(0,0,0,0.5); border: 1px solid #333; border-radius: 25px; color: var(--text); cursor: pointer; transition: all 0.3s; text-decoration: none; }
+        .share-btn:hover { border-color: var(--accent); background: rgba(0,255,102,0.1); }
+
+        @media (max-width: 768px) {
+            .intro h1 { font-size: 2rem; }
+            .product-preview { flex-direction: column; }
+            .product-image { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+        <a href="quiz.html" class="lang-btn">FRANÇAIS</a>
+        <a href="quiz-en.html" class="lang-btn active">ENGLISH</a>
+    </div>
+
+    <header>
+        <nav>
+            <a href="index-en.html" class="logo">REPTILIA QUIZ</a>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index-en.html">Home</a>
+        <a href="shop-en.html">Shop</a>
+        <a href="story-en.html">Story</a>
+        <a href="clans-symbols-en.html">Clans</a>
+        <a href="blog-en.html">Blog</a>
+        <a href="legal-en.html">Legal</a>
+    </div>
+
+    <div class="container">
+
+        <div class="intro" id="intro">
+            <h1>WHICH REPTILIAN ARE YOU?</h1>
+            <p>7 questions to discover your reptilian archetype. Are we all secretly reptilians? Only one way to find out.<br><br>Answer honestly. The truth is within you.</p>
+            <button class="start-btn" onclick="startQuiz()">START THE TEST</button>
+        </div>
+
+        <div class="quiz" id="quiz">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <div id="questionContainer"></div>
+        </div>
+
+        <div class="result" id="result"></div>
+
+    </div>
+
+    <script>
+        const questions = [
+            {
+                text: "A massive secret has just been revealed to the world. How do you react?",
+                answers: [
+                    { text: "I share it immediately with everyone", type: "messenger" },
+                    { text: "I calmly analyse it to understand the implications", type: "observer" },
+                    { text: "I verify whether it's true before drawing conclusions", type: "seeker" },
+                    { text: "I keep the secret and use it to my advantage", type: "elite" }
+                ]
+            },
+            {
+                text: "Where do you feel most at ease?",
+                answers: [
+                    { text: "In the crowd, at the heart of urban action", type: "messenger" },
+                    { text: "In the shadows, watching without being seen", type: "observer" },
+                    { text: "Deep in nature, far from civilisation", type: "ancient" },
+                    { text: "In places of power, where decisions are made", type: "elite" }
+                ]
+            },
+            {
+                text: "Your ideal power would be to...",
+                answers: [
+                    { text: "Communicate telepathically with others", type: "messenger" },
+                    { text: "Become invisible at will", type: "observer" },
+                    { text: "Control the natural elements", type: "ancient" },
+                    { text: "Manipulate people's thoughts", type: "elite" }
+                ]
+            },
+            {
+                text: "Faced with a complex problem, you...",
+                answers: [
+                    { text: "Seek help and brainstorm with others", type: "messenger" },
+                    { text: "Wait patiently for the right moment to act", type: "observer" },
+                    { text: "Trust your ancestral instinct", type: "ancient" },
+                    { text: "Manipulate the situation so it resolves itself", type: "elite" }
+                ]
+            },
+            {
+                text: "Which quote speaks to you most?",
+                answers: [
+                    { text: "\"The truth must be known by all\"", type: "seeker" },
+                    { text: "\"Those who see without being seen control everything\"", type: "observer" },
+                    { text: "\"The ancients already knew\"", type: "ancient" },
+                    { text: "\"Power belongs to those who dare to take it\"", type: "elite" }
+                ]
+            },
+            {
+                text: "Your ideal clothing style?",
+                answers: [
+                    { text: "Urban streetwear with cryptic messages", type: "messenger" },
+                    { text: "Discreet and functional, almost invisible", type: "observer" },
+                    { text: "Organic, inspired by nature and textures", type: "ancient" },
+                    { text: "Elegant, refined, commanding respect", type: "elite" }
+                ]
+            },
+            {
+                text: "If you could live in any era...",
+                answers: [
+                    { text: "Now — the awakening is happening", type: "messenger" },
+                    { text: "2060 — the era of technological transition", type: "observer" },
+                    { text: "4000 BC — the age of the first civilisations", type: "ancient" },
+                    { text: "2126 — when everything will be revealed", type: "elite" }
+                ]
+            }
+        ];
+
+        const results = {
+            messenger: {
+                title: "THE AWAKENER",
+                icon: "📢",
+                desc: "You are the one who sounds the alarm. The messenger of modern times. You cannot stay silent in the face of truth. Your role is to awaken consciousness, to share what you know, to cry out in the wilderness until the world listens.",
+                traits: { "Mission": "Awaken", "Strength": "Communication", "Era": "Present", "Element": "Air" },
+                product: { name: "THEY ARE AMONG US", image: "they_are_among_us.png", desc: "The perfect design for the urban messenger. Carry the message, awaken consciousness.", price: 33 }
+            },
+            observer: {
+                title: "THE WATCHER",
+                icon: "👁️",
+                desc: "You see everything. You understand everything. But you say nothing. Your power lies in silent observation. You are patient, strategic, always three moves ahead. Others talk. You know.",
+                traits: { "Mission": "Observe", "Strength": "Patience", "Era": "Timeless", "Element": "Shadow" },
+                product: { name: "DECODE THE SCALE", image: "decode_the_scale.png", desc: "For those who see the patterns, decode the signs, understand the secrets.", price: 33 }
+            },
+            ancient: {
+                title: "THE ANCIENT",
+                icon: "🐍",
+                desc: "You carry the memory of the ages. Your blood goes back to before humanity. You don't need technology: you have instinct, the wisdom of the ancients, the connection with primordial forces.",
+                traits: { "Mission": "Preserve", "Strength": "Instinct", "Era": "Antiquity", "Element": "Earth" },
+                product: { name: "THE AWAKENING", image: "the_awakening.png", desc: "The fourth species, the original, the ancient. For those who embrace their reptilian nature.", price: 33 }
+            },
+            elite: {
+                title: "THE ARCHITECT",
+                icon: "👔",
+                desc: "You don't hide. You govern. Others conspire about you while you build empires. You are at the top of the pyramid, where decisions are made, where the world is shaped.",
+                traits: { "Mission": "Lead", "Strength": "Influence", "Era": "Future", "Element": "Fire" },
+                product: { name: "COLD BLOOD SOCIETY", image: "cold_blood_society.png", desc: "The aristocratic reptilian. For those who lead from the shadows or from the light.", price: 33 }
+            },
+            seeker: {
+                title: "THE SEEKER",
+                icon: "🔍",
+                desc: "You don't believe blindly. You search. You question. You doubt. And that is your strength. Where others accept, you dig deeper. Where others follow, you explore.",
+                traits: { "Mission": "Discover", "Strength": "Curiosity", "Era": "Transition", "Element": "Water" },
+                product: { name: "STAY AWAKE", image: "stay_awake.png", desc: "For those who refuse to sleep while the world changes. Absolute vigilance.", price: 33 }
+            }
+        };
+
+        let currentQuestion = 0;
+        let scores = { messenger: 0, observer: 0, seeker: 0, elite: 0, ancient: 0 };
+
+        function startQuiz() {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('quiz').classList.add('active');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = questions[currentQuestion];
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('questionContainer').innerHTML = `
+                <div class="question-card">
+                    <div class="question-number">Question ${currentQuestion + 1} of ${questions.length}</div>
+                    <div class="question-text">${question.text}</div>
+                    <div class="answers">
+                        ${question.answers.map(answer => `<button class="answer-btn" onclick="selectAnswer('${answer.type}')">${answer.text}</button>`).join('')}
+                    </div>
+                </div>`;
+        }
+
+        function selectAnswer(type) {
+            scores[type]++;
+            currentQuestion++;
+            if (currentQuestion < questions.length) { showQuestion(); } else { showResult(); }
+        }
+
+        function showResult() {
+            const maxScore = Math.max(...Object.values(scores));
+            const resultType = Object.keys(scores).find(key => scores[key] === maxScore);
+            const result = results[resultType];
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('result').classList.add('active');
+            document.getElementById('result').innerHTML = `
+                <div class="result-icon">${result.icon}</div>
+                <h2>${result.title}</h2>
+                <div class="result-desc">${result.desc}</div>
+                <div class="traits">${Object.entries(result.traits).map(([key, value]) => `<div class="trait"><div class="trait-label">${key}</div><div class="trait-value">${value}</div></div>`).join('')}</div>
+                <div class="recommended-product">
+                    <h3>YOUR REPTILIAN T-SHIRT</h3>
+                    <div class="product-preview">
+                        <div class="product-image"><img src="${result.product.image}" alt="${result.product.name}"></div>
+                        <div class="product-info">
+                            <div class="product-name">${result.product.name}</div>
+                            <div class="product-desc">${result.product.desc}</div>
+                            <div class="product-price">€${result.product.price}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="shop-en.html" class="cta-btn cta-primary">VIEW THE COLLECTION</a>
+                    <button class="cta-btn cta-secondary" onclick="location.reload()">RETAKE THE TEST</button>
+                </div>
+                <div class="share-section">
+                    <h4>Share your result:</h4>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn" onclick="shareTwitter(); return false;">Twitter</a>
+                        <a href="#" class="share-btn" onclick="shareInstagram(); return false;">Instagram</a>
+                        <a href="#" class="share-btn" onclick="copyLink(); return false;">Copy link</a>
+                    </div>
+                </div>`;
+        }
+
+        function shareTwitter() { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent("I just discovered my reptilian archetype! What about you? 🦎")}&url=${encodeURIComponent(window.location.href)}`, '_blank'); }
+        function shareInstagram() { alert("📸 Screenshot your result and post it on Instagram with #Reptilia #ColdBloodSociety!"); }
+        function copyLink() { navigator.clipboard.writeText(window.location.href); alert("✓ Link copied!"); }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.querySelector('.burger-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu());
+        });
+    </script>
+
+</body>
+</html>
