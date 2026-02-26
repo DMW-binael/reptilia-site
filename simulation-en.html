@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE SIMULATION • REPTILIA</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --accent: #00ff66;
+            --link: #0ff;
+            --text: #eee;
+            --purple: #8b5cf6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(17,17,17,0.95); border: 2px solid #333; border-radius: 8px; padding: 8px 12px; cursor: pointer; transition: all 0.3s; text-decoration: none; color: #888; font-size: 0.85rem; font-weight: 600; }
+        .lang-btn:hover, .lang-btn.active { border-color: #00ff66; color: #00ff66; }
+
+        .matrix-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.1; pointer-events: none; }
+
+        header { background: rgba(10,10,10,0.95); padding: 20px; border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+
+        .logo { text-align: center; font-size: 1.5rem; font-weight: 900; color: var(--accent); letter-spacing: 5px; animation: glitch 3s infinite; }
+
+        @keyframes glitch {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-2px); }
+            40% { transform: translateX(2px); }
+            60% { transform: translateX(-2px); }
+            80% { transform: translateX(2px); }
+        }
+
+        .container { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 80px 20px; }
+
+        .hero { text-align: center; margin-bottom: 100px; padding: 60px 20px; position: relative; }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(0,255,102,0.2) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.6; }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            background: linear-gradient(45deg, var(--accent), var(--link), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            letter-spacing: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .glitch-text { font-size: 1.5rem; color: var(--link); letter-spacing: 3px; margin-bottom: 20px; font-weight: 300; }
+
+        .section {
+            margin-bottom: 100px;
+            padding: 60px 40px;
+            background: rgba(0,255,102,0.02);
+            border: 1px solid rgba(0,255,102,0.1);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            background: linear-gradient(45deg, var(--accent), var(--link), var(--purple), var(--accent));
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: -1;
+        }
+
+        .section:hover::before { opacity: 0.1; }
+
+        .section-title { font-size: 2.5rem; color: var(--accent); margin-bottom: 30px; letter-spacing: 5px; text-align: center; }
+
+        .section-content { color: #aaa; font-size: 1.2rem; line-height: 2; text-align: justify; }
+        .section-content p { margin-bottom: 30px; }
+
+        .highlight { color: var(--accent); font-weight: 700; }
+        .link-highlight { color: var(--link); font-weight: 700; }
+        .purple-highlight { color: var(--purple); font-weight: 700; }
+
+        .quote { background: rgba(0,0,0,0.5); border-left: 4px solid var(--accent); padding: 30px; margin: 40px 0; font-style: italic; font-size: 1.3rem; color: var(--text); }
+        .quote-author { text-align: right; margin-top: 20px; color: #666; font-size: 1rem; }
+
+        .theory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 60px 0; }
+
+        .theory-card { background: rgba(0,0,0,0.5); border: 1px solid #333; border-radius: 12px; padding: 30px; transition: all 0.4s; }
+        .theory-card:hover { border-color: var(--accent); background: rgba(0,255,102,0.05); transform: translateY(-10px); }
+        .theory-icon { font-size: 3rem; margin-bottom: 20px; }
+        .theory-title { font-size: 1.3rem; color: var(--accent); margin-bottom: 15px; font-weight: 700; }
+        .theory-desc { color: #888; line-height: 1.6; font-size: 1rem; }
+
+        .revelation { text-align: center; padding: 80px 20px; background: rgba(0,0,0,0.7); border-radius: 15px; margin: 80px 0; }
+        .revelation h2 { font-size: 3rem; color: var(--link); margin-bottom: 40px; letter-spacing: 5px; }
+        .revelation p { font-size: 1.4rem; color: #aaa; line-height: 2; margin-bottom: 30px; }
+
+        .cta { text-align: center; padding: 60px 20px; }
+        .cta-title { font-size: 2.5rem; color: var(--accent); margin-bottom: 30px; letter-spacing: 3px; }
+        .cta-text { color: #888; font-size: 1.2rem; margin-bottom: 50px; line-height: 1.8; }
+
+        .cta-btn { display: inline-block; padding: 20px 50px; background: var(--accent); color: #000; text-decoration: none; border-radius: 50px; font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; transition: all 0.3s; }
+        .cta-btn:hover { background: var(--link); box-shadow: 0 0 30px rgba(0,255,102,0.5); transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px 20px; border-top: 1px solid #222; margin-top: 100px; color: #555; }
+        footer a { color: var(--link); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section { padding: 30px 20px; }
+            .section-content { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+        <a href="simulation.html" class="lang-btn">FRANÇAIS</a>
+        <a href="simulation-en.html" class="lang-btn active">ENGLISH</a>
+    </div>
+
+    <canvas class="matrix-bg" id="matrix"></canvas>
+
+    <header>
+        <div class="logo">R∃PTILIA</div>
+    </header>
+
+    <div class="container">
+
+        <!-- Hero -->
+        <div class="hero">
+            <h1>THE SIMULATION</h1>
+            <div class="glitch-text">WHAT IF NOTHING WERE REAL?</div>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="section">
+            <h2 class="section-title">THE FUNDAMENTAL QUESTION</h2>
+            <div class="section-content">
+                <p>
+                    You are wearing a t-shirt. You are reading these words on a screen. You believe you are conscious.
+                    But <span class="highlight">are you certain any of this exists?</span>
+                </p>
+                <p>
+                    The reptilians. The awakening. The Cold Blood Society. This website. Your memories.
+                    Your name. Your body. <span class="link-highlight">All of it could be nothing but a simulation.</span>
+                </p>
+                <p>
+                    Not a metaphor. Not a vague theory. A mathematically probable possibility
+                    according to quantum physicists: <span class="purple-highlight">we live in a calculated reality,
+                    rendered by a computer infinitely more powerful than anything we can conceive.</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section">
+            <h2 class="section-title">THE SIMULATION ARGUMENT</h2>
+            <div class="section-content">
+                <p>
+                    In 2003, philosopher Nick Bostrom posed a simple equation:
+                </p>
+                <div class="quote">
+                    At least one of the following three propositions is true:<br>
+                    1. Humanity will go extinct before reaching the technological stage capable of creating universe simulations.<br>
+                    2. Advanced civilisations have no interest in creating ancestor simulations.<br>
+                    3. We almost certainly live in a simulation.
+                    <div class="quote-author">— Nick Bostrom, "Are You Living in a Computer Simulation?"</div>
+                </div>
+                <p>
+                    If a civilisation becomes advanced enough to simulate entire universes — with conscious beings
+                    who believe they are real — then <span class="highlight">the number of simulated realities will infinitely exceed
+                    the number of "original" realities.</span>
+                </p>
+                <p>
+                    Statistically, you are therefore more likely to be living in a simulation than in "base" reality.
+                </p>
+            </div>
+        </div>
+
+        <!-- Theory Grid -->
+        <div class="theory-grid">
+            <div class="theory-card">
+                <div class="theory-icon">🧮</div>
+                <div class="theory-title">QUANTUM PHYSICS</div>
+                <div class="theory-desc">
+                    The universe only "calculates" particles when they are observed.
+                    Exactly like a video game that only renders what is visible.
+                </div>
+            </div>
+            <div class="theory-card">
+                <div class="theory-icon">∞</div>
+                <div class="theory-title">PARALLEL UNIVERSES</div>
+                <div class="theory-desc">
+                    Every choice creates a new branch of reality.
+                    Infinite versions of you exist simultaneously in adjacent realities.
+                </div>
+            </div>
+            <div class="theory-card">
+                <div class="theory-icon">🌀</div>
+                <div class="theory-title">COSMIC HOLOGRAM</div>
+                <div class="theory-desc">
+                    The entire universe could be a 2D projection on the "surface" of spacetime.
+                    We are three-dimensional holograms.
+                </div>
+            </div>
+            <div class="theory-card">
+                <div class="theory-icon">👁️</div>
+                <div class="theory-title">COLLECTIVE CONSCIOUSNESS</div>
+                <div class="theory-desc">
+                    We are not separate individuals. We are a single consciousness
+                    experiencing itself through billions of simultaneous viewpoints.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section">
+            <h2 class="section-title">REPTILIANS: BUGS OR ADMINS?</h2>
+            <div class="section-content">
+                <p>
+                    What if reptilians were not extraterrestrials?
+                    <span class="highlight">What if they were the administrators of the simulation?</span>
+                </p>
+                <p>
+                    Every simulation has rules. Laws of physics. Constants.
+                    But there are also <span class="link-highlight">those who code these rules.</span>
+                    Those who can modify them. Those who see the source code.
+                </p>
+                <p>
+                    Ancient legends speak of beings who do not age, who change form,
+                    who know the future. <span class="purple-highlight">Not gods. Developers.</span>
+                </p>
+                <p>
+                    The pyramids? System access points. Reptilian eyes? Glitches visible
+                    when the 3D rendering bugs out. Unexplained disappearances? Entities deleted from the database.
+                </p>
+                <div class="quote">
+                    If you want to hide a truth, make it a "conspiracy theory".
+                    Nobody will take it seriously.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section">
+            <h2 class="section-title">IT IS ONLY A DREAM</h2>
+            <div class="section-content">
+                <p>
+                    Have you ever had a lucid dream? That moment when you realise you are asleep,
+                    but the dream continues. <span class="highlight">That is exactly what someone feels
+                    when they awaken inside a simulation.</span>
+                </p>
+                <p>
+                    The difference between a dream and reality? <span class="link-highlight">Coherence.</span>
+                    But if the simulation is perfectly coherent, how would you know the difference?
+                </p>
+                <p>
+                    Perhaps every night, when you sleep, you wake up in your real life.
+                    And what you call "waking up" is actually the moment you reconnect to the simulation.
+                </p>
+                <p>
+                    <span class="purple-highlight">The t-shirt you are wearing does not exist.
+                    These words you are reading do not exist. You do not exist. Not in the way you believe.</span>
+                </p>
+                <p>
+                    You are an idea. A thought. A pattern of information inside a quantum computer
+                    from a dimension your simulated brain cannot even begin to conceive.
+                </p>
+            </div>
+        </div>
+
+        <!-- Revelation -->
+        <div class="revelation">
+            <h2>SO, WHY CARRY ON?</h2>
+            <p>
+                Because even in a dream, beauty is real.<br>
+                Even in a simulation, pain is true.<br>
+                Even if everything is code, love exists.<br>
+                Even if nothing has meaning, you can create one.
+            </p>
+            <p style="color: var(--accent); font-size: 1.6rem; font-weight: 700;">
+                REPTILIA IS NOT A BRAND.<br>
+                IT IS A REMINDER.
+            </p>
+            <p>
+                A reminder that reality is fragile.<br>
+                That truth is subjective.<br>
+                That awakening is not a destination.<br>
+                It is a constant choice.
+            </p>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section">
+            <h2 class="section-title">NEO'S CHOICE</h2>
+            <div class="section-content">
+                <p>
+                    In Matrix, Morpheus offers two pills: <span class="highlight">red for truth,
+                    blue for ignorance.</span>
+                </p>
+                <p>
+                    But there is a third option nobody mentions:
+                    <span class="link-highlight">knowing it is a simulation and choosing to stay anyway.</span>
+                </p>
+                <p>
+                    Not out of weakness. Out of conscious choice. Because even if the steak is not real,
+                    the pleasure of eating it is. Even if your body is an illusion, your consciousness is not.
+                </p>
+                <p>
+                    <span class="purple-highlight">Wearing a REPTILIA t-shirt means choosing the purple pill:</span>
+                    the one that says "I know it is a simulation, and I play anyway. But I play knowing."
+                </p>
+                <div class="quote">
+                    True awakening is not escaping the Matrix.<br>
+                    It is dancing inside it, knowing it is one.
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+            <div class="cta-title">STILL HERE?</div>
+            <p class="cta-text">
+                If you have read this far, something in you is searching.
+                Searching for what? Perhaps you don't know yet.
+                Or perhaps you have always known, deep down,
+                but never dared to put it into words.
+                <br><br>
+                <strong style="color: var(--accent);">The simulation continues. The question is:
+                how are you going to live it now that you know?</strong>
+            </p>
+            <a href="shop-en.html" class="cta-btn">JOIN THE AWAKENING</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>REPTILIA © 2026 | A simulation within the simulation</p>
+        <p style="margin-top: 10px;">
+            <a href="index-en.html">Back to the dream</a>
+        </p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff66';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+
+</body>
+</html>
