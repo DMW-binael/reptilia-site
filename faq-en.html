@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - REPTILIA | Frequently Asked Questions</title>
+    <meta name="description" content="Frequently asked questions about REPTILIA. Shipping, returns, sizes, quality, payment. All answers to your questions.">
+    <link rel="icon" type="image/png" href="logo_reptilia.png">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJHNLQF6Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1VJHNLQF6Q');
+</script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: Arial, sans-serif; background: #0a0a0a; color: #eee; line-height: 1.6; }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(17,17,17,0.95); border: 2px solid #333; border-radius: 8px; padding: 8px 12px; cursor: pointer; transition: all 0.3s; text-decoration: none; color: #888; font-size: 0.85rem; font-weight: 600; }
+        .lang-btn:hover, .lang-btn.active { border-color: #00ff66; color: #00ff66; }
+
+        /* NAVIGATION */
+        nav { position: sticky; top: 0; background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(10px); padding: 20px; z-index: 1000; border-bottom: 2px solid #00ff66; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #00ff66; font-size: 1.8rem; font-weight: 900; letter-spacing: 6px; text-decoration: none; }
+        .burger-menu { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 10px; }
+        .burger-menu span { width: 25px; height: 3px; background: #00ff66; transition: all 0.3s; border-radius: 2px; display: block; }
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10, 10, 10, 0.98); z-index: 1000; flex-direction: column; justify-content: center; align-items: center; gap: 30px; backdrop-filter: blur(10px); }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: #888; text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: all 0.3s; letter-spacing: 2px; }
+        .mobile-menu a:hover, .mobile-menu a.active { color: #00ff66; transform: scale(1.1); }
+
+        /* HERO */
+        .hero { text-align: center; padding: 80px 20px 60px; background: linear-gradient(180deg, #0a0a0a 0%, #111 100%); }
+        .hero h1 { font-size: 4rem; color: #00ff66; letter-spacing: 10px; margin-bottom: 20px; }
+        .hero p { font-size: 1.3rem; color: #aaa; max-width: 700px; margin: 0 auto; }
+
+        /* SEARCH */
+        .faq-search { max-width: 600px; margin: -30px auto 60px; position: relative; }
+        .faq-search input { width: 100%; padding: 20px 25px; background: rgba(255, 255, 255, 0.05); border: 2px solid #00ff66; border-radius: 50px; color: #fff; font-size: 1.1rem; }
+        .faq-search input:focus { outline: none; box-shadow: 0 0 30px rgba(0, 255, 102, 0.3); }
+        .faq-search input::placeholder { color: #666; }
+
+        /* CATEGORIES */
+        .faq-categories { max-width: 1000px; margin: 0 auto 60px; padding: 0 20px; }
+        .category-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .category-btn { padding: 12px 25px; background: rgba(255, 255, 255, 0.05); border: 2px solid #333; border-radius: 25px; color: #aaa; cursor: pointer; transition: all 0.3s; font-size: 1rem; font-weight: 600; }
+        .category-btn:hover, .category-btn.active { background: rgba(0, 255, 102, 0.1); border-color: #00ff66; color: #00ff66; }
+
+        /* FAQ CONTENT */
+        .faq-content { max-width: 900px; margin: 0 auto; padding: 0 20px 80px; }
+        .faq-category-section { margin-bottom: 60px; }
+        .category-title { font-size: 2rem; color: #00ff66; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 2px solid #222; letter-spacing: 3px; }
+        .faq-item { background: #1a1a1a; border: 2px solid #222; border-radius: 10px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s; }
+        .faq-item:hover { border-color: #00ff66; }
+        .faq-question { padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.2rem; font-weight: 600; color: #fff; transition: all 0.3s; }
+        .faq-question:hover { color: #00ff66; background: rgba(0, 255, 102, 0.05); }
+        .faq-toggle { font-size: 1.5rem; color: #00ff66; transition: transform 0.3s; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 1000px; }
+        .faq-answer-content { padding: 0 30px 25px; color: #aaa; line-height: 1.8; font-size: 1.05rem; }
+        .faq-answer-content strong { color: #00ff66; }
+        .faq-answer-content ul { margin: 15px 0 15px 25px; }
+        .faq-answer-content li { margin-bottom: 10px; }
+
+        /* CTA */
+        .faq-cta { background: linear-gradient(135deg, rgba(0, 255, 102, 0.1) 0%, rgba(0, 255, 102, 0.05) 100%); border: 2px solid rgba(0, 255, 102, 0.3); border-radius: 15px; padding: 40px; text-align: center; margin-top: 60px; }
+        .faq-cta h3 { color: #00ff66; font-size: 2rem; margin-bottom: 15px; }
+        .faq-cta p { color: #aaa; margin-bottom: 25px; font-size: 1.1rem; }
+        .btn { display: inline-block; padding: 15px 35px; background: #00ff66; color: #000; text-decoration: none; border-radius: 5px; font-weight: 700; font-size: 1.1rem; letter-spacing: 2px; transition: all 0.3s; }
+        .btn:hover { background: #00cc52; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0, 255, 102, 0.4); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .category-btn { padding: 10px 20px; font-size: 0.9rem; }
+            .faq-question { padding: 20px; font-size: 1.05rem; }
+            .faq-answer-content { padding: 0 20px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+        <a href="faq.html" class="lang-btn">FRANÇAIS</a>
+        <a href="faq-en.html" class="lang-btn active">ENGLISH</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a href="index-en.html" class="logo">REPTILIA</a>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index-en.html">Home</a>
+        <a href="reptilia_evolution_final.html">Evolution</a>
+        <a href="shop-en.html">Shop</a>
+        <a href="story-en.html">Story</a>
+        <a href="clans-symbols-en.html">Clans</a>
+        <a href="blog-en.html">Blog</a>
+        <a href="faq-en.html" class="active">FAQ</a>
+        <a href="legal.html">Legal</a>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>FAQ</h1>
+        <p>All the answers to your questions</p>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="faq-search">
+        <input type="text" id="search-faq" placeholder="🔍 Search a question...">
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="faq-categories">
+        <div class="category-buttons">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="commande">🛒 Order</button>
+            <button class="category-btn" data-category="livraison">🚚 Shipping</button>
+            <button class="category-btn" data-category="produit">👕 Product</button>
+            <button class="category-btn" data-category="paiement">💳 Payment</button>
+            <button class="category-btn" data-category="retour">↩️ Returns</button>
+        </div>
+    </div>
+
+    <!-- FAQ CONTENT -->
+    <div class="faq-content">
+
+        <!-- ORDER -->
+        <div class="faq-category-section" data-category="commande">
+            <h2 class="category-title">🛒 ORDER</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I place an order? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>It's very simple!</p>
+                        <ol>
+                            <li>Choose your design on <a href="shop-en.html" style="color: #00ff66;">the shop</a></li>
+                            <li>Click "BUY NOW"</li>
+                            <li>Select your size and color</li>
+                            <li>Add to cart</li>
+                            <li>Place your order and pay securely</li>
+                        </ol>
+                        <p><strong>You'll receive a confirmation email immediately.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I modify my order after validation? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Modifications are possible <strong>within 2 hours</strong> after validation.</p>
+                        <p>Contact us quickly at <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">contact@reptilien.fr</a> with your order number.</p>
+                        <p>⚠️ After 2 hours, the order is in production and can no longer be modified.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I cancel my order? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Yes, <strong>within 2 hours</strong> after validation.</p>
+                        <p>Email: <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">contact@reptilien.fr</a> with your order number.</p>
+                        <p>Full refund within 5-7 days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHIPPING -->
+        <div class="faq-category-section" data-category="livraison">
+            <h2 class="category-title">🚚 SHIPPING</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What are the delivery times? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p><strong>Total times (production + shipping):</strong></p>
+                        <ul>
+                            <li>🇫🇷 <strong>France</strong>: 5-7 business days</li>
+                            <li>🇪🇺 <strong>Europe</strong>: 7-10 business days</li>
+                            <li>🌍 <strong>International</strong>: 10-15 business days</li>
+                        </ul>
+                        <p>⚡ Print-on-demand production (2-3 days) + Shipping</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I track my order? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>You'll receive <strong>2 emails</strong>:</p>
+                        <ol>
+                            <li><strong>Order confirmation</strong> (immediate)</li>
+                            <li><strong>Tracking number</strong> (2-3 days after order)</li>
+                        </ol>
+                        <p>Click the tracking link in the email to follow your parcel in real time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What are the shipping costs? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <ul>
+                            <li>🇫🇷 France: <strong>€5</strong></li>
+                            <li>🇪🇺 Europe: <strong>€7</strong></li>
+                            <li>🌍 International: <strong>€12</strong></li>
+                        </ul>
+                        <p>🎁 <strong>Free shipping</strong> from 2 t-shirts purchased!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCT -->
+        <div class="faq-category-section" data-category="produit">
+            <h2 class="category-title">👕 PRODUCT</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I choose my size? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p><strong>Bella+Canvas 3001 Size Guide:</strong></p>
+                        <ul>
+                            <li><strong>S</strong>: Chest 34-36"</li>
+                            <li><strong>M</strong>: Chest 38-40"</li>
+                            <li><strong>L</strong>: Chest 42-44"</li>
+                            <li><strong>XL</strong>: Chest 46-48"</li>
+                            <li><strong>2XL</strong>: Chest 50-52"</li>
+                        </ul>
+                        <p>Unisex fit. If in doubt, go one size up.</p>
+                        <p><a href="qualite-entretien.html" style="color: #00ff66;">View full size guide →</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is the quality of the t-shirts? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p><strong>Guaranteed premium quality:</strong></p>
+                        <ul>
+                            <li>🏆 Bella+Canvas 3001 (streetwear reference)</li>
+                            <li>🌱 100% combed ringspun cotton (180 g/m²)</li>
+                            <li>🎨 High definition DTG printing</li>
+                            <li>💪 Wash resistant (50+ cycles)</li>
+                            <li>🔥 Soft, breathable, comfortable fabric</li>
+                        </ul>
+                        <p><a href="qualite-entretien.html" style="color: #00ff66;">Learn more →</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Are the designs durable? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p><strong>Yes, professional DTG printing:</strong></p>
+                        <ul>
+                            <li>✅ Won't crack</li>
+                            <li>✅ Won't peel</li>
+                            <li>✅ Long-lasting colors (50+ washes)</li>
+                            <li>✅ High definition maintained</li>
+                        </ul>
+                        <p>🧼 Wash inside out, max 30°C, no tumble dryer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is print-on-demand? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Your t-shirt is <strong>printed after your order</strong>, not kept in stock.</p>
+                        <p><strong>Benefits:</strong></p>
+                        <ul>
+                            <li>🌍 Zero waste (eco-friendly)</li>
+                            <li>✨ Freshly printed (maximum quality)</li>
+                            <li>🎨 Unique design just for you</li>
+                        </ul>
+                        <p>⏱️ Production: 2-3 days, then shipping.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAYMENT -->
+        <div class="faq-category-section" data-category="paiement">
+            <h2 class="category-title">💳 PAYMENT</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What payment methods do you accept? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p><strong>100% secure payments:</strong></p>
+                        <ul>
+                            <li>💳 <strong>Credit card</strong> (Visa, Mastercard, Amex)</li>
+                            <li>🔵 <strong>PayPal</strong></li>
+                            <li>🟣 <strong>Stripe</strong></li>
+                        </ul>
+                        <p>🔒 SSL encryption • Fraud protection • No data stored</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is payment secure? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p><strong>Yes, maximum security guaranteed:</strong></p>
+                        <ul>
+                            <li>🔒 SSL certificate (data encryption)</li>
+                            <li>🛡️ PCI-DSS compliance</li>
+                            <li>🔐 Stripe fraud protection</li>
+                            <li>✅ No banking data stored</li>
+                        </ul>
+                        <p>Shopify platform (used by 2M+ stores).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I get an invoice? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Yes! The invoice is <strong>automatically sent by email</strong> after your order.</p>
+                        <p>You can also download it from your customer account.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RETURNS -->
+        <div class="faq-category-section" data-category="retour">
+            <h2 class="category-title">↩️ RETURNS & SUPPORT</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What is your return policy? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p><strong>14-day money back guarantee</strong></p>
+                        <p><strong>Conditions:</strong></p>
+                        <ul>
+                            <li>✅ Unworn, unwashed product</li>
+                            <li>✅ Tags still attached</li>
+                            <li>✅ Original packaging</li>
+                            <li>✅ Within 14 days of receipt</li>
+                        </ul>
+                        <p>📧 Email: <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">contact@reptilien.fr</a> to request a return.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Who pays return shipping? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p><strong>It depends:</strong></p>
+                        <ul>
+                            <li>🆓 <strong>Product defect</strong>: Costs reimbursed</li>
+                            <li>🆓 <strong>Our mistake</strong>: Costs reimbursed</li>
+                            <li>💰 <strong>Change of mind</strong>: At your expense (approx. €5-8)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I exchange my size? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>⚠️ <strong>No direct exchange</strong> (print-on-demand).</p>
+                        <p><strong>Process:</strong></p>
+                        <ol>
+                            <li>Return the product (14 days)</li>
+                            <li>Full refund</li>
+                            <li>New order with correct size</li>
+                        </ol>
+                        <p>💡 Check the <a href="qualite-entretien.html" style="color: #00ff66;">size guide</a> before ordering.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What if my product is defective? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p><strong>Contact us immediately:</strong></p>
+                        <p>📧 <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">contact@reptilien.fr</a></p>
+                        <p><strong>Provide:</strong></p>
+                        <ul>
+                            <li>Order number</li>
+                            <li>Photos of the defect</li>
+                            <li>Description of the problem</li>
+                        </ul>
+                        <p>✅ <strong>Free replacement</strong> or full refund within 48 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="faq-cta">
+            <h3>Another question?</h3>
+            <p>Our team is here to help!</p>
+            <a href="mailto:contact@reptilien.fr" class="btn">CONTACT US</a>
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const category = btn.dataset.category;
+                document.querySelectorAll('.faq-category-section').forEach(section => {
+                    if (category === 'all' || section.dataset.category === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        const searchInput = document.getElementById('search-faq');
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    item.style.display = text.includes(query) ? 'block' : 'none';
+                });
+            });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.querySelector('.burger-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu());
+        });
+    </script>
+
+</body>
+</html>
