@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPTILIA 2060 — Future Reptilian Fiction | Lore</title>
+    <meta name="description" content="REPTILIA 2060: dive into future reptilian fiction. Immersive lore, alternative universe, science-fiction storytelling. The evolution continues.">
+    <meta name="keywords" content="reptilian, REPTILIA 2060, futuristic fiction, reptilian lore, science-fiction streetwear, alternative universe, REPTILIA">
+    <meta property="og:title" content="REPTILIA 2060 — Future Reptilian Fiction">
+    <meta property="og:description" content="Future reptilian fiction. Immersive lore, alternative universe, science-fiction storytelling.">
+    <meta property="og:url" content="https://reptilien.fr/reptilia_2060-en.html">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://reptilien.fr/reptilia_2060-en.html">
+    <style>
+        :root {
+            --bg: #111;
+            --panel: #0b0b0b;
+            --accent: #00ff66;
+            --link: #0ff;
+            --text: #eee;
+            --purple: #8b5cf6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(17,17,17,0.95); border: 2px solid #333; border-radius: 8px; padding: 8px 12px; cursor: pointer; transition: all 0.3s; text-decoration: none; color: #888; font-size: 0.85rem; font-weight: 600; }
+        .lang-btn:hover, .lang-btn.active { border-color: #00ff66; color: #00ff66; }
+
+        .top-nav { padding: 20px; text-align: center; border-bottom: 1px solid #222; background: var(--panel); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .top-nav a { color: var(--link); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .top-nav a:hover { color: var(--accent); }
+
+        header { text-align: center; padding: 80px 20px 40px; background: linear-gradient(180deg, var(--panel) 0%, var(--bg) 100%); }
+
+        .logo { font-size: 3.5rem; font-weight: 900; background: linear-gradient(45deg, var(--accent), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 8px; margin-bottom: 10px; text-transform: uppercase; }
+        .year-tag { color: var(--purple); font-size: 1.1rem; letter-spacing: 3px; margin-top: 10px; }
+        .tagline { color: #888; font-size: 1rem; margin-top: 20px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+        .timeline { display: flex; justify-content: center; gap: 40px; margin: 60px 0; flex-wrap: wrap; }
+        .timeline-point { text-align: center; padding: 20px; flex: 1; min-width: 200px; }
+        .timeline-year { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+        .timeline-point:nth-child(1) .timeline-year { color: #666; }
+        .timeline-point:nth-child(2) .timeline-year { color: var(--purple); }
+        .timeline-point:nth-child(3) .timeline-year { color: var(--accent); }
+        .timeline-label { color: #888; font-size: 0.9rem; }
+
+        .intro { text-align: center; padding: 40px 20px; max-width: 800px; margin: 0 auto 60px; }
+        .intro h2 { color: var(--accent); font-size: 2rem; margin-bottom: 20px; }
+        .intro p { color: #aaa; line-height: 1.8; font-size: 1.1rem; }
+
+        .hybrid-grid { display: grid; gap: 40px; margin: 60px 0; }
+
+        .hybrid-card { background: var(--panel); border: 1px solid #222; border-radius: 8px; padding: 40px; transition: all 0.3s; position: relative; overflow: hidden; }
+        .hybrid-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, var(--purple), transparent); transition: left 0.6s; }
+        .hybrid-card:hover::before { left: 100%; }
+        .hybrid-card:hover { border-color: var(--purple); transform: translateY(-5px); }
+
+        .hybrid-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+        .hybrid-title { font-size: 2rem; color: var(--accent); font-weight: 700; }
+        .stage-tag { background: rgba(139,92,246,0.1); border: 1px solid var(--purple); color: var(--purple); padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; letter-spacing: 1px; }
+
+        .hybrid-desc { color: #aaa; line-height: 1.8; margin-bottom: 30px; }
+
+        .tech-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .tech-item { background: rgba(0,255,102,0.05); padding: 15px; border-radius: 6px; border-left: 3px solid var(--accent); }
+        .tech-name { color: var(--link); font-weight: 700; margin-bottom: 5px; font-size: 0.9rem; }
+        .tech-detail { color: #777; font-size: 0.85rem; }
+
+        .cta { text-align: center; padding: 80px 20px; margin: 60px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+        .cta-title { font-size: 2.5rem; color: var(--purple); margin-bottom: 20px; letter-spacing: 3px; }
+        .cta-text { color: #aaa; margin-bottom: 40px; font-size: 1.1rem; }
+        .cta-btn { display: inline-block; padding: 20px 50px; background: linear-gradient(45deg, var(--accent), var(--purple)); color: var(--bg); text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; letter-spacing: 2px; transition: all 0.3s; }
+        .cta-btn:hover { box-shadow: 0 0 30px rgba(139,92,246,0.5); transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.9rem; }
+        footer a { color: var(--link); text-decoration: none; margin: 0 10px; }
+
+        @media (max-width: 768px) {
+            .logo { font-size: 2.5rem; }
+            .tech-stack { grid-template-columns: 1fr; }
+            .top-nav { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+        <a href="reptilia_2060.html" class="lang-btn">FRANÇAIS</a>
+        <a href="reptilia_2060-en.html" class="lang-btn active">ENGLISH</a>
+    </div>
+
+    <div class="top-nav">
+        <a href="index-en.html">← 2026</a>
+        <span style="color: #555;">TRANSITION EPOCH</span>
+        <a href="reptilia_2126-en.html">2126 →</a>
+    </div>
+
+    <header>
+        <div class="logo">REPTILIA EVOLUTION</div>
+        <div class="year-tag">// 2060 //</div>
+        <div class="tagline">The era of hybrid transformation</div>
+    </header>
+
+    <div class="container">
+
+        <div class="timeline">
+            <div class="timeline-point">
+                <div class="timeline-year">2026</div>
+                <div class="timeline-label">Origin</div>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-year">2060</div>
+                <div class="timeline-label">Transition</div>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-year">2126</div>
+                <div class="timeline-label">Nexus</div>
+            </div>
+        </div>
+
+        <div class="intro">
+            <h2>The Bridge Between Two Worlds</h2>
+            <p>
+                In 2060, Reptilia Awakening no longer just carries clothing: it fuses physical and digital,
+                fashion and technology, humanity and evolution. This is the era where streetwear becomes smart-wear,
+                where community becomes neural network, where every drop is a multi-dimensional hybrid event.
+            </p>
+        </div>
+
+        <div class="hybrid-grid">
+
+            <div class="hybrid-card">
+                <div class="hybrid-header">
+                    <div class="hybrid-title">🔗 CONNECTED SMART-WEAR</div>
+                    <div class="stage-tag">PHASE 1</div>
+                </div>
+                <div class="hybrid-desc">
+                    Physical garments now integrate nano-sensors and smart fibres. Each Reptilia piece
+                    connects to your smartphone and the Reptilia app to unlock exclusive content, track your style,
+                    and interact with other members of the Cold Blood Society in real time.
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <div class="tech-name">Integrated NFC</div>
+                        <div class="tech-detail">Authentication and content unlock</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Luminous Fibres</div>
+                        <div class="tech-detail">Patterns that react to the environment</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Thermo-Regulation</div>
+                        <div class="tech-detail">Automatic temperature adaptation</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Biometric Tracking</div>
+                        <div class="tech-detail">Integrated health and performance</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hybrid-card">
+                <div class="hybrid-header">
+                    <div class="hybrid-title">🥽 AR/VR SHOWROOM</div>
+                    <div class="stage-tag">PHASE 1</div>
+                </div>
+                <div class="hybrid-desc">
+                    No more 2D websites. The Reptilia Store becomes an augmented reality experience accessible via
+                    smartphone or VR headset. Try every piece virtually on your avatar, explore immersive environments
+                    inspired by reptilian lore, and take part in mixed-reality drops.
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <div class="tech-name">AR Try-On</div>
+                        <div class="tech-detail">Hyper-realistic virtual fitting</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">VR Showrooms</div>
+                        <div class="tech-detail">Explorable 3D virtual boutiques</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Social Shopping</div>
+                        <div class="tech-detail">Group shopping in the metaverse</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">NFT Companions</div>
+                        <div class="tech-detail">Every purchase unlocks a digital avatar</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hybrid-card">
+                <div class="hybrid-header">
+                    <div class="hybrid-title">🎮 INTERACTIVE LORE</div>
+                    <div class="stage-tag">PHASE 2</div>
+                </div>
+                <div class="hybrid-desc">
+                    The reptilian story becomes a multiplayer narrative game. Every member of the Cold Blood Society
+                    has a character profile that evolves according to their purchases, interactions and choices. Monthly
+                    community events unlock new chapters of the collaborative lore.
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <div class="tech-name">Character Progression</div>
+                        <div class="tech-detail">Your reptilian avatar evolves with you</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Narrative Events</div>
+                        <div class="tech-detail">Monthly community quests</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Collective Vote</div>
+                        <div class="tech-detail">The community decides the story</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Exclusive Rewards</div>
+                        <div class="tech-detail">Drops reserved for active participants</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hybrid-card">
+                <div class="hybrid-header">
+                    <div class="hybrid-title">💎 HYBRID DROPS</div>
+                    <div class="stage-tag">PHASE 2</div>
+                </div>
+                <div class="hybrid-desc">
+                    Every Reptilia drop now exists in two forms: a premium physical piece + its digital NFT twin.
+                    Wear the physical IRL, use the digital in the metaverse. Both are blockchain-linked for
+                    authentication. Resale = automatic transfer of both.
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <div class="tech-name">Twin Assets</div>
+                        <div class="tech-detail">Physical + NFT linked by blockchain</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">NFC Authentication</div>
+                        <div class="tech-detail">Impossible to counterfeit</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Integrated Marketplace</div>
+                        <div class="tech-detail">Secure P2P resale</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Creator Royalties</div>
+                        <div class="tech-detail">You earn on every resale</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hybrid-card">
+                <div class="hybrid-header">
+                    <div class="hybrid-title">🌐 COLD BLOOD DAO</div>
+                    <div class="stage-tag">PHASE 3</div>
+                </div>
+                <div class="hybrid-desc">
+                    The Cold Blood Society becomes a DAO (decentralised autonomous organisation). Members vote on
+                    future designs, collaborations and revenue allocation. The more Reptilia pieces you own, the
+                    greater your influence. Collective decisions shape the future of the brand.
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <div class="tech-name">Governance Token</div>
+                        <div class="tech-detail">1 piece = 1 vote in decisions</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Community Proposals</div>
+                        <div class="tech-detail">Propose your design/collab ideas</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Shared Treasury</div>
+                        <div class="tech-detail">Revenue redistributed to holders</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Exclusive Access</div>
+                        <div class="tech-detail">IRL events reserved for members</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hybrid-card">
+                <div class="hybrid-header">
+                    <div class="hybrid-title">🌱 CARBON NEGATIVE IMPACT</div>
+                    <div class="stage-tag">PHASE 3</div>
+                </div>
+                <div class="hybrid-desc">
+                    Every Reptilia purchase directly funds reforestation projects and the protection of endangered reptiles.
+                    Via blockchain, you can trace exactly where your money goes: see your trees planted,
+                    your protected hectares, your real-time CO2 impact. Fashion that regenerates starts now.
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <div class="tech-name">Blockchain Traceability</div>
+                        <div class="tech-detail">Every euro = visible impact</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">NGO Partnerships</div>
+                        <div class="tech-detail">WWF, Reptile Conservation</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Impact Dashboard</div>
+                        <div class="tech-detail">Your positive footprint live</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Carbon Credits</div>
+                        <div class="tech-detail">Each piece = 5kg CO2 offset</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cta">
+            <div class="cta-title">ENTER THE TRANSITION</div>
+            <div class="cta-text">
+                2060: Neither yesterday, nor tomorrow.<br>
+                The evolution is underway.
+            </div>
+            <a href="#" class="cta-btn">JOIN THE EVOLUTION</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>
+            REPTILIA EVOLUTION © 2060 |
+            <a href="index-en.html">← 2026</a> |
+            <a href="reptilia_2126-en.html">2126 →</a>
+        </p>
+    </footer>
+
+</body>
+</html>
