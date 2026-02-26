@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="REPTILIA - Premium Bella+Canvas quality, care instructions, satisfaction guarantee.">
+    <title>Quality & Care - REPTILIA</title>
+    <link rel="icon" type="image/png" href="logo_reptilia.png">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJHNLQF6Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1VJHNLQF6Q');
+</script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(17,17,17,0.95); border: 2px solid #333; border-radius: 8px; padding: 8px 12px; cursor: pointer; transition: all 0.3s; text-decoration: none; color: #888; font-size: 0.85rem; font-weight: 600; }
+        .lang-btn:hover, .lang-btn.active { border-color: #00ff66; color: #00ff66; }
+
+        /* NAVIGATION */
+        header { background: rgba(10, 10, 10, 0.98); padding: 20px 40px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00ff66; backdrop-filter: blur(10px); }
+        nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #00ff66; font-size: 1.8rem; font-weight: 900; letter-spacing: 5px; text-decoration: none; }
+        .burger-menu { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 10px; }
+        .burger-menu span { width: 25px; height: 3px; background: #00ff66; transition: all 0.3s; border-radius: 2px; display: block; }
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10,10,10,0.98); z-index: 1000; flex-direction: column; justify-content: center; align-items: center; gap: 30px; backdrop-filter: blur(10px); }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: #888; text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: all 0.3s; letter-spacing: 2px; }
+        .mobile-menu a:hover, .mobile-menu a.active { color: #00ff66; transform: scale(1.1); }
+
+        /* PAGE HEADER */
+        .page-header { text-align: center; padding: 60px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); }
+        .page-header h1 { font-size: 3rem; color: #00ff66; margin-bottom: 20px; }
+        .page-header p { font-size: 1.2rem; color: #aaa; }
+
+        /* CONTENT */
+        .content-section { max-width: 1000px; margin: 60px auto; padding: 0 40px; }
+        .content-section h2 { font-size: 2rem; color: #00ff66; margin: 40px 0 20px 0; }
+        .content-section h3 { font-size: 1.5rem; color: #fff; margin: 30px 0 15px 0; }
+        .content-section p { color: #ccc; font-size: 1.05rem; line-height: 1.8; margin-bottom: 15px; }
+        .content-section ul, .content-section ol { color: #ccc; margin: 15px 0 15px 30px; line-height: 1.8; }
+        .content-section li { margin-bottom: 10px; }
+
+        .highlight-box { background: rgba(0, 255, 102, 0.1); border: 2px solid rgba(0, 255, 102, 0.3); border-radius: 10px; padding: 25px; margin: 30px 0; }
+        .highlight-box h3 { color: #00ff66; margin-top: 0; }
+        .warning-box { background: rgba(255, 193, 7, 0.1); border: 2px solid rgba(255, 193, 7, 0.3); border-radius: 10px; padding: 25px; margin: 30px 0; }
+        .warning-box p { color: #ffb700; margin: 0; }
+
+        /* FOOTER */
+        footer { background: #0a0a0a; padding: 40px 20px; text-align: center; border-top: 2px solid #00ff66; margin-top: 80px; }
+        footer p { color: #aaa; margin-bottom: 10px; }
+        footer a { color: #00ff66; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            .content-section { padding: 0 20px; margin: 40px auto; }
+            .content-section h2 { font-size: 1.5rem; }
+            .content-section h3 { font-size: 1.25rem; }
+            .content-section p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+        <a href="qualite-entretien.html" class="lang-btn">FRANÇAIS</a>
+        <a href="qualite-entretien-en.html" class="lang-btn active">ENGLISH</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <a href="index-en.html" class="logo">REPTILIA</a>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index-en.html">Home</a>
+        <a href="reptilia_evolution_final.html">Evolution</a>
+        <a href="shop-en.html">Shop</a>
+        <a href="story-en.html">Story</a>
+        <a href="clans-symbols-en.html">Clans</a>
+        <a href="blog-en.html">Blog</a>
+        <a href="legal-en.html">Legal</a>
+    </div>
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>Quality & Care</h1>
+        <p>Premium production • Care instructions • Satisfaction guarantee</p>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-section">
+
+        <h2>🏆 Premium Quality</h2>
+
+        <h3>Bella+Canvas 3001 T-shirts</h3>
+        <p>
+            All our t-shirts use the <strong>Bella+Canvas 3001</strong> model,
+            the reference in premium streetwear for its exceptional quality.
+        </p>
+
+        <div class="highlight-box">
+            <h3>Technical specifications</h3>
+            <ul>
+                <li><strong>Fabric:</strong> 100% Airlume combed and ring-spun cotton</li>
+                <li><strong>Weight:</strong> 4.2 oz/yd² (145 g/m²)</li>
+                <li><strong>Fit:</strong> Unisex retail fit (tailored yet comfortable)</li>
+                <li><strong>Finish:</strong> Side-seamed, reinforced collar</li>
+                <li><strong>Certification:</strong> Oeko-Tex, WRAP, FLA</li>
+            </ul>
+        </div>
+
+        <h3>Why Bella+Canvas?</h3>
+        <p>
+            Bella+Canvas is not a random choice. It's THE reference for independent streetwear 
+            brands for several reasons:
+        </p>
+        <ul>
+            <li><strong>Unmatched softness:</strong> Combed ring-spun cotton is much softer than standard cotton</li>
+            <li><strong>Durability:</strong> Withstands 50+ washes without shrinking or cracking</li>
+            <li><strong>Modern fit:</strong> Retail fit — not too loose, not too tight</li>
+            <li><strong>Ethical production:</strong> Certified factories, respectful working conditions</li>
+            <li><strong>Eco-responsible:</strong> Water savings, ecological dyes</li>
+        </ul>
+
+        <h2>🎨 DTG Printing (Direct-to-Garment)</h2>
+
+        <p>
+            Our designs are printed using <strong>high definition DTG</strong>,
+            the professional printing technique of choice.
+        </p>
+
+        <h3>Benefits of DTG printing</h3>
+        <ul>
+            <li><strong>Ultra-fine details:</strong> Perfect reproduction of complex designs</li>
+            <li><strong>Vivid colors:</strong> Professional inks, brilliant results</li>
+            <li><strong>Soft to the touch:</strong> Ink penetrates the fabric, no plastic feel</li>
+            <li><strong>Durability:</strong> 50+ washes without cracking or fading</li>
+            <li><strong>Eco-friendly:</strong> Water-based, non-toxic inks</li>
+        </ul>
+
+        <h2>🧼 Care Guide</h2>
+
+        <h3>Washing</h3>
+        <ul>
+            <li>✅ <strong>Temperature:</strong> 30°C maximum (cold wash ideal)</li>
+            <li>✅ <strong>Cycle:</strong> Normal or delicate cycle</li>
+            <li>✅ <strong>Inside out:</strong> ALWAYS turn the t-shirt inside out before washing</li>
+            <li>✅ <strong>Colors:</strong> Wash with similar colors (darks with darks)</li>
+            <li>✅ <strong>Detergent:</strong> Mild liquid detergent, no bleaching agents</li>
+            <li>❌ <strong>Avoid:</strong> Bleach, fabric softener (damages the design)</li>
+        </ul>
+
+        <h3>Drying</h3>
+        <ul>
+            <li>✅ <strong>Recommended:</strong> Air dry (on a hanger or drying rack)</li>
+            <li>⚠️ <strong>Tumble dryer:</strong> If necessary, low temperature only</li>
+            <li>❌ <strong>Avoid:</strong> High temperature drying (shrinks fabric and damages design)</li>
+        </ul>
+
+        <h3>Ironing</h3>
+        <ul>
+            <li>⚠️ <strong>If necessary:</strong> Iron on the inside only</li>
+            <li>⚠️ <strong>Temperature:</strong> Warm/medium iron (avoid hot iron)</li>
+            <li>❌ <strong>NEVER iron directly on the printed design</strong></li>
+        </ul>
+
+        <div class="warning-box">
+            <p>
+                <strong>⚠️ Pro tip:</strong> To maximise the lifespan of your REPTILIA tee,
+                wash it inside out at 30°C and air dry. That's it!
+            </p>
+        </div>
+
+        <h2>📏 Size Guide</h2>
+
+        <p>
+            Our t-shirts have a <strong>unisex</strong> fit.
+            Check the table below to choose your size:
+        </p>
+
+        <div class="highlight-box">
+            <h3>Measurements (in cm / inches)</h3>
+            <ul>
+                <li><strong>XS:</strong> Length 68 cm (26.8") • Chest width 42 cm (16.5")</li>
+                <li><strong>S:</strong> Length 70 cm (27.6") • Chest width 45 cm (17.7")</li>
+                <li><strong>M:</strong> Length 72 cm (28.3") • Chest width 50 cm (19.7")</li>
+                <li><strong>L:</strong> Length 74 cm (29.1") • Chest width 55 cm (21.7")</li>
+                <li><strong>XL:</strong> Length 76 cm (29.9") • Chest width 60 cm (23.6")</li>
+                <li><strong>2XL:</strong> Length 78 cm (30.7") • Chest width 63 cm (24.8")</li>
+            </ul>
+            <p style="margin-top: 15px;">
+                <strong>💡 Tip:</strong> Women who prefer a more fitted look
+                should size down from their usual size.
+            </p>
+        </div>
+
+        <h2>✅ Satisfaction Guarantee</h2>
+
+        <p>
+            We are confident in the quality of our products.
+            If you are not 100% satisfied, we offer:
+        </p>
+
+        <ul>
+            <li><strong>14-day returns:</strong> Legal right of withdrawal</li>
+            <li><strong>Full refund:</strong> If product is unworn and tags are attached</li>
+            <li><strong>Free replacement:</strong> In case of manufacturing defect</li>
+            <li><strong>Responsive support:</strong> Reply within 24-48h to all your questions</li>
+        </ul>
+
+        <p style="margin-top: 30px; text-align: center;">
+            <strong>Any questions?</strong><br>
+            Contact us: <a href="mailto:contact@reptilien.fr" style="color: #00ff66;">contact@reptilien.fr</a>
+        </p>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 REPTILIA • Artistic fiction</p>
+        <p>
+            <a href="legal-en.html">Legal Notice</a> •
+            <a href="faq-en.html">FAQ</a> •
+            <a href="mailto:contact@reptilien.fr">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.querySelector('.burger-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu());
+        });
+    </script>
+
+</body>
+</html>
