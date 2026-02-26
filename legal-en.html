@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="REPTILIA - Legal notice, terms & conditions, return policy, data protection.">
+    <title>Legal Notice - REPTILIA</title>
+    <link rel="icon" type="image/png" href="logo_reptilia.png">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJHNLQF6Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1VJHNLQF6Q');
+</script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: 'Arial', sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(17,17,17,0.95); border: 2px solid #333; border-radius: 8px; padding: 8px 12px; cursor: pointer; transition: all 0.3s; text-decoration: none; color: #888; font-size: 0.85rem; font-weight: 600; }
+        .lang-btn:hover, .lang-btn.active { border-color: #00ff66; color: #00ff66; }
+
+        /* NAVIGATION */
+        header { background: rgba(10, 10, 10, 0.98); padding: 20px 40px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00ff66; backdrop-filter: blur(10px); }
+        nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #00ff66; font-size: 1.8rem; font-weight: 900; letter-spacing: 5px; text-decoration: none; }
+        .burger-menu { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 10px; }
+        .burger-menu span { width: 25px; height: 3px; background: #00ff66; transition: all 0.3s; border-radius: 2px; display: block; }
+        .burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10, 10, 10, 0.98); z-index: 1000; flex-direction: column; justify-content: center; align-items: center; gap: 30px; backdrop-filter: blur(10px); }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: #888; text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: all 0.3s; letter-spacing: 2px; }
+        .mobile-menu a:hover, .mobile-menu a.active { color: #00ff66; transform: scale(1.1); }
+
+        /* COOKIE BANNER */
+        .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10, 10, 10, 0.98); border-top: 2px solid #00ff66; padding: 20px; z-index: 9998; display: none; }
+        .cookie-banner.show { display: block; }
+        .cookie-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .cookie-text { flex: 1; color: #ccc; }
+        .cookie-text a { color: #00ff66; text-decoration: underline; }
+        .cookie-buttons { display: flex; gap: 10px; }
+        .cookie-btn { padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .cookie-accept { background: #00ff66; color: #000; }
+        .cookie-accept:hover { background: #00cc52; }
+        .cookie-refuse { background: transparent; color: #fff; border: 2px solid #fff; }
+        .cookie-refuse:hover { background: rgba(255, 255, 255, 0.1); }
+
+        /* PAGE HEADER */
+        .page-header { text-align: center; padding: 60px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); }
+        .page-header h1 { font-size: 3rem; color: #00ff66; margin-bottom: 20px; }
+        .page-header p { font-size: 1.2rem; color: #aaa; }
+
+        /* CONTENT */
+        .legal-content { max-width: 1000px; margin: 60px auto; padding: 0 40px; }
+        .legal-content h2 { font-size: 2rem; color: #00ff66; margin: 50px 0 20px 0; padding-top: 20px; border-top: 1px solid #333; }
+        .legal-content h2:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+        .legal-content h3 { font-size: 1.5rem; color: #fff; margin: 30px 0 15px 0; }
+        .legal-content p { color: #ccc; font-size: 1.05rem; line-height: 1.8; margin-bottom: 15px; }
+        .legal-content ul, .legal-content ol { color: #ccc; margin: 15px 0 15px 30px; line-height: 1.8; }
+        .legal-content li { margin-bottom: 10px; }
+        .legal-content a { color: #00ff66; text-decoration: none; }
+        .legal-content a:hover { text-decoration: underline; }
+
+        .highlight-box { background: rgba(0, 255, 102, 0.1); border: 2px solid rgba(0, 255, 102, 0.3); border-radius: 10px; padding: 25px; margin: 30px 0; }
+        .warning-box { background: rgba(255, 193, 7, 0.1); border: 2px solid rgba(255, 193, 7, 0.3); border-radius: 10px; padding: 25px; margin: 30px 0; }
+        .warning-box p { color: #ffb700; margin: 0; }
+
+        /* FOOTER */
+        footer { background: #0a0a0a; padding: 40px 20px; text-align: center; border-top: 2px solid #00ff66; margin-top: 80px; }
+        footer p { color: #aaa; margin-bottom: 10px; }
+        footer a { color: #00ff66; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            .legal-content { padding: 0 20px; margin: 40px auto; }
+            .legal-content h2 { font-size: 1.5rem; }
+            .cookie-content { flex-direction: column; text-align: center; }
+            .cookie-buttons { flex-direction: column; width: 100%; }
+            .cookie-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+        <a href="legal.html" class="lang-btn">FRANÇAIS</a>
+        <a href="legal-en.html" class="lang-btn active">ENGLISH</a>
+    </div>
+
+    <!-- COOKIE BANNER -->
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                🍪 We do NOT use tracking or advertising cookies.
+                Only essential cookies for site functionality are used.
+                <a href="#cookies">Learn more</a>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept</button>
+                <button class="cookie-btn cookie-refuse" onclick="refuseCookies()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <a href="index-en.html" class="logo">REPTILIA</a>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index-en.html">Home</a>
+        <a href="reptilia_evolution_final.html">Evolution</a>
+        <a href="shop-en.html">Shop</a>
+        <a href="story-en.html">Story</a>
+        <a href="clans-symbols-en.html">Clans</a>
+        <a href="blog-en.html">Blog</a>
+        <a href="legal-en.html" class="active">Legal</a>
+    </div>
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>Legal Notice</h1>
+        <p>Legal information • Terms & Conditions • Return Policy • Data Protection</p>
+    </div>
+
+    <!-- LEGAL CONTENT -->
+    <div class="legal-content">
+
+        <!-- SECTION 1: PUBLISHER -->
+        <h2 id="publisher">Website Publisher</h2>
+        <p>
+            <strong>REPTILIA</strong><br>
+            Brand in creation<br>
+            D.M WILLAME<br>
+            SIRET: [To be completed once obtained]<br>
+            Address: Rue du Marin<br>
+            80200 Péronne<br>
+            France<br>
+            <br>
+            📧 Email: <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a><br>
+            ☎️ Phone: +33 6 65 82 49 74
+        </p>
+
+        <h3>Publication Director</h3>
+        <p>
+            D.M WILLAME<br>
+            Email: <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a>
+        </p>
+
+        <!-- SECTION 2: HOSTING -->
+        <h2 id="hosting">Hosting</h2>
+        <p>
+            This site is hosted by:<br>
+            <strong>GitHub, Inc.</strong><br>
+            88 Colin P Kelly Jr St<br>
+            San Francisco, CA 94107<br>
+            United States<br>
+            Website: <a href="https://github.com" target="_blank">github.com</a>
+        </p>
+
+        <!-- SECTION 3: COOKIES -->
+        <h2 id="cookies">Cookie Policy</h2>
+
+        <h3>What is a cookie?</h3>
+        <p>A cookie is a small text file placed on your device when you visit a website.</p>
+
+        <h3>Cookies used on REPTILIA</h3>
+        <p><strong>Good news: This site uses NO tracking or advertising cookies! 🎉</strong></p>
+        <p>We only use one essential cookie:</p>
+        <ul>
+            <li><strong>cookie_consent</strong>: Remembers your accept/decline choice for the cookie banner (duration: 1 year)</li>
+        </ul>
+
+        <h3>No tracking</h3>
+        <p>REPTILIA contains:</p>
+        <ul>
+            <li>❌ NO Google Analytics</li>
+            <li>❌ NO Facebook Pixel</li>
+            <li>❌ NO advertising cookies</li>
+            <li>❌ NO third-party tracking</li>
+        </ul>
+        <p><strong>Your browsing is 100% private! 🔒</strong></p>
+
+        <h3>Managing cookies</h3>
+        <p>You can delete cookies from your browser at any time:</p>
+        <ul>
+            <li><strong>Chrome:</strong> Settings → Privacy and security → Clear browsing data</li>
+            <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies and Site Data</li>
+            <li><strong>Safari:</strong> Preferences → Privacy → Manage Website Data</li>
+        </ul>
+
+        <!-- TERMS & CONDITIONS -->
+        <h2 id="cgv">Terms & Conditions</h2>
+
+        <h3>Article 1 - Purpose</h3>
+        <p>
+            These Terms and Conditions govern the sale of REPTILIA products (t-shirts, accessories) 
+            via the website <a href="https://reptilien.fr">reptilien.fr</a>.
+        </p>
+        <p>Any order implies unconditional acceptance of these Terms and Conditions.</p>
+
+        <h3>Article 2 - Products and Prices</h3>
+        <p>
+            Products are described and presented as accurately as possible. 
+            Prices are shown in euros inclusive of all taxes (VAT included).
+        </p>
+        <p>Shipping costs are additional and calculated before order validation.</p>
+
+        <h3>Article 3 - Order</h3>
+        <p>Validating your order constitutes acceptance of these Terms and Conditions and a payment commitment.</p>
+
+        <h3>Article 4 - Payment</h3>
+        <p>Payment is made securely via Stripe or PayPal.</p>
+
+        <h3>Article 5 - Delivery</h3>
+        <p><strong>Indicative timescales:</strong></p>
+        <ul>
+            <li>France: 5-7 business days</li>
+            <li>Europe: 7-10 business days</li>
+            <li>International: 10-15 business days</li>
+        </ul>
+        <p>Print-on-demand production: +2-3 manufacturing days.</p>
+
+        <!-- RETURNS -->
+        <h2 id="returns">Return Policy</h2>
+
+        <h3>Right of withdrawal (14 days)</h3>
+        <p>
+            In accordance with applicable consumer protection laws, you have a period of 
+            <strong>14 days</strong> from receipt of your order to exercise your right of withdrawal.
+        </p>
+
+        <h3>Return conditions</h3>
+        <ul>
+            <li>Unworn and unwashed product</li>
+            <li>Tags still attached</li>
+            <li>Original packaging</li>
+        </ul>
+
+        <h3>Procedure</h3>
+        <ol>
+            <li>Contact <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a> with your order number</li>
+            <li>We provide the return address</li>
+            <li>Return at your expense (unless defective)</li>
+            <li>Refund within 14 days of receipt</li>
+        </ol>
+
+        <!-- DATA PROTECTION -->
+        <h2 id="data">Data Protection (GDPR)</h2>
+
+        <h3>Data controller</h3>
+        <p>
+            D.M WILLAME - REPTILIA<br>
+            Email: <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a>
+        </p>
+
+        <h3>Data collected</h3>
+        <p>Only data necessary for processing your order:</p>
+        <ul>
+            <li>First and last name</li>
+            <li>Email address</li>
+            <li>Delivery address</li>
+            <li>Phone number (optional)</li>
+        </ul>
+
+        <h3>Your GDPR rights</h3>
+        <ul>
+            <li>Right of access</li>
+            <li>Right of rectification</li>
+            <li>Right to erasure</li>
+            <li>Right to object</li>
+            <li>Right to data portability</li>
+        </ul>
+        <p>Contact: <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a></p>
+
+        <!-- INTELLECTUAL PROPERTY -->
+        <h2 id="ip">Intellectual Property</h2>
+        <p>
+            All content (texts, images, logos, designs) is the exclusive property of REPTILIA 
+            and protected by copyright law.
+        </p>
+
+        <!-- ARTISTIC FICTION -->
+        <h2 id="fiction">Artistic Fiction</h2>
+        <div class="warning-box">
+            <p>
+                ⚠️ <strong>Disclaimer:</strong> REPTILIA is an artistic fiction brand. 
+                All content is fictional, created for artistic and cultural purposes. 
+                Not to be taken literally.
+            </p>
+        </div>
+
+        <!-- CONTACT -->
+        <h2 id="contact">Contact</h2>
+        <ul>
+            <li>📧 General enquiries: <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a></li>
+            <li>📧 Legal questions: <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a></li>
+            <li>📧 Data protection: <a href="mailto:contact@reptilien.fr">contact@reptilien.fr</a></li>
+            <li>☎️ Phone: +33 6 65 82 49 74</li>
+        </ul>
+
+        <p style="margin-top: 40px; text-align: center; color: #666; font-size: 0.9rem;">
+            Last updated: February 6, 2026
+        </p>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 REPTILIA • Artistic fiction</p>
+        <p>
+            <a href="legal-en.html">Legal Notice</a> • 
+            <a href="qualite-entretien.html">Quality & Care</a> • 
+            <a href="mailto:contact@reptilien.fr">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function acceptCookies() {
+            localStorage.setItem('cookie_consent', 'accepted');
+            document.getElementById('cookie-banner').classList.remove('show');
+        }
+
+        function refuseCookies() {
+            localStorage.setItem('cookie_consent', 'refused');
+            document.getElementById('cookie-banner').classList.remove('show');
+        }
+
+        if (!localStorage.getItem('cookie_consent')) {
+            document.getElementById('cookie-banner').classList.add('show');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const burger = document.querySelector('.burger-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu());
+        });
+    </script>
+
+</body>
+</html>
