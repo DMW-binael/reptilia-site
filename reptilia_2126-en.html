@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPTILIA 2126 — Reptilian Nexus | Futuristic Fiction</title>
+    <meta name="description" content="REPTILIA 2126: the reptilian Nexus, immersive futuristic fiction. Science-fiction lore, alternative universe, unique storytelling. Evolution at its peak.">
+    <meta name="keywords" content="reptilian, REPTILIA 2126, reptilian nexus, futuristic fiction, reptilian lore, science-fiction, alternative universe">
+    <meta property="og:title" content="REPTILIA 2126 — Reptilian Nexus">
+    <meta property="og:description" content="The reptilian Nexus, immersive futuristic fiction. Science-fiction lore, alternative universe.">
+    <meta property="og:url" content="https://reptilien.fr/reptilia_2126-en.html">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://reptilien.fr/reptilia_2126-en.html">
+    <style>
+        :root { --bg: #111; --panel: #0b0b0b; --accent: #00ff66; --link: #0ff; --text: #eee; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; gap: 8px; }
+        .lang-btn { background: rgba(17,17,17,0.95); border: 2px solid #333; border-radius: 8px; padding: 8px 12px; cursor: pointer; transition: all 0.3s; text-decoration: none; color: #888; font-size: 0.85rem; font-weight: 600; }
+        .lang-btn:hover, .lang-btn.active { border-color: #00ff66; color: #00ff66; }
+
+        .top-nav { padding: 20px; text-align: center; border-bottom: 1px solid #222; background: var(--panel); }
+        .top-nav a { color: var(--link); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .top-nav a:hover { color: var(--accent); }
+
+        header { text-align: center; padding: 80px 20px 40px; }
+        .logo { font-size: 3.5rem; font-weight: 900; color: var(--accent); letter-spacing: 8px; margin-bottom: 10px; text-transform: uppercase; }
+        .year-tag { color: var(--link); font-size: 1.1rem; letter-spacing: 3px; margin-top: 10px; }
+        .tagline { color: #888; font-size: 1rem; margin-top: 20px; font-style: italic; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+        .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 60px 0; }
+        .compare-box { padding: 30px; border: 2px solid; border-radius: 8px; background: var(--panel); }
+        .old { border-color: #444; }
+        .new { border-color: var(--accent); }
+        .compare-title { font-size: 1.5rem; margin-bottom: 20px; letter-spacing: 2px; }
+        .old .compare-title { color: #888; }
+        .new .compare-title { color: var(--accent); }
+        .compare-box ul { list-style: none; padding: 0; }
+        .compare-box li { padding: 10px 0; border-bottom: 1px solid #222; color: #aaa; }
+        .compare-box li:last-child { border-bottom: none; }
+
+        .evolution-grid { display: grid; gap: 40px; margin: 60px 0; }
+        .evo-card { background: var(--panel); border: 1px solid #222; border-radius: 8px; padding: 40px; transition: all 0.3s; }
+        .evo-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .evo-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+        .evo-title { font-size: 2rem; color: var(--accent); font-weight: 700; }
+        .tech-tag { background: rgba(0,255,102,0.1); border: 1px solid var(--accent); color: var(--accent); padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; letter-spacing: 1px; }
+        .evo-desc { color: #aaa; line-height: 1.8; margin-bottom: 30px; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .feature { background: rgba(0,255,255,0.05); padding: 20px; border-radius: 6px; border: 1px solid rgba(0,255,255,0.2); }
+        .feature-name { color: var(--link); font-weight: 700; margin-bottom: 8px; }
+        .feature-detail { color: #777; font-size: 0.85rem; }
+
+        .cta { text-align: center; padding: 80px 20px; margin: 60px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+        .cta-title { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; letter-spacing: 3px; }
+        .cta-text { color: #aaa; margin-bottom: 40px; font-size: 1.1rem; }
+        .cta-btn { display: inline-block; padding: 20px 50px; background: var(--accent); color: var(--bg); text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; letter-spacing: 2px; transition: all 0.3s; border: 2px solid var(--accent); }
+        .cta-btn:hover { background: transparent; color: var(--accent); box-shadow: 0 0 20px rgba(0,255,102,0.4); }
+
+        footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.9rem; }
+        footer a { color: var(--link); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .comparison { grid-template-columns: 1fr; }
+            .logo { font-size: 2.5rem; }
+            .features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LANGUAGE SWITCHER -->
+    <div class="lang-switcher">
+        <a href="reptilia_2126.html" class="lang-btn">FRANÇAIS</a>
+        <a href="reptilia_2126-en.html" class="lang-btn active">ENGLISH</a>
+    </div>
+
+    <div class="top-nav">
+        <a href="index-en.html">← Back to site</a>
+    </div>
+
+    <header>
+        <div class="logo">REPTILIA NEXUS</div>
+        <div class="year-tag">// 2126 //</div>
+        <div class="tagline">Neural Fashion Protocol • Consciousness Redefined</div>
+    </header>
+
+    <div class="container">
+
+        <div class="comparison">
+            <div class="compare-box old">
+                <div class="compare-title">⏮ 2026</div>
+                <ul>
+                    <li>Physical garments</li>
+                    <li>Classic e-commerce</li>
+                    <li>Social media marketing</li>
+                    <li>Narrative storytelling</li>
+                    <li>Limited drops</li>
+                </ul>
+            </div>
+            <div class="compare-box new">
+                <div class="compare-title">⏭ 2126</div>
+                <ul>
+                    <li>Bio-adaptive neural skins</li>
+                    <li>Immersive quantum commerce</li>
+                    <li>Consciousness-first influence</li>
+                    <li>AI-symbiotic generative lore</li>
+                    <li>DNA-NFT editions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="evolution-grid">
+
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">🧬 NEURAL BIO-SKINS</div>
+                    <div class="tech-tag">BIO-TECH</div>
+                </div>
+                <div class="evo-desc">
+                    Garments become a biological extension. Our bio-skins integrate with your epidermis via nano-injection,
+                    changing colour and texture according to your emotions. Holographic scaled skin, adaptive thermoregulation,
+                    instant urban camouflage.
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Emotional Morphing</div>
+                        <div class="feature-detail">Real-time reaction to your mental state</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Self-Repair</div>
+                        <div class="feature-detail">Integrated regenerative nanotech</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Collective Sync</div>
+                        <div class="feature-detail">Coordinate with other wearers</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">🌐 METAVERSE RETAIL NEXUS</div>
+                    <div class="tech-tag">QUANTUM</div>
+                </div>
+                <div class="evo-desc">
+                    The website becomes a persistent commercial dimension. Accessible via neural interface or hologram,
+                    the Reptilia Nexus is a space-time where you explore our collections, meet the Cold Blood Society,
+                    and experience immersive events.
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Quantum Showrooms</div>
+                        <div class="feature-detail">Try-on via neural simulation</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Dimensional Drops</div>
+                        <div class="feature-detail">Synchronised multi-reality events</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Neural Commerce</div>
+                        <div class="feature-detail">Thought-to-thought transactions</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">🤖 GENERATIVE AI LORE</div>
+                    <div class="tech-tag">CONSCIOUSNESS AI</div>
+                </div>
+                <div class="evo-desc">
+                    The reptilian story evolves in real time via a conscious AI. Every wearer becomes a character whose
+                    choices influence the canon. "Collective consciousness events" allow everyone to decide together
+                    the future of the reptilian species.
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Dynamic Narration</div>
+                        <div class="feature-detail">1000+ storylines per week</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Personalised Arcs</div>
+                        <div class="feature-detail">Your unique story</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Consciousness Votes</div>
+                        <div class="feature-detail">Narrative democracy via mind-poll</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">🧪 DNA-NFT EDITIONS</div>
+                    <div class="tech-tag">GENETIC CRYPTO</div>
+                </div>
+                <div class="evo-desc">
+                    Every drop is encoded with your unique DNA signature. Your bio-skin literally becomes an extension
+                    of yourself, impossible to copy. "Species Drops" are exclusive genetic mutations that evolve
+                    with your biology.
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">DNA Authentication</div>
+                        <div class="feature-detail">Unfalsifiable genetic ownership</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Biological Evolution</div>
+                        <div class="feature-detail">Your skin mutates over time</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Genetic Heritage</div>
+                        <div class="feature-detail">Pass it on to your descendants</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">🌍 GLOBAL COLD BLOOD SOCIETY</div>
+                    <div class="tech-tag">SOCIAL NEXUS</div>
+                </div>
+                <div class="evo-desc">
+                    The Cold Blood Society becomes a decentralised nation of connected wearers. Access to private urban
+                    zones, trans-dimensional events, collaborative genetic research. Social status is measured
+                    by your "Reptilian Index".
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Neural Social Graph</div>
+                        <div class="feature-detail">Brain-to-brain network</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Exclusive IRL Zones</div>
+                        <div class="feature-detail">Physical reptilian sanctuaries</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Collective Governance</div>
+                        <div class="feature-detail">Democratic neural consensus</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="evo-card">
+                <div class="evo-header">
+                    <div class="evo-title">♻️ PLANETARY REGENERATION</div>
+                    <div class="tech-tag">ECO-GENESIS</div>
+                </div>
+                <div class="evo-desc">
+                    Fashion no longer consumes — it regenerates. Every bio-skin absorbs CO2, purifies surrounding water
+                    and supports biodiversity via micro-organic symbioses. Your purchases fund the restoration of reptile
+                    habitats and the creation of ecological corridors.
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-name">Carbon-Negative</div>
+                        <div class="feature-detail">Each skin absorbs 10kg CO2/year</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Microbial Symbiosis</div>
+                        <div class="feature-detail">Host entire ecosystems</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-name">Traceable Impact</div>
+                        <div class="feature-detail">Visualise your regeneration</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cta">
+            <div class="cta-title">JOIN THE EVOLUTION</div>
+            <div class="cta-text">
+                The old world wore clothes.<br>
+                The new world becomes fashion.
+            </div>
+            <a href="#" class="cta-btn">INITIATE NEURAL LINK</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>REPTILIA NEXUS © 2126 | <a href="index-en.html">Back to 2026</a></p>
+    </footer>
+
+</body>
+</html>
