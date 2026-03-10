@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINAEL: Your Bridge to Your Guardian Angel | BINAEL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Cormorant Garamond', serif; background: linear-gradient(180deg, #FFF, #F8FBFF, #F0F7FF); background-attachment: fixed; color: #2C5F8D; line-height: 1.8; }
+        h1, h2, h3 { font-family: 'Cinzel', serif; color: #4A90E2; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        .navbar { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #E3F2FD; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(74,144,226,0.08); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-left { display: flex; align-items: center; gap: 1rem; }
+        .logo-svg { width: 40px; height: 40px; }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 1.75rem; font-weight: 700; letter-spacing: 0.2em; background: linear-gradient(135deg, #4A90E2, #7CB9E8, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-menu { display: flex; gap: 2rem; list-style: none; }
+        .nav-menu a { font-family: 'Cinzel', serif; font-size: 0.875rem; letter-spacing: 0.12em; text-transform: uppercase; color: #2C5F8D; text-decoration: none; transition: color 0.3s; }
+        .nav-menu a:hover { color: #4A90E2; }
+        .lang-switch { font-size: 1.25rem; cursor: pointer; text-decoration: none; }
+        .hero { text-align: center; padding: 6rem 2rem 3rem; background: linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%); }
+        .hero h1 { margin-bottom: 1rem; font-size: 2.5rem; }
+        .hero-subtitle { font-size: 1.25rem; font-style: italic; color: #7CB9E8; margin-bottom: 3rem; }
+        section { padding: 3rem 0; }
+        .lead { font-size: 1.35rem; color: #2C5F8D; line-height: 2; margin: 2rem 0; font-weight: 400; }
+        .highlight-box { background: linear-gradient(135deg, #E3F2FD, rgba(255,215,0,0.1)); border: 2px solid #B8D8F0; border-radius: 16px; padding: 3rem; margin: 3rem 0; }
+        .highlight-box h2 { text-align: center; margin-bottom: 1.5rem; }
+        .quote { font-size: 1.5rem; font-style: italic; text-align: center; color: #4A90E2; margin: 3rem 0; padding: 2rem; border-left: 4px solid #4A90E2; background: #F8FBFF; }
+        .steps { margin: 3rem 0; }
+        .step { background: white; border: 1px solid #E3F2FD; border-radius: 12px; padding: 2rem; margin: 2rem 0; box-shadow: 0 2px 15px rgba(74,144,226,0.06); }
+        .step h3 { margin-bottom: 1rem; }
+        .religions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .religion-card { background: white; border: 1px solid #E3F2FD; border-radius: 12px; padding: 2rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+        .religion-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(74,144,226,0.12); }
+        .religion-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-final { background: linear-gradient(135deg, #4A90E2, #7CB9E8); color: white; border-radius: 24px; padding: 4rem 3rem; text-align: center; margin: 4rem 0; }
+        .cta-final h2 { color: white; margin-bottom: 1.5rem; }
+        .btn { padding: 1rem 2.5rem; font-family: 'Cinzel', serif; font-size: 0.875rem; letter-spacing: 0.15em; text-transform: uppercase; border: none; cursor: pointer; border-radius: 50px; font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn-primary { background: white; color: #4A90E2; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,255,255,0.3); }
+        .btn-secondary { background: transparent; border: 2px solid white; color: white; margin-left: 1rem; }
+        .btn-secondary:hover { background: white; color: #4A90E2; }
+        ul { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.75rem; line-height: 1.8; }
+        @media (max-width: 768px) { .nav-menu { display: none; } .hero h1 { font-size: 1.75rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <img src="logo.svg" alt="BINAEL" class="logo-svg">
+                <a href="index.html" style="text-decoration: none;"><span class="logo-text">BINAEL</span></a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index-en.html">Home</a></li>
+                <li><a href="shop-en.html">Shop</a></li>
+                <li><a href="quiz-en.html">Quiz</a></li>
+                <li><a href="ange-gardien-en.html">Guardian Angel</a></li>
+                <li><a href="blog-en.html">Blog</a></li>
+                <li><a href="hierarchies-en.html">Hierarchies</a></li>
+            </ul>
+            <a href="ange-gardien.html" class="lang-switch" title="Version Française">🇫🇷</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>BINAEL: YOUR BRIDGE TO YOUR GUARDIAN ANGEL</h1>
+        <p class="hero-subtitle">Awakening begins here</p>
+    </div>
+
+    <div class="container">
+        <p class="lead">
+            Have you ever wondered:<br>
+            <em>"Do I really have a guardian angel?"</em><br>
+            <em>"How can I contact them?"</em><br>
+            <em>"How do I know they're there?"</em>
+        </p>
+
+        <div class="quote">
+            "The answer is simple: YES, you have one."
+        </div>
+
+        <section>
+            <h2>GUARDIAN ANGELS IN ALL RELIGIONS</h2>
+            <p style="margin-top: 2rem;">In all spiritual traditions around the world, guardian angels exist. They have different names, but their role is the same: <strong>watching over you</strong>.</p>
+
+            <div class="religions-grid">
+                <div class="religion-card">
+                    <div class="religion-icon">✝️</div>
+                    <h3>Christianity</h3>
+                    <p style="font-size: 0.95rem; color: #5B8DB8;">"For he will command his angels concerning you to guard you in all your ways." — Psalm 91:11</p>
+                </div>
+
+                <div class="religion-card">
+                    <div class="religion-icon">✡️</div>
+                    <h3>Judaism</h3>
+                    <p style="font-size: 0.95rem; color: #5B8DB8;">In Kabbalah, each person has two angels who record their actions.</p>
+                </div>
+
+                <div class="religion-card">
+                    <div class="religion-icon">☪️</div>
+                    <h3>Islam</h3>
+                    <p style="font-size: 0.95rem; color: #5B8DB8;">Kiraman Katibin: two scribe angels who note your good and bad deeds.</p>
+                </div>
+
+                <div class="religion-card">
+                    <div class="religion-icon">🔥</div>
+                    <h3>Zoroastrianism</h3>
+                    <p style="font-size: 0.95rem; color: #5B8DB8;">Fravashi: the guardian spirit that exists before birth and after death.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 1.25rem; text-align: center; color: #4A90E2;"><strong>Your guardian angel has always been there. You're just starting to notice.</strong></p>
+        </section>
+
+        <section>
+            <h2>THE PROBLEM: THE NOISE OF THE WORLD</h2>
+            <p>We live in noise.</p>
+            <p style="margin-top: 1rem;">The modern world moves fast. Too fast. Between screens, notifications, stress, obligations, doubts... you can't hear anymore.</p>
+            <p style="margin-top: 1rem;"><strong>But your guardian angel has never stopped speaking.</strong></p>
+            <p style="margin-top: 1rem; font-style: italic; color: #5B8DB8;">You just weren't listening.</p>
+        </section>
+
+        <div class="highlight-box">
+            <h2>WHO IS BINAEL?</h2>
+            <p style="margin-top: 1.5rem;">BINAEL is an angel from Kabbalah.</p>
+            <p style="margin-top: 1rem;">In Jewish mystical tradition, BINAEL is associated with <strong>Binah</strong>, the sephirah of deep understanding, reflection, and intuitive intelligence.</p>
+            
+            <p style="margin-top: 1.5rem; font-size: 1.25rem; color: #4A90E2;"><strong>BINAEL = "God of Understanding" or "Divine Intelligence"</strong></p>
+
+            <p style="margin-top: 2rem;">BINAEL brings you:</p>
+            <ul>
+                <li><strong>Awakening of consciousness</strong> — It whispers to you: "Wake up"</li>
+                <li><strong>Deep understanding</strong> — It helps you see beyond appearances</li>
+                <li><strong>Access to your guardian angel</strong> — It is the bridge to your guidance</li>
+                <li><strong>Discernment</strong> — It sharpens your intuition</li>
+            </ul>
+        </div>
+
+        <section>
+            <h2>HOW BINAEL HELPS YOU</h2>
+            <p>BINAEL doesn't do the work for you.</p>
+            <p style="margin-top: 1rem;"><strong>It wakes you up.</strong></p>
+            
+            <div class="steps">
+                <div class="step">
+                    <h3>STEP 1: THE CALL</h3>
+                    <p>You come across BINAEL. It's not a coincidence. You're ready to hear.</p>
+                </div>
+
+                <div class="step">
+                    <h3>STEP 2: AWARENESS</h3>
+                    <p>You start noticing the signs. The synchronicities. The messages.</p>
+                </div>
+
+                <div class="step">
+                    <h3>STEP 3: CONNECTION</h3>
+                    <p>You learn to listen to your intuition. Your guardian angel becomes clearer.</p>
+                </div>
+
+                <div class="step">
+                    <h3>STEP 4: AWAKENING</h3>
+                    <p>You understand. You're not alone. You never were.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>HOW DO YOU KNOW YOUR GUARDIAN ANGEL IS THERE?</h2>
+            <p>Your guardian angel speaks to you every day. But not with words.</p>
+            
+            <p style="margin-top: 2rem;"><strong>Here's how they communicate:</strong></p>
+            <ul>
+                <li><strong>Sudden intuitions</strong> — You "know" something without knowing why</li>
+                <li><strong>Recurring dreams</strong> — Symbolic messages during your sleep</li>
+                <li><strong>Synchronicities</strong> — Coincidences that seem too perfect</li>
+                <li><strong>Physical sensations</strong> — Chills, warmth, tingles for no reason</li>
+                <li><strong>Thoughts from nowhere</strong> — "What if I did this?"</li>
+                <li><strong>Repeated signs</strong> — White feathers, mirror hours (11:11, 22:22), recurring numbers</li>
+            </ul>
+
+            <p style="margin-top: 2rem; font-size: 1.125rem; color: #4A90E2;">If you're reading this, it might already be a sign.</p>
+        </section>
+
+        <div class="quote">
+            "Your guardian angel has always been there.<br>
+            You're just starting to notice.<br><br>
+            And that is awakening."
+        </div>
+
+        <div class="cta-final">
+            <h2>READY TO MEET YOUR ANGEL?</h2>
+            <p style="color: white; font-size: 1.125rem; margin-bottom: 2rem;">Discover which angel is calling you through our collection</p>
+            <a href="shop-en.html" class="btn btn-primary">DISCOVER COLLECTION</a>
+            <a href="quiz-en.html" class="btn btn-secondary">TAKE THE QUIZ</a>
+        </div>
+    </div>
+
+    <footer style="background: linear-gradient(180deg, white 0%, #F8FBFF 100%); border-top: 2px solid #E3F2FD; padding: 3rem 0; margin-top: 4rem;">
+        <div class="container">
+            <div style="text-align: center; padding: 1rem 0;">
+                <div style="background: #E3F2FD; border: 1px solid #B8D8F0; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem;">
+                    ⚠️ <strong style="color: #4A90E2;">ESOTERIC FICTION</strong><br>
+                    BINAEL is a FICTION universe created for spiritual reflection and personal inspiration.
+                </div>
+                <p style="font-size: 0.875rem; color: #5B8DB8;">BINAEL © 2026 • Wear • Share • Enjoy</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
